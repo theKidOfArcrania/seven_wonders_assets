@@ -1,0 +1,1745 @@
+# =====================================================================
+# 7 Wonders (base game) - card database
+# =====================================================================
+# SOURCES OF TRUTH (nothing here is invented from memory):
+#   - reference/tech_tree.jpg : "List of Cards" + "List of Chains".
+#       Gives: name, color/type, effect, min-player counts, chain links.
+#       Does NOT give: build cost (the resources needed to build a card).
+#   - reference/card_1.png .. card_7.png : 7 full card FACES.
+#   - reference/more_cards1.jpg : 10 guild (purple) faces.
+#   - reference/more_cards2.jpg : 20 Age III faces.
+#   - reference/more_cards3.jpg : 27 Age I + Age II faces.
+#       build_cost was read directly from the cost badges on these faces.
+#
+# READ BEFORE USING (see `_gaps` at the bottom):
+#   * build_cost is a {resource: count} map for all 80 cards; { } means free.
+#   * `color` and the banner end-symbol are NOT repeated per card - look them
+#     up from `type` in the `card_types` table below.
+#   * Some banner / chain / science icons are not yet drawn (see `_assets`).
+#   * Age III card names Ludus & Castrum and the exact numbers on the Age III
+#     yellow/guild cards were read from small chart icons - flagged to verify.
+# ---------------------------------------------------------------------
+
+meta:
+  game: "7 Wonders (base game)"
+  illustration_style: |
+    Appended to every card's illustration_prompt when generating art. Scenes
+    describe ONLY the illustration subject - never mention cards, borders or frames.
+
+    Style: painterly digital illustration, warm cinematic lighting, semi-realistic, muted earthy palette, classical antiquity art style. Portrait-orientation scene with no borders, no frame and no text.
+  transcribed_ages: [I, II, III]
+  notation:
+    appears_at: >
+      Player counts at which a copy of the card enters the deck. e.g. [3, 4]
+      = one copy present from 3 players, a second copy added at 4 players
+      (the "3+ 4+" labels on the tech tree). Guilds show only "3+".
+    build_cost: >
+      A {resource: count} mapping of what is required to build the card, e.g.
+      { wood: 1, ore: 2 }. An empty dict { } means free (no cost). Resource
+      keys: wood, stone, ore, clay, glass, papyrus, loom, coin.
+    chain_symbols: >
+      banner.chain_out_symbol is a list (0-2) of the building-power symbols this
+      card displays on the right of its title banner; a later card whose
+      banner.chain_in_symbol matches one of them can be built for FREE. Symbol
+      names key the artwork in seven_wonders_icons.svg (undrawn ones render as a
+      small placeholder disc).
+    medallion: >
+      The central benefit medallion. It is a STRUCTURED layout with the defined
+      as { arrows: both|left|right|none, down: bool, tokens: [ ... ] } where each
+      token is a map such as { coin: 1 }, { vp: 1 }, { wonder: true, vp: 7 },
+      { card: brown, vp: 1 (optional), coin: 2 (optional) }, shield, slash,
+      { sci: compass|gear|tablet }, { entity: RawResources|ManufacturedGoods },
+      or { res: wood|stone|ore|clay|glass|papyrus|loom }.
+
+# --- type -> color -> banner end-tab symbol -------------------------
+# The small symbol on the two ends of the title scroll keys the card type.
+# Look these up from a card's `type`; they are not repeated per card.
+card_types:
+  raw_material:
+    color: brown
+    banner_end_symbol: square
+    verified_from: [card_1, card_2]
+  manufactured_good:
+    color: grey
+    banner_end_symbol: diamond
+    verified_from: [card_7]
+  civilian:
+    color: blue
+    banner_end_symbol: tablet
+    verified_from: [card_3]
+  commercial:
+    color: yellow
+    banner_end_symbol: circle
+    verified_from: [card_4, card_6]
+  military:
+    color: red
+    banner_end_symbol: cross_x
+    verified_from: [card_5]
+  scientific:
+    color: green
+    banner_end_symbol: triangle
+    verified_from: [more_cards2 green faces]
+  guild:
+    color: purple
+    banner_end_symbol: star
+    verified_from: [more_cards1 guild faces]
+
+# =====================================================================
+# AGE I  (27 cards) - fully cross-checked vs the 7 card photos
+# =====================================================================
+cards:
+  age_I:
+
+    # ---- Raw materials (brown): 1 resource ------------------------
+  - id: lumber_yard
+    name: "Lumber Yard"
+    type: raw_material
+    appears_at: [3, 4]
+    build_cost: {}                            # verified: card_1
+    benefit:
+      produces_one_of: [wood]
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: wood
+    illustration_prompt: |
+      A sun-dappled ancient Mediterranean forest of tall oak and pine, golden light breaking through the dense green canopy. A woodcutters' clearing with a freshly cut stump of pale exposed wood, stacked logs and scattered wood chips. Two Greek workers in short white tunics fell a thick trunk in the foreground, one kneeling with an axe, one steadying the tree.
+
+  - id: stone_pit
+    name: "Stone Pit"
+    type: raw_material
+    appears_at: [3, 5]
+    build_cost: {}          # single-producer (user rule: free like Lumber Yard)
+    benefit:
+      produces_one_of: [stone]
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: stone
+    illustration_prompt: |
+      An open limestone quarry cut into a dry hillside under a bright sky, terraces of pale stone blocks. Workers in tunics split a large block free with iron wedges and mallets, chalky dust hanging in the warm air, wooden sledges and levers nearby.
+
+  - id: clay_pool
+    name: "Clay Pool"
+    type: raw_material
+    appears_at: [3, 5]
+    build_cost: {}          # single-producer (user rule)
+    benefit:
+      produces_one_of: [clay]
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: clay
+    illustration_prompt: |
+      A muddy riverside clay pit at golden hour, glossy reddish-brown clay banks and shallow pools. Barefoot workers dig wet clay with wooden spades and load it into large earthen jars and a handcart, reeds along the water's edge.
+
+  - id: ore_vein
+    name: "Ore Vein"
+    type: raw_material
+    appears_at: [3, 4]
+    build_cost: {}          # single-producer (user rule)
+    benefit:
+      produces_one_of: [ore]
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: ore
+    illustration_prompt: |
+      A rocky mountainside mine entrance framed by timber supports, dark iron ore glinting in the exposed vein. Miners in tunics haul baskets of ore rock by torchlight from the shaft mouth, a stack of raw ore and simple picks in the foreground.
+
+    # ---- Raw materials (brown): choice of two, cost 1 coin --------
+  - id: tree_farm
+    name: "Tree Farm"
+    type: raw_material
+    appears_at: [6]
+    build_cost:                # choice raw card (user rule: 1 coin)
+      coin: 1
+    benefit:
+      produces_one_of: [wood, clay]
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: wood
+        - slash
+        - res: clay
+    illustration_prompt: |
+      A managed woodland clearing meeting an open reddish clay bank, orderly young trees on one side and a dug clay pit on the other. A worker stacks cut logs while another carries a basket of wet clay, warm afternoon light.
+
+  - id: excavation
+    name: "Excavation"
+    type: raw_material
+    appears_at: [4]
+    build_cost:                # choice raw card (user rule)
+      coin: 1
+    benefit:
+      produces_one_of: [stone, clay]
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: stone
+        - slash
+        - res: clay
+    illustration_prompt: |
+      A broad open earthwork trench under a wide sky, layered soil exposing both grey stone and reddish clay. Labourers dig with spades and haul spoil in wicker baskets, a wooden ramp and levering beams along the pit wall.
+
+  - id: clay_pit
+    name: "Clay Pit"
+    type: raw_material
+    appears_at: [3]
+    build_cost:                # choice raw card (user rule)
+      coin: 1
+    benefit:
+      produces_one_of: [clay, ore]
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: clay
+        - slash
+        - res: ore
+    illustration_prompt: |
+      A deep reddish clay pit streaked with dark bands of ore, sculpted terraces glistening after rain. Workers dig the rich earth with spades, separating lumps of clay from nodules of dark ore into two piles, tools resting against the bank.
+
+  - id: timber_yard
+    name: "Timber Yard"
+    type: raw_material
+    appears_at: [3]
+    build_cost:                # choice raw card (user rule)
+      coin: 1
+    benefit:
+      produces_one_of: [wood, stone]
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: wood
+        - slash
+        - res: stone
+    illustration_prompt: |
+      A busy timber yard beside a stone-cutting area, tall stacks of trimmed logs next to squared blocks of pale stone. A worker rolls a log with a peavey while another dresses a stone block with a chisel, sawdust and stone chips on the ground.
+
+  - id: forest_cave
+    name: "Forest Cave"
+    type: raw_material
+    appears_at: [5]
+    build_cost:                                # verified: card_2
+      coin: 1
+    benefit:
+      produces_one_of: [wood, ore]
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: wood
+        - slash
+        - res: ore
+    illustration_prompt: |
+      A shadowed cave mouth set into a wooded rocky hillside, dark ore glinting on the damp cave walls while timber grows above. A worker emerges by torchlight carrying ore, cut logs stacked at the entrance, ferns and moss around the stones.
+
+  - id: mine
+    name: "Mine"
+    type: raw_material
+    appears_at: [6]
+    build_cost:                # choice raw card (user rule)
+      coin: 1
+    benefit:
+      produces_one_of: [ore, stone]
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: ore
+        - slash
+        - res: stone
+    illustration_prompt: |
+      A deep mine shaft descending into rock, veins of grey stone and dark ore lit by hanging oil lamps. Miners climb a timber ladder hauling baskets of ore and rough stone, pick marks scarring the tunnel walls.
+
+    # ---- Manufactured goods (grey) --------------------------------
+  - id: glassworks
+    name: "Glassworks"
+    type: manufactured_good
+    appears_at: [3, 6]
+    build_cost: {}          # manufactured good; free (pattern: Press verified card_7)
+    benefit:
+      produces_one_of: [glass]
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: glass
+    illustration_prompt: |
+      A glassblower's workshop glowing with the orange light of a domed brick furnace. A craftsman turns a long blowpipe holding a molten bubble of glass, finished vessels and glowing embers around him, warm smoky interior.
+
+  - id: press
+    name: "Press"
+    type: manufactured_good
+    appears_at: [3, 6]
+    build_cost: {}                            # verified: card_7
+    benefit:
+      produces_one_of: [papyrus]
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: papyrus
+    illustration_prompt: |
+      A dim scriptorium workshop where craftsmen press and dry pale papyrus sheets on wooden frames. Reeds soak in a stone trough, finished scrolls stacked on a shelf, soft daylight from a high window.
+
+  - id: loom
+    name: "Loom"
+    type: manufactured_good
+    appears_at: [3, 6]
+    build_cost: {}          # manufactured good; free (pattern: Press verified card_7)
+    benefit:
+      produces_one_of: [loom]
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: loom
+    illustration_prompt: |
+      A weavers' workshop with a tall upright wooden loom strung with fine threads. A woman in a draped tunic works the shuttle while dyed skeins of wool hang nearby, bolts of finished cloth folded in warm lamplight.
+
+    # ---- Civilian (blue): victory points --------------------------
+  - id: well
+    name: "Well"
+    type: civilian
+    appears_at: [4, 7]
+    build_cost: {}          # read from more_cards3 photo (no cost badge)
+    benefit:
+      victory_points: 3
+    banner:
+      chain_out_symbol: [hammer]
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 3
+    illustration_prompt: |
+      A village square around an old stone well with a wooden crossbeam and rope, worn steps and a mossy trough. Women in draped robes draw and carry water jars, dust and warm morning light, low whitewashed houses behind.
+
+  - id: baths
+    name: "Baths"
+    type: civilian
+    appears_at: [3, 7]
+    build_cost:                 # read from more_cards3 photo
+      stone: 1
+    benefit:
+      victory_points: 3
+    banner:
+      chain_out_symbol: [water_drop]
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 3
+    illustration_prompt: |
+      A Roman bath house interior with steaming turquoise pools and pale marble columns. Bathers relax in the warm water beneath vaulted arches, gentle shafts of light and rising steam, mosaic floors.
+
+  - id: altar
+    name: "Altar"
+    type: civilian
+    appears_at: [3, 5]
+    build_cost: {}                            # verified: card_3
+    benefit:
+      victory_points: 3
+    banner:
+      chain_out_symbol: [star]
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 3
+    illustration_prompt: |
+      An open-air marble altar on a temple terrace, fragrant offerings and a curling ribbon of incense smoke rising into blue sky. A white-robed priest raises his hands in blessing, laurel garlands and a bronze offering bowl.
+
+  - id: theater
+    name: "Theater"
+    type: civilian
+    appears_at: [3, 6]
+    build_cost: {}          # read from more_cards3 photo (no cost badge)
+    benefit:
+      victory_points: 3
+    banner:
+      chain_out_symbol: [mask]
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 3
+    illustration_prompt: |
+      A Greek open-air amphitheater of curved stone tiers at dusk, torches lining the stage. Masked actors in flowing robes perform before empty benches, the orchestra circle below, distant hills glowing.
+
+    # ---- Commercial (yellow) --------------------------------------
+  - id: tavern
+    name: "Tavern"
+    type: commercial
+    appears_at: [4, 5, 7]
+    build_cost: {}                            # verified: card_4
+    benefit:
+      coins: 5
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - coin: 5
+    illustration_prompt: |
+      A warm, lively tavern interior lit by oil lamps, patrons in tunics laughing over cups of wine at wooden tables scattered with coins. A serving woman pours from an amphora, hanging herbs and barrels behind.
+
+  - id: marketplace
+    name: "Marketplace"
+    type: commercial
+    appears_at: [3, 6]
+    build_cost: {}          # no resource cost (user-confirmed)
+    benefit:
+      effect: "trade manufactured goods (glass/loom/papyrus) with BOTH neighbours for 1 coin each"
+    banner:
+      chain_out_symbol: [camel]
+      chain_in_symbol:
+      medallion:
+        arrows: both
+        tokens:
+        - coin: 1
+        - entity: ManufacturedGoods
+    illustration_prompt: |
+      A bustling ancient marketplace at midday, rows of awning-covered stalls piled with pottery, cloth, fruit and glassware. Traders and shoppers haggle in the crowd, coins changing hands, colourful banners overhead.
+
+  - id: west_trading_post
+    name: "West Trading Post"
+    type: commercial
+    appears_at: [3, 7]
+    build_cost: {}                            # verified: card_6
+    benefit:
+      effect: "buy raw materials (brown) from the WEST (left) neighbour for 1 coin each"
+    banner:
+      chain_out_symbol: [trading_post_stall]
+      chain_in_symbol:
+      medallion:
+        arrows: left
+        tokens:
+        - coin: 1
+        - entity: RawResources
+    illustration_prompt: |
+      A busy harbourside trading stall on a stone quay at sunset, merchants unloading amphorae and bales of raw goods from a moored ship. A trader gestures over stacked crates, gulls and rigging against a golden sky.
+
+  - id: east_trading_post
+    name: "East Trading Post"
+    type: commercial
+    appears_at: [3, 7]
+    build_cost: {}          # mirror of west_trading_post (verified free card_6)
+    benefit:
+      effect: "buy raw materials (brown) from the EAST (right) neighbour for 1 coin each"
+    banner:
+      chain_out_symbol: [trading_post_stall]
+      chain_in_symbol:
+      medallion:
+        arrows: right
+        tokens:
+        - coin: 1
+        - entity: RawResources
+    illustration_prompt: |
+      A caravan trading stall at a desert town gate, merchants bartering bundles of raw goods beside kneeling camels. Striped awnings and dust in warm evening light, laden panniers and a scale for weighing wares.
+
+    # ---- Military (red): 1 shield ---------------------------------
+  - id: stockade
+    name: "Stockade"
+    type: military
+    appears_at: [3, 7]
+    build_cost:                # read from more_cards3 photo
+      wood: 1
+    benefit:
+      military_shields: 1
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - shield
+    illustration_prompt: |
+      A rugged timber palisade of tall sharpened logs encircling a small frontier settlement at dusk. Warm brazier light glows along the wooden rampart walkway, thatched rooftops peek above the wall, a dark pine forest and misty hills stretching beyond.
+
+  - id: barracks
+    name: "Barracks"
+    type: military
+    appears_at: [3, 5]
+    build_cost:                                # verified: card_5
+      ore: 1
+    benefit:
+      military_shields: 1
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - shield
+    illustration_prompt: |
+      A long stone barracks building with a colonnaded courtyard at dawn, orderly arched doorways and red tiled roofs. Neat rows of bunks glimpsed through open shutters, a quiet empty parade yard, banners on tall poles, soft golden morning light.
+
+  - id: guard_tower
+    name: "Guard Tower"
+    type: military
+    appears_at: [3, 4]
+    build_cost:                # read from more_cards3 photo
+      clay: 1
+    benefit:
+      military_shields: 1
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - shield
+    illustration_prompt: |
+      A lone stone watchtower rising over city ramparts at dusk, a lit brazier at its top. A helmeted guard leans on his spear scanning the horizon, banners snapping in the wind, distant hills below.
+
+    # ---- Scientific (green): science symbols ----------------------
+    # symbol read from tech-tree medallion (no green face to confirm glyph).
+  - id: apothecary
+    name: "Apothecary"
+    type: scientific
+    appears_at: [3, 5]
+    build_cost:                # read from more_cards3 photo
+      loom: 1
+    benefit:
+      science_symbol: compass
+    banner:
+      chain_out_symbol: [horseshoe, mortar_pestle]
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - sci: compass
+    illustration_prompt: |
+      An apothecary's shop crowded with hanging dried herbs, ceramic jars and a bronze mortar and pestle. A robed healer grinds remedies at a wooden bench by warm lamplight, scrolls and vials on shelves.
+
+  - id: workshop
+    name: "Workshop"
+    type: scientific
+    appears_at: [3, 7]
+    build_cost:                 # read from more_cards3 photo
+      glass: 1
+    benefit:
+      science_symbol: gear
+    banner:
+      chain_out_symbol: [target, teapot]
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - sci: gear
+    illustration_prompt: |
+      A craftsman's workshop cluttered with tools, wooden gears and half-built mechanisms on a sturdy bench. An artisan bends over a geared device by lamplight, wood shavings and bronze fittings around him.
+
+  - id: scriptorium
+    name: "Scriptorium"
+    type: scientific
+    appears_at: [3, 4]
+    build_cost:                   # read from more_cards3 photo
+      papyrus: 1
+    benefit:
+      science_symbol: tablet
+    banner:
+      chain_out_symbol: [scales, open_book]
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - sci: tablet
+    illustration_prompt: |
+      A quiet scriptorium where robed scribes write on clay tablets and papyrus at slanted desks. Shelves of scrolls line the walls, an ink pot and reed pens on each desk, soft daylight through arched windows.
+
+  # =====================================================================
+  # AGE II  (23 cards)
+  # =====================================================================
+  age_II:
+
+    # ---- Raw materials (brown): 2 of a resource -------------------
+  - id: sawmill
+    name: "Sawmill"
+    type: raw_material
+    appears_at: [3, 4]
+    build_cost:                # Age II double-producer (user rule; Quarry verified)
+      coin: 1
+    benefit:
+      produces_one_of: [wood]
+      amount: 2
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: wood
+        - res: wood
+    illustration_prompt: |
+      A water-powered sawmill on a rushing stream, a great wooden wheel driving a saw through a fresh log. Stacks of sawn planks and heaps of sawdust fill the yard, workers guiding timber, spray and mist in morning light.
+
+  - id: quarry
+    name: "Quarry"
+    type: raw_material
+    appears_at: [3, 4]
+    build_cost:                # read from more_cards3 photo (coin badge; produces 2 stone)
+      coin: 1
+    benefit:
+      produces_one_of: [stone]
+      amount: 2
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: stone
+        - res: stone
+    illustration_prompt: |
+      A vast stone quarry with stepped terraces of pale blocks, wooden cranes and rope hoists lifting massive cut stones. Teams of workers lever and roll blocks onto sledges, dust and bright sun over the pit.
+
+  - id: brickyard
+    name: "Brickyard"
+    type: raw_material
+    appears_at: [3, 4]
+    build_cost:                # Age II double-producer (user rule; Quarry verified)
+      coin: 1
+    benefit:
+      produces_one_of: [clay]
+      amount: 2
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: clay
+        - res: clay
+    illustration_prompt: |
+      A brickmakers' yard with rows of clay bricks drying in the sun and a smoking domed kiln. Workers press wet clay into wooden moulds and stack fired bricks, mud pits and firewood around the kiln's orange glow.
+
+  - id: foundry
+    name: "Foundry"
+    type: raw_material
+    appears_at: [3, 4]
+    build_cost:                # Age II double-producer (user rule; Quarry verified)
+      coin: 1
+    benefit:
+      produces_one_of: [ore]
+      amount: 2
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: ore
+        - res: ore
+    illustration_prompt: |
+      A smoky metalworking foundry interior lit by the warm orange glow of a smelting furnace. Craftsmen at the hearth cast glowing bars in sand moulds with long tongs, stacks of raw ore and finished ingots heaped in the shadows, embers drifting upward.
+
+    # ---- Manufactured goods (grey) --------------------------------
+  - id: glassworks_II
+    name: "Glassworks"
+    type: manufactured_good
+    appears_at: [3, 5]
+    build_cost: {}          # manufactured good; free (pattern: Press verified card_7)
+    benefit:
+      produces_one_of: [glass]
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: glass
+    illustration_prompt: |
+      A large glassworks hall with several roaring furnaces, glassblowers shaping glowing vessels on blowpipes. Racks of finished bottles and beads catch the firelight, apprentices tending the flames in the smoky heat.
+
+  - id: press_II
+    name: "Press"
+    type: manufactured_good
+    appears_at: [3, 5]
+    build_cost: {}          # manufactured good; free (pattern: Press verified card_7)
+    benefit:
+      produces_one_of: [papyrus]
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: papyrus
+    illustration_prompt: |
+      A busy papyrus workshop with long tables of pressed sheets and workers hanging scrolls to dry. Bundles of river reeds soak in troughs, stacks of finished papyrus, dusty light from high windows.
+
+  - id: loom_II
+    name: "Loom"
+    type: manufactured_good
+    appears_at: [3, 5]
+    build_cost: {}          # manufactured good; free (pattern: Press verified card_7)
+    benefit:
+      produces_one_of: [loom]
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - res: loom
+    illustration_prompt: |
+      A weaving hall filled with several tall looms worked by women in draped tunics, coloured threads stretched taut. Baskets of dyed wool and folded bolts of cloth line the walls in warm daylight.
+
+    # ---- Civilian (blue) ------------------------------------------
+  - id: statue
+    name: "Statue"
+    type: civilian
+    appears_at: [3, 7]
+    build_cost:                       # read from more_cards3 photo
+      wood: 1
+      ore: 2
+    benefit:
+      victory_points: 4
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: hammer
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 4
+    illustration_prompt: |
+      A sculptor's courtyard where an artist carves a heroic marble statue, chisel in hand, stone dust drifting in sunlight. Finished busts and a half-shaped figure stand nearby, tools and a ladder against the marble.
+
+  - id: aqueduct
+    name: "Aqueduct"
+    type: civilian
+    appears_at: [3, 7]
+    build_cost:                 # read from more_cards3 photo
+      stone: 3
+    benefit:
+      victory_points: 5
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: water_drop
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 5
+    illustration_prompt: |
+      A monumental Roman aqueduct of tiered stone arches striding across a green valley at golden hour. Water glints in the channel atop the arches, tiny figures and cypress trees below, warm sky beyond.
+
+  - id: temple
+    name: "Temple"
+    type: civilian
+    appears_at: [3, 6]
+    build_cost:                                 # read from more_cards3 photo
+      wood: 1
+      clay: 1
+      glass: 1
+    benefit:
+      victory_points: 4
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 4
+    illustration_prompt: |
+      A grand columned temple on a rise, white marble steps and a pediment glowing in evening light. Robed priests ascend between fluted columns, smoke from an altar, blue sky framing the sacred building.
+
+  - id: courthouse
+    name: "Courthouse"
+    type: civilian
+    appears_at: [3, 5]
+    build_cost:                        # read from more_cards3 photo
+      clay: 2
+      loom: 1
+    benefit:
+      victory_points: 4
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: scales
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 4
+    illustration_prompt: |
+      A stately basilica hall with rows of columns and a coffered ceiling, magistrates in togas conferring on a raised dais. Citizens gather on the marble floor, shafts of light from clerestory windows.
+
+    # ---- Commercial (yellow) --------------------------------------
+  - id: caravansery
+    name: "Caravansery"
+    type: commercial
+    appears_at: [3, 5, 6]
+    build_cost:                # read from more_cards3 photo
+      wood: 2
+    benefit:                                                       # 1 raw material of your choice
+      produces_one_of: [wood, stone, clay, ore]
+    banner:
+      chain_out_symbol: [lighthouse]
+      chain_in_symbol: camel
+      medallion:
+        arrows: none
+        tokens:
+        - res: wood
+        - slash
+        - res: stone
+        - slash
+        - res: clay
+        - slash
+        - res: ore
+    illustration_prompt: |
+      A caravanserai courtyard at dusk, kneeling camels and laden mules resting beside stacked goods and water troughs. Merchants in robes gather under arched arcades, lanterns glowing, a starry desert sky above.
+
+  - id: forum
+    name: "Forum"
+    type: commercial
+    appears_at: [3, 6, 7]
+    build_cost:                # read from more_cards3 photo
+      clay: 2
+    benefit:                                                       # 1 manufactured good of your choice
+      produces_one_of: [glass, loom, papyrus]
+    banner:
+      chain_out_symbol: [barrel]
+      chain_in_symbol: trading_post_stall
+      medallion:
+        arrows: none
+        tokens:
+        - res: glass
+        - slash
+        - res: loom
+        - slash
+        - res: papyrus
+    illustration_prompt: |
+      A bustling Roman forum plaza ringed by columns and statues, merchants and citizens trading amid stalls of varied goods. Togas and awnings in the crowd, a temple facade rising behind in warm afternoon light.
+
+  - id: vineyard
+    name: "Vineyard"
+    type: commercial
+    appears_at: [3, 6]
+    build_cost: {}          # no resource cost (user-confirmed)
+    benefit:
+      effect: "+1 coin for each raw-material (brown) card owned by YOU and BOTH neighbours"
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: both
+        down: true
+        tokens:
+        - card: brown
+          coin: 1
+    illustration_prompt: |
+      Terraced hillside vineyards heavy with ripe grapes at harvest, rows of vines glowing in golden light. Workers carry baskets of grapes and tread them in a stone vat, an amphora of wine and a distant villa.
+
+  - id: bazar
+    name: "Bazar"
+    type: commercial
+    appears_at: [4, 7]
+    build_cost: {}          # no resource cost (user-confirmed)
+    benefit:
+      effect: "+2 coins for each manufactured-good (grey) card owned by YOU and BOTH neighbours"
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: both
+        down: true
+        tokens:
+        - card: grey
+          coin: 2
+    illustration_prompt: |
+      A crowded exotic bazaar of narrow lanes and colourful awnings, stalls glittering with glassware, silk, spices and jewellery. Traders and buyers press together, coins and wares changing hands in dappled light.
+
+    # ---- Military (red): 2 shields --------------------------------
+  - id: stables
+    name: "Stables"
+    type: military
+    appears_at: [3, 5]
+    build_cost:                               # read from more_cards3 photo
+      wood: 1
+      ore: 1
+      clay: 1
+    benefit:
+      military_shields: 2
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: horseshoe
+      medallion:
+        arrows: none
+        tokens:
+        - shield
+        - shield
+    illustration_prompt: |
+      A cavalry stable yard where grooms tend strong horses, a rider in a crested helmet mounting for drill. Saddles and lances rest against timber stalls, straw and dust in the warm morning sun.
+
+  - id: archery_range
+    name: "Archery Range"
+    type: military
+    appears_at: [3, 6]
+    build_cost:                       # read from more_cards3 photo
+      wood: 2
+      ore: 1
+    benefit:
+      military_shields: 2
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: target
+      medallion:
+        arrows: none
+        tokens:
+        - shield
+        - shield
+    illustration_prompt: |
+      A long open practice field at golden hour with rows of round straw targets down the grass, split-rail wooden fences and a small timber equipment shed. An empty range, drifting dust, warm low sun casting long shadows across the meadow.
+
+  - id: walls
+    name: "Walls"
+    type: military
+    appears_at: [3, 7]
+    build_cost:                 # read from more_cards3 photo
+      stone: 3
+    benefit:
+      military_shields: 2
+    banner:
+      chain_out_symbol: [tower]
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - shield
+        - shield
+    illustration_prompt: |
+      Massive city defensive walls under construction, workers hoisting cut stone blocks up timber scaffolding with ropes and pulleys. Ramparts and a gate tower rise against the sky, tools and rubble at the base.
+
+  - id: training_ground
+    name: "Training Ground"
+    type: military
+    appears_at: [4, 6, 7]
+    build_cost:                       # read from more_cards3 photo
+      ore: 2
+      wood: 1
+    benefit:
+      military_shields: 2
+    banner:
+      chain_out_symbol: [helmet]
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - shield
+        - shield
+    illustration_prompt: |
+      A spacious sunlit palaestra courtyard at midday, its raked sand floor ringed by a graceful stone colonnade with tiled roofs. Young men in simple tunics stretch, run laps, and practice wrestling holds for sport, while an elder instructor watches. A stone well and clay water jars sit in one corner, olive trees casting light shade, fine dust drifting in the warm bright air.
+
+    # ---- Scientific (green) ---------------------------------------
+  - id: dispensary
+    name: "Dispensary"
+    type: scientific
+    appears_at: [3, 4]
+    build_cost:                        # read from more_cards3 photo
+      ore: 2
+      glass: 1
+    benefit:
+      science_symbol: compass
+    banner:
+      chain_out_symbol: [lightning, torch]
+      chain_in_symbol: mortar_pestle
+      medallion:
+        arrows: none
+        tokens:
+        - sci: compass
+    illustration_prompt: |
+      A physician's dispensary lined with shelves of labelled jars, dried herbs and bronze instruments. A robed doctor mixes a remedy at a marble counter while a patient waits, warm lamplight and scrolls of remedies.
+
+  - id: laboratory
+    name: "Laboratory"
+    type: scientific
+    appears_at: [3, 5]
+    build_cost:                           # read from more_cards3 photo
+      clay: 2
+      papyrus: 1
+    benefit:
+      science_symbol: gear
+    banner:
+      chain_out_symbol: [saw, planet]
+      chain_in_symbol: teapot
+      medallion:
+        arrows: none
+        tokens:
+        - sci: gear
+    illustration_prompt: |
+      An early scholar's laboratory cluttered with brass instruments, a balance scale, glass vessels and geared devices on a workbench. A robed investigator studies a mechanism by lamplight, diagrams pinned to the wall.
+
+  - id: library
+    name: "Library"
+    type: scientific
+    appears_at: [3, 6]
+    build_cost:                         # read from more_cards3 photo
+      stone: 2
+      loom: 1
+    benefit:
+      science_symbol: tablet
+    banner:
+      chain_out_symbol: [pillars, scroll]
+      chain_in_symbol: open_book
+      medallion:
+        arrows: none
+        tokens:
+        - sci: tablet
+    illustration_prompt: |
+      A grand library hall with towering shelves of scrolls and codices, ladders reaching to the upper racks. A robed scholar reads at a long table beneath shafts of dusty golden light from high windows.
+
+  - id: school
+    name: "School"
+    type: scientific
+    appears_at: [3, 7]
+    build_cost:                           # read from more_cards3 photo
+      wood: 1
+      papyrus: 1
+    benefit:
+      science_symbol: tablet
+    banner:
+      chain_out_symbol: [lyre, feather]
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - sci: tablet
+    illustration_prompt: |
+      A sunlit school portico where a bearded teacher instructs young pupils seated on stone benches with wax tablets. A scroll unrolled for a lesson, columns and an olive tree beyond, calm morning light.
+
+  # =====================================================================
+  # AGE III  (30 cards, incl. 10 guilds)
+  # NOTE: Ludus & Castrum names + Age III yellow/guild numbers were read
+  # from small chart icons - see `_gaps.age_III_confidence`.
+  # =====================================================================
+  age_III:
+
+    # ---- Civilian (blue) ------------------------------------------
+  - id: pantheon
+    name: "Pantheon"
+    type: civilian
+    appears_at: [3, 6]
+    build_cost:                                                    # read from more_cards2 photo
+      clay: 2
+      ore: 1
+      glass: 1
+      papyrus: 1
+      loom: 1
+    benefit:
+      victory_points: 7
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: star
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 7
+    illustration_prompt: |
+      The soaring interior of a domed pantheon, a great oculus casting a beam of light onto a marble floor ringed by statues of gods. Worshippers stand small beneath the vast coffered dome, incense drifting in the light.
+
+  - id: gardens
+    name: "Gardens"
+    type: civilian
+    appears_at: [3, 4]
+    build_cost:                           # read from more_cards2 photo
+      clay: 2
+      papyrus: 1
+    benefit:
+      victory_points: 5
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: mask
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 5
+    illustration_prompt: |
+      Lush terraced palace gardens with flowering vines cascading over stone balustrades, fountains and reflecting pools. Cypress and fruit trees frame a shaded path, peacocks and warm light over a distant city.
+
+  - id: town_hall
+    name: "Town Hall"
+    type: civilian
+    appears_at: [3, 6]
+    build_cost:                                 # read from more_cards2 photo
+      stone: 2
+      ore: 1
+      glass: 1
+    benefit:
+      victory_points: 6
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 6
+    illustration_prompt: |
+      A dignified civic hall interior, councilmen in robes gathered around a great table beneath banners and columns. Shafts of light fall on the marble floor, a raised speaker's platform and city records on shelves.
+
+  - id: palace
+    name: "Palace"
+    type: civilian
+    appears_at: [3, 7]
+    build_cost:                                                                       # read from more_cards2 photo
+      wood: 1
+      stone: 1
+      ore: 1
+      clay: 1
+      glass: 1
+      papyrus: 1
+      loom: 1
+    benefit:
+      victory_points: 8
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 8
+    illustration_prompt: |
+      An opulent royal palace hall with gilded columns, rich drapery and a marble throne on a dais. Courtiers in fine robes attend beneath a painted ceiling, golden lamplight glinting off treasures and mosaics.
+
+  - id: senate
+    name: "Senate"
+    type: civilian
+    appears_at: [3, 5]
+    build_cost:                                # read from more_cards2 photo
+      wood: 2
+      stone: 1
+      ore: 1
+    benefit:
+      victory_points: 6
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: pillars
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 6
+    illustration_prompt: |
+      A tiered senate chamber where robed senators debate, one standing mid-oration with arm raised. Sunlight streams across the curved marble benches and a mosaic floor, scrolls and standards along the walls.
+
+    # ---- Commercial (yellow): VP + coins per own card type --------
+  - id: lighthouse
+    name: "Lighthouse"
+    type: commercial
+    appears_at: [3, 6]
+    build_cost:                          # read from more_cards2 photo
+      stone: 1
+      glass: 1
+    benefit:
+      effect: "+1 coin and +1 VP for each commercial (yellow) card in YOUR city"
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: lighthouse
+      medallion:
+        arrows: none
+        tokens:
+        - card: yellow
+          coin: 1
+          vp: 1
+    illustration_prompt: |
+      A towering stone lighthouse crowned with a blazing beacon fire on a rocky harbour headland at dusk. Ships with furled sails glide into port below, waves breaking on the rocks, gulls against a purple sky.
+
+  - id: haven
+    name: "Haven"
+    type: commercial
+    appears_at: [3, 4]
+    build_cost:                               # read from more_cards2 photo
+      wood: 1
+      ore: 1
+      loom: 1
+    benefit:
+      effect: "+1 coin and +1 VP for each raw-material (brown) card in YOUR city"
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: barrel
+      medallion:
+        arrows: none
+        tokens:
+        - card: brown
+          coin: 1
+          vp: 1
+    illustration_prompt: |
+      A sheltered harbour crowded with moored merchant ships, dockworkers rolling barrels and stacking crates along a stone quay. Sails and rigging catch the golden light, warehouses and a calm sea beyond.
+
+  - id: chamber_of_commerce
+    name: "Chamber of Commerce"
+    type: commercial
+    appears_at: [4, 6]
+    build_cost:                           # read from more_cards2 photo
+      clay: 2
+      papyrus: 1
+    benefit:
+      effect: "+2 coins and +2 VP for each manufactured-good (grey) card in YOUR city"
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - card: grey
+          coin: 2
+          vp: 2
+    illustration_prompt: |
+      A merchants' counting house where robed traders tally coins and goods over ledgers and scales at a long table. Stacked crates of wares and strongboxes line the walls, warm lamplight and an abacus of beads.
+
+  - id: ludus                              # name read from chart - verify
+    name: "Ludus"
+    type: commercial
+    appears_at: [5, 7]
+    build_cost:                        # read from more_cards2 photo
+      stone: 1
+      ore: 1
+    benefit:
+      effect: "+3 coins and +1 VP for each military (red) card in YOUR city (icons read from chart - verify)"
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - card: red
+          coin: 3
+          vp: 1
+    illustration_prompt: |
+      A sunlit training school courtyard ringed by an arched arcade, athletes exercising and stretching on the packed sand beneath the colonnade. Amphorae and striped cloth awnings in the shade, a patterned mosaic floor, dust and bright Mediterranean midday light.
+
+  - id: arena
+    name: "Arena"
+    type: commercial
+    appears_at: [3, 5]
+    build_cost:                        # read from more_cards2 photo
+      stone: 2
+      ore: 1
+    benefit:
+      effect: "+3 coins and +1 VP for each completed wonder stage in YOUR city"
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: lightning
+      medallion:
+        arrows: none
+        tokens:
+        - wonder: 'partial'
+          coin: 3
+          vp: 1
+    illustration_prompt: |
+      A vast oval arena packed with cheering crowds in tiered stone seating, sunlit sand below and colourful awnings above. A lone figure stands in the ring, banners and statues around the rim, dramatic afternoon light.
+
+    # ---- Military (red): 3 shields --------------------------------
+  - id: castrum                            # name read from chart - verify
+    name: "Castrum"
+    type: military
+    appears_at: [4, 7]
+    build_cost:                                   # read from more_cards2 photo
+      clay: 2
+      wood: 1
+      papyrus: 1
+    benefit:
+      military_shields: 3
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - shield
+        - shield
+        - shield
+    illustration_prompt: |
+      A fortified Roman military camp with a timber-and-earth rampart, watchtowers and orderly rows of tents. Legionaries in armour drill and stand guard at the gate, standards planted, campfires smoking at dusk.
+
+  - id: fortifications
+    name: "Fortifications"
+    type: military
+    appears_at: [3, 7]
+    build_cost:                       # read from more_cards2 photo
+      ore: 3
+      clay: 1
+    benefit:
+      military_shields: 3
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: tower
+      medallion:
+        arrows: none
+        tokens:
+        - shield
+        - shield
+        - shield
+    illustration_prompt: |
+      Massive stone fortifications with angular bastions and battlements crowning a hill at sunset. Soldiers patrol the ramparts with spears, banners flying from the towers, a deep dry moat below the walls.
+
+  - id: circus
+    name: "Circus"
+    type: military
+    appears_at: [4, 6]
+    build_cost:                        # read from more_cards2 photo
+      stone: 3
+      ore: 1
+    benefit:
+      military_shields: 3
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: helmet
+      medallion:
+        arrows: none
+        tokens:
+        - shield
+        - shield
+        - shield
+    illustration_prompt: |
+      A grand chariot-racing circus, teams of horses thundering around the sand track past a central spine of obelisks. Roaring crowds fill the tiered stands, dust and dramatic light, banners whipping in the wind.
+
+  - id: arsenal
+    name: "Arsenal"
+    type: military
+    appears_at: [3, 5]
+    build_cost:                               # read from more_cards2 photo
+      wood: 2
+      ore: 1
+      loom: 1
+    benefit:
+      military_shields: 3
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - shield
+        - shield
+        - shield
+    illustration_prompt: |
+      A busy arsenal and shipyard where smiths forge weapons and workers assemble a war galley on timber stocks. Racks of spears, shields and armour line the walls, sparks and sawdust in the smoky glow of forges.
+
+  - id: siege_workshop
+    name: "Siege Workshop"
+    type: military
+    appears_at: [3, 5]
+    build_cost:                        # read from more_cards2 photo
+      clay: 3
+      wood: 1
+    benefit:
+      military_shields: 3
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: saw
+      medallion:
+        arrows: none
+        tokens:
+        - shield
+        - shield
+        - shield
+    illustration_prompt: |
+      A busy carpenters' engineering workshop yard, craftsmen assembling large timber machinery and great wooden wheels from heavy beams. Coiled ropes, iron fittings and sawn planks all around, technical drawings pinned to a table, warm lamplight and sawdust hazing the air.
+
+    # ---- Scientific (green) ---------------------------------------
+  - id: lodge
+    name: "Lodge"
+    type: scientific
+    appears_at: [3, 6]
+    build_cost:                                   # read from more_cards2 photo
+      clay: 2
+      papyrus: 1
+      loom: 1
+    benefit:
+      science_symbol: compass
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: torch
+      medallion:
+        arrows: none
+        tokens:
+        - sci: compass 
+    illustration_prompt: |
+      A secretive scholars' lodge of dark carved wood, robed members gathered by candlelight around a table strewn with charts and instruments. Shadowed alcoves and shelves of tomes, a single lamp casting warm glow.
+
+  - id: academy
+    name: "Academy"
+    type: scientific
+    appears_at: [3, 7]
+    build_cost:                          # read from more_cards2 photo
+      stone: 3
+      glass: 1
+    benefit:
+      science_symbol: compass
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: lyre
+      medallion:
+        arrows: none
+        tokens:
+        - sci: compass 
+    illustration_prompt: |
+      A tranquil philosophers' academy in a sunlit colonnade beside a garden, robed thinkers strolling and debating in pairs. A teacher gestures to seated students, scrolls and a geometric diagram in the dust.
+
+  - id: observatory
+    name: "Observatory"
+    type: scientific
+    appears_at: [3, 7]
+    build_cost:                                # read from more_cards2 photo
+      ore: 2
+      glass: 1
+      loom: 1
+    benefit:
+      science_symbol: gear
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: planet
+      medallion:
+        arrows: none
+        tokens:
+        - sci: gear 
+    illustration_prompt: |
+      Astronomers on a rooftop terrace at night studying the stars with an armillary sphere and charts by lamplight. The Milky Way arcs over a domed city skyline, a scholar pointing to a constellation.
+
+  - id: study
+    name: "Study"
+    type: scientific
+    appears_at: [3, 5]
+    build_cost:                                   # read from more_cards2 photo
+      wood: 1
+      papyrus: 1
+      loom: 1
+    benefit:
+      science_symbol: gear
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: feather
+      medallion:
+        arrows: none
+        tokens:
+        - sci: gear 
+    illustration_prompt: |
+      A scholar's private study lined with scrolls and instruments, a robed thinker writing at a cluttered desk by candlelight. An open codex, a celestial globe and a quill, warm intimate light and deep shadows.
+
+  - id: university
+    name: "University"
+    type: scientific
+    appears_at: [3, 4]
+    build_cost:                                    # read from more_cards2 photo
+      wood: 2
+      glass: 1
+      papyrus: 1
+    benefit:
+      science_symbol: tablet
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol: scroll
+      medallion:
+        arrows: none
+        tokens:
+        - sci: tablet 
+    illustration_prompt: |
+      A stately university hall where a master lectures to attentive students beneath vaulted arches. Scrolls, a globe and geometric models on a dais, tall windows spilling golden light across the stone floor.
+
+    # ---- Guilds (purple): all appear from 3 players ---------------
+    # Guild effects read from chart icons + card colours; verify exact wording.
+  - id: workers_guild
+    name: "Workers Guild"
+    type: guild
+    appears_at: [3]
+    build_cost:                                        # read from more_cards1 photo
+      ore: 2
+      wood: 1
+      stone: 1
+      clay: 1
+    benefit:
+      effect: "+1 VP for each raw-material (brown) card in BOTH neighbouring cities"
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: both
+        tokens:
+        - card: brown
+          vp: 1
+    illustration_prompt: |
+      A guild of labourers and masons at a great construction site, workers hauling stone and timber with ropes and pulleys around rising scaffolding. Foremen consult plans, dust and sweat in strong daylight.
+
+  - id: craftsmens_guild
+    name: "Craftsmens Guild"
+    type: guild
+    appears_at: [3]
+    build_cost:                        # read from more_cards1 photo
+      stone: 2
+      ore: 2
+    benefit:
+      effect: "+2 VP for each manufactured-good (grey) card in BOTH neighbouring cities"
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: both
+        tokens:
+        - card: grey
+          vp: 2
+    illustration_prompt: |
+      An artisans' guild workshop bustling with potters, smiths and carvers each at their craft. Finished wares displayed on shelves, sparks and shavings in the air, warm cooperative light through high windows.
+
+  - id: magistrates_guild
+    name: "Magistrates Guild"
+    type: guild
+    appears_at: [3]
+    build_cost:                                 # read from more_cards1 photo
+      wood: 3
+      stone: 1
+      loom: 1
+    benefit:
+      effect: "+1 VP for each civilian (blue) card in BOTH neighbouring cities"
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: both
+        tokens:
+        - card: blue
+          vp: 1
+    illustration_prompt: |
+      A solemn assembly of robed magistrates on a marble dais, one holding a scroll of law before an attentive gathering. Columns and civic banners frame the hall, dignified light on the stone floor.
+
+  - id: traders_guild
+    name: "Traders Guild"
+    type: guild
+    appears_at: [3]
+    build_cost:                                    # read from more_cards1 photo
+      glass: 1
+      papyrus: 1
+      loom: 1
+    benefit:
+      effect: "+1 VP for each commercial (yellow) card in BOTH neighbouring cities"
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: both
+        tokens:
+        - card: yellow
+          vp: 1
+    illustration_prompt: |
+      A merchant traders' guild hall where robed dealers inspect goods, weigh coins and seal agreements over a long table. Bales, amphorae and exotic wares stacked around, ledgers and scales in warm lamplight.
+
+  - id: spies_guild
+    name: "Spies Guild"
+    type: guild
+    appears_at: [3]
+    build_cost:                         # read from more_cards1 photo
+      clay: 2
+      glass: 1
+    benefit:
+      effect: "+1 VP for each military (red) card in BOTH neighbouring cities"
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: both
+        tokens:
+        - card: red
+          vp: 1
+    illustration_prompt: |
+      A shadowy scene of cloaked spies exchanging a sealed message in a dim torchlit alley at night. Hooded figures whisper in the gloom, one glancing over a shoulder, moonlight glinting on a dagger's hilt.
+
+  - id: philosophers_guild
+    name: "Philosophers Guild"
+    type: guild
+    appears_at: [3]
+    build_cost:                                   # read from more_cards1 photo
+      clay: 3
+      papyrus: 1
+      loom: 1
+    benefit:
+      effect: "+1 VP for each scientific (green) card in BOTH neighbouring cities"
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: both
+        tokens:
+        - card: green
+          vp: 1
+    illustration_prompt: |
+      A gathering of robed philosophers in earnest discourse beneath a colonnade at dusk, one making a point with an open hand. Scrolls and a geometric diagram between them, olive trees and a fading golden sky.
+
+  - id: scientists_guild
+    name: "Scientists Guild"
+    type: guild
+    appears_at: [3]
+    build_cost:                                  # read from more_cards1 photo
+      wood: 2
+      ore: 2
+      papyrus: 1
+    benefit:
+      effect: "choose one extra science symbol (compass, gear or tablet)"
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - sci: compass
+        - slash
+        - sci: gear
+        - slash
+        - sci: tablet
+    illustration_prompt: |
+      A guild of scholars surrounded by instruments of learning, an armillary sphere, compass, gears and charts spread across a table. Robed thinkers measure and debate by lamplight, diagrams pinned to the walls.
+
+  - id: shipowners_guild
+    name: "Shipowners Guild"
+    type: guild
+    appears_at: [3]
+    build_cost:                                    # read from more_cards1 photo
+      wood: 3
+      glass: 1
+      papyrus: 1
+    benefit:
+      effect: "+1 VP for each raw-material (brown), manufactured-good (grey) and guild (purple) card in YOUR city"
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - card: brown
+          vp: 1
+        - card: grey
+          vp: 1
+        - card: purple
+          vp: 1
+    illustration_prompt: |
+      Wealthy shipowners overseeing a thriving port, directing the loading of laden merchant vessels from a stone quay. Rows of ships, stacked cargo and ledgers, gulls wheeling under a bright golden sky.
+
+  - id: builders_guild
+    name: "Builders Guild"
+    type: guild
+    appears_at: [3]
+    build_cost:                                  # read from more_cards1 photo
+      stone: 3
+      clay: 2
+      glass: 1
+    benefit:
+      effect: "+1 VP for each completed wonder stage of YOU and BOTH neighbours"
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: both
+        down: true
+        tokens:
+        - wonder: partial
+          vp: 1
+    illustration_prompt: |
+      Master builders studying plans at a monumental construction site, a great wonder rising behind timber scaffolding and cranes. Workers hoist massive stones, a foreman points aloft, dust and sun over the works.
+
+  - id: decorators_guild
+    name: "Decorators Guild"
+    type: guild
+    appears_at: [3]
+    build_cost:                                # read from more_cards1 photo
+      ore: 2
+      stone: 1
+      loom: 1
+    benefit:
+      effect: "+7 VP if all stages of YOUR wonder are built"
+    banner:
+      chain_out_symbol: []
+      chain_in_symbol:
+      medallion:
+        arrows: none
+        tokens:
+        - wonder: full
+          vp: 7
+    illustration_prompt: |
+      Decorators and artisans adorning a newly completed wonder, gilding statues and hanging garlands and rich drapery. A craftsman on a ladder applies gold leaf to a frieze, colourful banners in triumphant light.
+
+# =====================================================================
+# ASSET INVENTORY  (for the SVG production pipeline)
+# =====================================================================
+_assets:
+  icons_available:        # hand-drawn in seven_wonders_icons.svg
+  - wood                # group g64 ("Wood") - already wired into card_1
+  - stone
+  - ore
+  - clay                # labelled "Brick" in the svg
+  - victory_point       # laurel, labelled "VP"
+  - slash               # the "/" separator for choice cards
+  icons_missing:          # COMPLEX SHAPES - flagged, NOT to be invented
+    resources: [glass, papyrus, loom]
+    economy: [coin, shield]
+    science_symbols: [compass, gear, tablet]
+    trade_arrows: [west_arrow, east_arrow, both_arrows]
+    banner_end_symbols:
+      have_reference: [square, diamond, tablet, circle, cross_x, triangle, star]   # triangle=scientific, star=guild resolved from photos
+      need_reference: []
+    chain_symbols: [star, mask, camel, trading_post_stall, horseshoe, mortar_pestle, target, teapot, scales, open_book, water_drop, hammer, lighthouse, barrel, lightning, torch, saw, planet, pillars, scroll, lyre, feather, tower, helmet]                        # the linking glyphs used across the chain list
+
+# =====================================================================
+# OPEN GAPS / QUESTIONS  (per "flag any info you are missing")
+# =====================================================================
+_gaps:
+  build_costs:
+    issue: >
+      Build costs are complete for all 80 cards. Sources: card_1..7 (7 faces),
+      more_cards1 (10 guilds), more_cards2 (20 Age III), more_cards3 (27 Age
+      I+II faces). Manufactured goods set free (pattern: Press verified free on
+      card_7); Age II double-brown producers (sawmill/brickyard/foundry) set to
+      1 coin per user rule (Quarry verified 1 coin on more_cards3). Marketplace,
+      Vineyard and Bazar are free (user-confirmed: no resource cost).
+    still_unknown: []
+    need: "None - all build costs resolved."
+  green_and_guild_faces:
+    issue: "Resolved: green (scientific) banner end-symbol = triangle; guild (purple) = star."
+    need: "None - read from more_cards1 (guild) and more_cards2/3 (green) photos."
+  age_III_confidence:
+    issue: >
+      Age III yellow cards (lighthouse/haven/chamber_of_commerce/ludus/arena)
+      and the 10 guilds: exact coin/VP numbers and self-vs-neighbour scope
+      were read from small chart icons plus standard rules. Card names 'Ludus'
+      and 'Castrum' are unusual for the base game (possibly a 2nd-edition
+      naming) - transcribed as printed on the chart.
+    need: "Confirm these against card faces if precision matters."
+  choice_resource_costs:
+    issue: >
+      Age I choice-browns (tree_farm/excavation/clay_pit/timber_yard/mine)
+      set to 1 coin per user rule; Mine (more_cards3) and forest_cave (card_2)
+      show the coin badge. Age II double-browns: Quarry verified 1 coin
+      (more_cards3); sawmill/brickyard/foundry set 1 coin by the same rule
+      (not individually photographed).

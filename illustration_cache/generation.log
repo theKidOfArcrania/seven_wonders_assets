@@ -1,0 +1,452 @@
+2026-07-01 09:41:34  === batch start: 1 card(s), force=False dry_run=False retries=3 ===
+2026-07-01 09:42:42  OK    lumber_yard            flux-2-pro (570, 623) -> illustration_cache\lumber_yard.png
+2026-07-01 09:42:42  === batch done: 1 generated, 0 skipped, 0 failed ===
+2026-07-01 09:42:55  === batch start: 80 card(s), force=False dry_run=False retries=3 ===
+2026-07-01 09:42:55  SKIP  lumber_yard            (cached)
+2026-07-01 09:44:30  OK    stone_pit              flux-2-pro (570, 623) -> illustration_cache\stone_pit.png
+2026-07-01 09:44:51  OK    clay_pool              flux-2-pro (570, 623) -> illustration_cache\clay_pool.png
+2026-07-01 09:45:02  OK    ore_vein               flux-2-pro (570, 623) -> illustration_cache\ore_vein.png
+2026-07-01 09:45:11  OK    tree_farm              flux-2-pro (570, 623) -> illustration_cache\tree_farm.png
+2026-07-01 09:46:10  OK    excavation             flux-2-pro (570, 623) -> illustration_cache\excavation.png
+2026-07-01 09:46:35  OK    clay_pit               flux-2-pro (570, 623) -> illustration_cache\clay_pit.png
+2026-07-01 09:46:58  OK    timber_yard            flux-2-pro (570, 623) -> illustration_cache\timber_yard.png
+2026-07-01 09:48:31  RETRY forest_cave            attempt 1/3 failed; waiting 5s
+2026-07-01 09:50:40  RETRY forest_cave            attempt 2/3 failed; waiting 10s
+2026-07-01 09:53:06  FAIL  forest_cave            after 3 attempt(s)
+2026-07-01 09:53:35  OK    mine                   flux-2-pro (570, 623) -> illustration_cache\mine.png
+2026-07-01 09:55:01  RETRY glassworks             attempt 1/3 failed; waiting 5s
+2026-07-01 09:56:24  RETRY glassworks             attempt 2/3 failed; waiting 10s
+2026-07-01 09:58:22  FAIL  glassworks             after 3 attempt(s)
+2026-07-01 09:58:33  OK    press                  flux-2-pro (570, 623) -> illustration_cache\press.png
+2026-07-01 09:58:43  OK    loom                   flux-2-pro (570, 623) -> illustration_cache\loom.png
+2026-07-01 09:58:55  OK    well                   flux-2-pro (570, 623) -> illustration_cache\well.png
+2026-07-01 09:59:17  OK    baths                  flux-2-pro (570, 623) -> illustration_cache\baths.png
+2026-07-01 09:59:29  OK    altar                  flux-2-pro (570, 623) -> illustration_cache\altar.png
+2026-07-01 09:59:38  OK    theater                flux-2-pro (570, 623) -> illustration_cache\theater.png
+2026-07-01 09:59:54  OK    tavern                 flux-2-pro (570, 623) -> illustration_cache\tavern.png
+2026-07-01 10:00:06  OK    marketplace            flux-2-pro (570, 623) -> illustration_cache\marketplace.png
+2026-07-01 10:00:32  OK    west_trading_post      flux-2-pro (570, 623) -> illustration_cache\west_trading_post.png
+2026-07-01 10:00:46  OK    east_trading_post      flux-2-pro (570, 623) -> illustration_cache\east_trading_post.png
+2026-07-01 10:03:10  RETRY stockade               attempt 1/3 failed; waiting 5s
+2026-07-01 10:04:35  RETRY stockade               attempt 2/3 failed; waiting 10s
+2026-07-01 10:06:35  FAIL  stockade               after 3 attempt(s)
+2026-07-01 10:07:51  RETRY barracks               attempt 1/3 failed; waiting 5s
+2026-07-01 10:10:08  RETRY barracks               attempt 2/3 failed; waiting 10s
+2026-07-01 10:12:13  FAIL  barracks               after 3 attempt(s)
+2026-07-01 10:12:25  OK    guard_tower            flux-2-pro (570, 623) -> illustration_cache\guard_tower.png
+2026-07-01 10:12:36  OK    apothecary             flux-2-pro (570, 623) -> illustration_cache\apothecary.png
+2026-07-01 10:13:02  OK    workshop               flux-2-pro (570, 623) -> illustration_cache\workshop.png
+2026-07-01 10:13:12  OK    scriptorium            flux-2-pro (570, 623) -> illustration_cache\scriptorium.png
+2026-07-01 10:13:34  OK    sawmill                flux-2-pro (570, 623) -> illustration_cache\sawmill.png
+2026-07-01 10:13:54  OK    quarry                 flux-2-pro (570, 623) -> illustration_cache\quarry.png
+2026-07-01 10:14:05  OK    brickyard              flux-2-pro (570, 623) -> illustration_cache\brickyard.png
+2026-07-01 10:15:42  RETRY foundry                attempt 1/3 failed; waiting 5s
+2026-07-01 10:17:08  RETRY foundry                attempt 2/3 failed; waiting 10s
+2026-07-01 10:19:02  FAIL  foundry                after 3 attempt(s)
+2026-07-01 10:20:17  OK    glassworks_II          flux-2-pro (570, 623) -> illustration_cache\glassworks_II.png
+2026-07-01 10:20:29  OK    press_II               flux-2-pro (570, 623) -> illustration_cache\press_II.png
+2026-07-01 10:20:39  OK    loom_II                flux-2-pro (570, 623) -> illustration_cache\loom_II.png
+2026-07-01 10:21:28  OK    statue                 flux-2-pro (570, 623) -> illustration_cache\statue.png
+2026-07-01 10:21:39  OK    aqueduct               flux-2-pro (570, 623) -> illustration_cache\aqueduct.png
+2026-07-01 10:22:27  OK    temple                 flux-2-pro (570, 623) -> illustration_cache\temple.png
+2026-07-01 10:22:37  OK    courthouse             flux-2-pro (570, 623) -> illustration_cache\courthouse.png
+2026-07-01 10:22:52  OK    caravansery            flux-2-pro (570, 623) -> illustration_cache\caravansery.png
+2026-07-01 10:23:07  OK    forum                  flux-2-pro (570, 623) -> illustration_cache\forum.png
+2026-07-01 10:23:24  OK    vineyard               flux-2-pro (570, 623) -> illustration_cache\vineyard.png
+2026-07-01 10:23:36  OK    bazar                  flux-2-pro (570, 623) -> illustration_cache\bazar.png
+2026-07-01 10:24:32  OK    stables                flux-2-pro (570, 623) -> illustration_cache\stables.png
+2026-07-01 10:25:55  RETRY archery_range          attempt 1/3 failed; waiting 5s
+2026-07-01 10:27:31  RETRY archery_range          attempt 2/3 failed; waiting 10s
+2026-07-01 10:29:10  FAIL  archery_range          after 3 attempt(s)
+2026-07-01 10:29:45  OK    walls                  flux-2-pro (570, 623) -> illustration_cache\walls.png
+2026-07-01 10:31:03  RETRY training_ground        attempt 1/3 failed; waiting 5s
+2026-07-01 10:31:28  RETRY training_ground        attempt 2/3 failed; waiting 10s
+2026-07-01 10:33:22  FAIL  training_ground        after 3 attempt(s)
+2026-07-01 10:33:31  OK    dispensary             flux-2-pro (570, 623) -> illustration_cache\dispensary.png
+2026-07-01 10:33:45  OK    laboratory             flux-2-pro (570, 623) -> illustration_cache\laboratory.png
+2026-07-01 10:34:05  OK    library                flux-2-pro (570, 623) -> illustration_cache\library.png
+2026-07-01 10:34:20  OK    school                 flux-2-pro (570, 623) -> illustration_cache\school.png
+2026-07-01 10:34:35  OK    pantheon               flux-2-pro (570, 623) -> illustration_cache\pantheon.png
+2026-07-01 10:34:44  OK    gardens                flux-2-pro (570, 623) -> illustration_cache\gardens.png
+2026-07-01 10:35:30  OK    town_hall              flux-2-pro (570, 623) -> illustration_cache\town_hall.png
+2026-07-01 10:35:58  OK    palace                 flux-2-pro (570, 623) -> illustration_cache\palace.png
+2026-07-01 10:36:07  OK    senate                 flux-2-pro (570, 623) -> illustration_cache\senate.png
+2026-07-01 10:36:16  OK    lighthouse             flux-2-pro (570, 623) -> illustration_cache\lighthouse.png
+2026-07-01 10:36:26  OK    haven                  flux-2-pro (570, 623) -> illustration_cache\haven.png
+2026-07-01 10:37:03  OK    chamber_of_commerce    flux-2-pro (570, 623) -> illustration_cache\chamber_of_commerce.png
+2026-07-01 10:38:50  RETRY ludus                  attempt 1/3 failed; waiting 5s
+2026-07-01 10:40:45  RETRY ludus                  attempt 2/3 failed; waiting 10s
+2026-07-01 10:42:39  FAIL  ludus                  after 3 attempt(s)
+2026-07-01 10:43:02  OK    arena                  flux-2-pro (570, 623) -> illustration_cache\arena.png
+2026-07-01 10:44:32  RETRY castrum                attempt 1/3 failed; waiting 5s
+2026-07-01 10:45:24  OK    castrum                flux-2-pro (570, 623) -> illustration_cache\castrum.png
+2026-07-01 10:45:59  OK    fortifications         flux-2-pro (570, 623) -> illustration_cache\fortifications.png
+2026-07-01 10:46:12  OK    circus                 flux-2-pro (570, 623) -> illustration_cache\circus.png
+2026-07-01 10:47:34  RETRY arsenal                attempt 1/3 failed; waiting 5s
+2026-07-01 10:48:57  OK    arsenal                flux-2-pro (570, 623) -> illustration_cache\arsenal.png
+2026-07-01 10:50:20  RETRY siege_workshop         attempt 1/3 failed; waiting 5s
+2026-07-01 10:52:20  RETRY siege_workshop         attempt 2/3 failed; waiting 10s
+2026-07-01 10:53:50  FAIL  siege_workshop         after 3 attempt(s)
+2026-07-01 10:53:59  OK    lodge                  flux-2-pro (570, 623) -> illustration_cache\lodge.png
+2026-07-01 10:54:10  OK    academy                flux-2-pro (570, 623) -> illustration_cache\academy.png
+2026-07-01 10:54:22  OK    observatory            flux-2-pro (570, 623) -> illustration_cache\observatory.png
+2026-07-01 10:54:33  OK    study                  flux-2-pro (570, 623) -> illustration_cache\study.png
+2026-07-01 10:54:44  OK    university             flux-2-pro (570, 623) -> illustration_cache\university.png
+2026-07-01 10:54:55  OK    workers_guild          flux-2-pro (570, 623) -> illustration_cache\workers_guild.png
+2026-07-01 10:55:18  OK    craftsmens_guild       flux-2-pro (570, 623) -> illustration_cache\craftsmens_guild.png
+2026-07-01 10:55:27  OK    magistrates_guild      flux-2-pro (570, 623) -> illustration_cache\magistrates_guild.png
+2026-07-01 10:55:36  OK    traders_guild          flux-2-pro (570, 623) -> illustration_cache\traders_guild.png
+2026-07-01 10:55:53  RETRY spies_guild            attempt 1/3 failed; waiting 5s
+2026-07-01 10:57:12  OK    spies_guild            flux-2-pro (570, 623) -> illustration_cache\spies_guild.png
+2026-07-01 10:57:30  OK    philosophers_guild     flux-2-pro (570, 623) -> illustration_cache\philosophers_guild.png
+2026-07-01 10:58:08  OK    scientists_guild       flux-2-pro (570, 623) -> illustration_cache\scientists_guild.png
+2026-07-01 10:58:30  OK    shipowners_guild       flux-2-pro (570, 623) -> illustration_cache\shipowners_guild.png
+2026-07-01 10:59:23  OK    builders_guild         flux-2-pro (570, 623) -> illustration_cache\builders_guild.png
+2026-07-01 10:59:36  OK    decorators_guild       flux-2-pro (570, 623) -> illustration_cache\decorators_guild.png
+2026-07-01 10:59:36  === batch done: 70 generated, 1 skipped, 9 failed ===
+2026-07-01 10:59:36  FAILED IDS: forest_cave, glassworks, stockade, barracks, foundry, archery_range, training_ground, ludus, siege_workshop
+2026-07-01 11:02:58  === batch start: 80 card(s), force=False dry_run=False retries=3 ===
+2026-07-01 11:02:58  SKIP  lumber_yard            (cached)
+2026-07-01 11:02:58  SKIP  stone_pit              (cached)
+2026-07-01 11:02:58  SKIP  clay_pool              (cached)
+2026-07-01 11:02:58  SKIP  ore_vein               (cached)
+2026-07-01 11:02:58  SKIP  tree_farm              (cached)
+2026-07-01 11:02:58  SKIP  excavation             (cached)
+2026-07-01 11:02:58  SKIP  clay_pit               (cached)
+2026-07-01 11:02:58  SKIP  timber_yard            (cached)
+2026-07-01 11:04:13  RETRY forest_cave            attempt 1/3 failed; waiting 5s
+2026-07-01 11:06:18  === batch start: 80 card(s), force=False dry_run=False retries=1 ===
+2026-07-01 11:06:18  SKIP  lumber_yard            (cached)
+2026-07-01 11:06:18  SKIP  stone_pit              (cached)
+2026-07-01 11:06:18  SKIP  clay_pool              (cached)
+2026-07-01 11:06:18  SKIP  ore_vein               (cached)
+2026-07-01 11:06:18  SKIP  tree_farm              (cached)
+2026-07-01 11:06:18  SKIP  excavation             (cached)
+2026-07-01 11:06:18  SKIP  clay_pit               (cached)
+2026-07-01 11:06:18  SKIP  timber_yard            (cached)
+2026-07-01 11:06:46  OK    forest_cave            flux-2-pro (570, 623) -> illustration_cache\forest_cave.png
+2026-07-01 11:06:46  SKIP  mine                   (cached)
+2026-07-01 11:07:23  OK    glassworks             flux-2-pro (570, 623) -> illustration_cache\glassworks.png
+2026-07-01 11:07:23  SKIP  press                  (cached)
+2026-07-01 11:07:23  SKIP  loom                   (cached)
+2026-07-01 11:07:23  SKIP  well                   (cached)
+2026-07-01 11:07:23  SKIP  baths                  (cached)
+2026-07-01 11:07:23  SKIP  altar                  (cached)
+2026-07-01 11:07:23  SKIP  theater                (cached)
+2026-07-01 11:07:23  SKIP  tavern                 (cached)
+2026-07-01 11:07:23  SKIP  marketplace            (cached)
+2026-07-01 11:07:23  SKIP  west_trading_post      (cached)
+2026-07-01 11:07:23  SKIP  east_trading_post      (cached)
+2026-07-01 11:09:33  FAIL  stockade               after 1 attempt(s)
+2026-07-01 11:10:51  FAIL  barracks               after 1 attempt(s)
+2026-07-01 11:10:51  SKIP  guard_tower            (cached)
+2026-07-01 11:10:51  SKIP  apothecary             (cached)
+2026-07-01 11:10:51  SKIP  workshop               (cached)
+2026-07-01 11:10:51  SKIP  scriptorium            (cached)
+2026-07-01 11:10:51  SKIP  sawmill                (cached)
+2026-07-01 11:10:51  SKIP  quarry                 (cached)
+2026-07-01 11:10:51  SKIP  brickyard              (cached)
+2026-07-01 11:11:00  OK    foundry                flux-2-pro (570, 623) -> illustration_cache\foundry.png
+2026-07-01 11:11:00  SKIP  glassworks_II          (cached)
+2026-07-01 11:11:00  SKIP  press_II               (cached)
+2026-07-01 11:11:01  SKIP  loom_II                (cached)
+2026-07-01 11:11:01  SKIP  statue                 (cached)
+2026-07-01 11:11:01  SKIP  aqueduct               (cached)
+2026-07-01 11:11:01  SKIP  temple                 (cached)
+2026-07-01 11:11:01  SKIP  courthouse             (cached)
+2026-07-01 11:11:01  SKIP  caravansery            (cached)
+2026-07-01 11:11:01  SKIP  forum                  (cached)
+2026-07-01 11:11:01  SKIP  vineyard               (cached)
+2026-07-01 11:11:01  SKIP  bazar                  (cached)
+2026-07-01 11:11:01  SKIP  stables                (cached)
+2026-07-01 11:12:12  FAIL  archery_range          after 1 attempt(s)
+2026-07-01 11:12:12  SKIP  walls                  (cached)
+2026-07-01 11:12:24  FAIL  training_ground        after 1 attempt(s)
+2026-07-01 11:12:24  SKIP  dispensary             (cached)
+2026-07-01 11:12:24  SKIP  laboratory             (cached)
+2026-07-01 11:12:24  SKIP  library                (cached)
+2026-07-01 11:12:24  SKIP  school                 (cached)
+2026-07-01 11:12:24  SKIP  pantheon               (cached)
+2026-07-01 11:12:24  SKIP  gardens                (cached)
+2026-07-01 11:12:24  SKIP  town_hall              (cached)
+2026-07-01 11:12:24  SKIP  palace                 (cached)
+2026-07-01 11:12:24  SKIP  senate                 (cached)
+2026-07-01 11:12:24  SKIP  lighthouse             (cached)
+2026-07-01 11:12:24  SKIP  haven                  (cached)
+2026-07-01 11:12:24  SKIP  chamber_of_commerce    (cached)
+2026-07-01 11:12:45  FAIL  ludus                  after 1 attempt(s)
+2026-07-01 11:12:45  SKIP  arena                  (cached)
+2026-07-01 11:12:45  SKIP  castrum                (cached)
+2026-07-01 11:12:45  SKIP  fortifications         (cached)
+2026-07-01 11:12:45  SKIP  circus                 (cached)
+2026-07-01 11:12:45  SKIP  arsenal                (cached)
+2026-07-01 11:12:49  FAIL  siege_workshop         after 1 attempt(s)
+2026-07-01 11:12:49  SKIP  lodge                  (cached)
+2026-07-01 11:12:49  SKIP  academy                (cached)
+2026-07-01 11:12:49  SKIP  observatory            (cached)
+2026-07-01 11:12:49  SKIP  study                  (cached)
+2026-07-01 11:12:49  SKIP  university             (cached)
+2026-07-01 11:12:49  SKIP  workers_guild          (cached)
+2026-07-01 11:12:49  SKIP  craftsmens_guild       (cached)
+2026-07-01 11:12:49  SKIP  magistrates_guild      (cached)
+2026-07-01 11:12:49  SKIP  traders_guild          (cached)
+2026-07-01 11:12:49  SKIP  spies_guild            (cached)
+2026-07-01 11:12:49  SKIP  philosophers_guild     (cached)
+2026-07-01 11:12:49  SKIP  scientists_guild       (cached)
+2026-07-01 11:12:49  SKIP  shipowners_guild       (cached)
+2026-07-01 11:12:49  SKIP  builders_guild         (cached)
+2026-07-01 11:12:49  SKIP  decorators_guild       (cached)
+2026-07-01 11:12:49  === batch done: 3 generated, 71 skipped, 6 failed ===
+2026-07-01 11:12:49  FAILED IDS: stockade, barracks, archery_range, training_ground, ludus, siege_workshop
+2026-07-01 11:13:16  === batch start: 80 card(s), force=False dry_run=False retries=1 ===
+2026-07-01 11:13:16  SKIP  lumber_yard            (cached)
+2026-07-01 11:13:16  SKIP  stone_pit              (cached)
+2026-07-01 11:13:16  SKIP  clay_pool              (cached)
+2026-07-01 11:13:16  SKIP  ore_vein               (cached)
+2026-07-01 11:13:16  SKIP  tree_farm              (cached)
+2026-07-01 11:13:16  SKIP  excavation             (cached)
+2026-07-01 11:13:16  SKIP  clay_pit               (cached)
+2026-07-01 11:13:16  SKIP  timber_yard            (cached)
+2026-07-01 11:13:16  SKIP  forest_cave            (cached)
+2026-07-01 11:13:16  SKIP  mine                   (cached)
+2026-07-01 11:13:16  SKIP  glassworks             (cached)
+2026-07-01 11:13:16  SKIP  press                  (cached)
+2026-07-01 11:13:16  SKIP  loom                   (cached)
+2026-07-01 11:13:16  SKIP  well                   (cached)
+2026-07-01 11:13:16  SKIP  baths                  (cached)
+2026-07-01 11:13:16  SKIP  altar                  (cached)
+2026-07-01 11:13:16  SKIP  theater                (cached)
+2026-07-01 11:13:16  SKIP  tavern                 (cached)
+2026-07-01 11:13:16  SKIP  marketplace            (cached)
+2026-07-01 11:13:16  SKIP  west_trading_post      (cached)
+2026-07-01 11:13:16  SKIP  east_trading_post      (cached)
+2026-07-01 11:13:25  OK    stockade               flux-2-pro (570, 623) -> illustration_cache\stockade.png
+2026-07-01 11:13:37  OK    barracks               flux-2-pro (570, 623) -> illustration_cache\barracks.png
+2026-07-01 11:13:37  SKIP  guard_tower            (cached)
+2026-07-01 11:13:37  SKIP  apothecary             (cached)
+2026-07-01 11:13:37  SKIP  workshop               (cached)
+2026-07-01 11:13:37  SKIP  scriptorium            (cached)
+2026-07-01 11:13:37  SKIP  sawmill                (cached)
+2026-07-01 11:13:37  SKIP  quarry                 (cached)
+2026-07-01 11:13:37  SKIP  brickyard              (cached)
+2026-07-01 11:13:37  SKIP  foundry                (cached)
+2026-07-01 11:13:37  SKIP  glassworks_II          (cached)
+2026-07-01 11:13:37  SKIP  press_II               (cached)
+2026-07-01 11:13:37  SKIP  loom_II                (cached)
+2026-07-01 11:13:37  SKIP  statue                 (cached)
+2026-07-01 11:13:37  SKIP  aqueduct               (cached)
+2026-07-01 11:13:37  SKIP  temple                 (cached)
+2026-07-01 11:13:37  SKIP  courthouse             (cached)
+2026-07-01 11:13:37  SKIP  caravansery            (cached)
+2026-07-01 11:13:37  SKIP  forum                  (cached)
+2026-07-01 11:13:37  SKIP  vineyard               (cached)
+2026-07-01 11:13:37  SKIP  bazar                  (cached)
+2026-07-01 11:13:37  SKIP  stables                (cached)
+2026-07-01 11:13:47  OK    archery_range          flux-2-pro (570, 623) -> illustration_cache\archery_range.png
+2026-07-01 11:13:47  SKIP  walls                  (cached)
+2026-07-01 11:13:54  FAIL  training_ground        after 1 attempt(s)
+2026-07-01 11:13:54  SKIP  dispensary             (cached)
+2026-07-01 11:13:54  SKIP  laboratory             (cached)
+2026-07-01 11:13:54  SKIP  library                (cached)
+2026-07-01 11:13:54  SKIP  school                 (cached)
+2026-07-01 11:13:54  SKIP  pantheon               (cached)
+2026-07-01 11:13:54  SKIP  gardens                (cached)
+2026-07-01 11:13:54  SKIP  town_hall              (cached)
+2026-07-01 11:13:54  SKIP  palace                 (cached)
+2026-07-01 11:13:54  SKIP  senate                 (cached)
+2026-07-01 11:13:54  SKIP  lighthouse             (cached)
+2026-07-01 11:13:54  SKIP  haven                  (cached)
+2026-07-01 11:13:54  SKIP  chamber_of_commerce    (cached)
+2026-07-01 11:14:04  OK    ludus                  flux-2-pro (570, 623) -> illustration_cache\ludus.png
+2026-07-01 11:14:04  SKIP  arena                  (cached)
+2026-07-01 11:14:04  SKIP  castrum                (cached)
+2026-07-01 11:14:04  SKIP  fortifications         (cached)
+2026-07-01 11:14:04  SKIP  circus                 (cached)
+2026-07-01 11:14:04  SKIP  arsenal                (cached)
+2026-07-01 11:14:10  FAIL  siege_workshop         after 1 attempt(s)
+2026-07-01 11:14:10  SKIP  lodge                  (cached)
+2026-07-01 11:14:10  SKIP  academy                (cached)
+2026-07-01 11:14:10  SKIP  observatory            (cached)
+2026-07-01 11:14:10  SKIP  study                  (cached)
+2026-07-01 11:14:10  SKIP  university             (cached)
+2026-07-01 11:14:10  SKIP  workers_guild          (cached)
+2026-07-01 11:14:10  SKIP  craftsmens_guild       (cached)
+2026-07-01 11:14:10  SKIP  magistrates_guild      (cached)
+2026-07-01 11:14:10  SKIP  traders_guild          (cached)
+2026-07-01 11:14:10  SKIP  spies_guild            (cached)
+2026-07-01 11:14:10  SKIP  philosophers_guild     (cached)
+2026-07-01 11:14:10  SKIP  scientists_guild       (cached)
+2026-07-01 11:14:10  SKIP  shipowners_guild       (cached)
+2026-07-01 11:14:10  SKIP  builders_guild         (cached)
+2026-07-01 11:14:10  SKIP  decorators_guild       (cached)
+2026-07-01 11:14:10  === batch done: 4 generated, 74 skipped, 2 failed ===
+2026-07-01 11:14:10  FAILED IDS: training_ground, siege_workshop
+2026-07-01 11:22:41  === batch start: 80 card(s), force=False dry_run=False retries=1 ===
+2026-07-01 11:22:41  SKIP  lumber_yard            (cached)
+2026-07-01 11:22:41  SKIP  stone_pit              (cached)
+2026-07-01 11:22:41  SKIP  clay_pool              (cached)
+2026-07-01 11:22:41  SKIP  ore_vein               (cached)
+2026-07-01 11:22:41  SKIP  tree_farm              (cached)
+2026-07-01 11:22:41  SKIP  excavation             (cached)
+2026-07-01 11:22:41  SKIP  clay_pit               (cached)
+2026-07-01 11:22:41  SKIP  timber_yard            (cached)
+2026-07-01 11:22:41  SKIP  forest_cave            (cached)
+2026-07-01 11:22:41  SKIP  mine                   (cached)
+2026-07-01 11:22:41  SKIP  glassworks             (cached)
+2026-07-01 11:22:41  SKIP  press                  (cached)
+2026-07-01 11:22:41  SKIP  loom                   (cached)
+2026-07-01 11:22:41  SKIP  well                   (cached)
+2026-07-01 11:22:41  SKIP  baths                  (cached)
+2026-07-01 11:22:41  SKIP  altar                  (cached)
+2026-07-01 11:22:41  SKIP  theater                (cached)
+2026-07-01 11:22:41  SKIP  tavern                 (cached)
+2026-07-01 11:22:41  SKIP  marketplace            (cached)
+2026-07-01 11:22:41  SKIP  west_trading_post      (cached)
+2026-07-01 11:22:41  SKIP  east_trading_post      (cached)
+2026-07-01 11:22:41  SKIP  stockade               (cached)
+2026-07-01 11:22:41  SKIP  barracks               (cached)
+2026-07-01 11:22:41  SKIP  guard_tower            (cached)
+2026-07-01 11:22:41  SKIP  apothecary             (cached)
+2026-07-01 11:22:41  SKIP  workshop               (cached)
+2026-07-01 11:22:41  SKIP  scriptorium            (cached)
+2026-07-01 11:22:41  SKIP  sawmill                (cached)
+2026-07-01 11:22:41  SKIP  quarry                 (cached)
+2026-07-01 11:22:41  SKIP  brickyard              (cached)
+2026-07-01 11:22:41  SKIP  foundry                (cached)
+2026-07-01 11:22:41  SKIP  glassworks_II          (cached)
+2026-07-01 11:22:41  SKIP  press_II               (cached)
+2026-07-01 11:22:41  SKIP  loom_II                (cached)
+2026-07-01 11:22:41  SKIP  statue                 (cached)
+2026-07-01 11:22:41  SKIP  aqueduct               (cached)
+2026-07-01 11:22:41  SKIP  temple                 (cached)
+2026-07-01 11:22:41  SKIP  courthouse             (cached)
+2026-07-01 11:22:41  SKIP  caravansery            (cached)
+2026-07-01 11:22:41  SKIP  forum                  (cached)
+2026-07-01 11:22:41  SKIP  vineyard               (cached)
+2026-07-01 11:22:41  SKIP  bazar                  (cached)
+2026-07-01 11:22:41  SKIP  stables                (cached)
+2026-07-01 11:22:41  SKIP  archery_range          (cached)
+2026-07-01 11:22:41  SKIP  walls                  (cached)
+2026-07-01 11:22:49  FAIL  training_ground        after 1 attempt(s)
+2026-07-01 11:22:49  SKIP  dispensary             (cached)
+2026-07-01 11:22:49  SKIP  laboratory             (cached)
+2026-07-01 11:22:49  SKIP  library                (cached)
+2026-07-01 11:22:49  SKIP  school                 (cached)
+2026-07-01 11:22:49  SKIP  pantheon               (cached)
+2026-07-01 11:22:49  SKIP  gardens                (cached)
+2026-07-01 11:22:49  SKIP  town_hall              (cached)
+2026-07-01 11:22:49  SKIP  palace                 (cached)
+2026-07-01 11:22:49  SKIP  senate                 (cached)
+2026-07-01 11:22:49  SKIP  lighthouse             (cached)
+2026-07-01 11:22:49  SKIP  haven                  (cached)
+2026-07-01 11:22:49  SKIP  chamber_of_commerce    (cached)
+2026-07-01 11:22:49  SKIP  ludus                  (cached)
+2026-07-01 11:22:49  SKIP  arena                  (cached)
+2026-07-01 11:22:49  SKIP  castrum                (cached)
+2026-07-01 11:22:49  SKIP  fortifications         (cached)
+2026-07-01 11:22:49  SKIP  circus                 (cached)
+2026-07-01 11:22:49  SKIP  arsenal                (cached)
+2026-07-01 11:24:06  OK    siege_workshop         flux-2-pro (570, 623) -> illustration_cache\siege_workshop.png
+2026-07-01 11:24:06  SKIP  lodge                  (cached)
+2026-07-01 11:24:06  SKIP  academy                (cached)
+2026-07-01 11:24:06  SKIP  observatory            (cached)
+2026-07-01 11:24:06  SKIP  study                  (cached)
+2026-07-01 11:24:06  SKIP  university             (cached)
+2026-07-01 11:24:06  SKIP  workers_guild          (cached)
+2026-07-01 11:24:06  SKIP  craftsmens_guild       (cached)
+2026-07-01 11:24:06  SKIP  magistrates_guild      (cached)
+2026-07-01 11:24:06  SKIP  traders_guild          (cached)
+2026-07-01 11:24:06  SKIP  spies_guild            (cached)
+2026-07-01 11:24:06  SKIP  philosophers_guild     (cached)
+2026-07-01 11:24:06  SKIP  scientists_guild       (cached)
+2026-07-01 11:24:06  SKIP  shipowners_guild       (cached)
+2026-07-01 11:24:06  SKIP  builders_guild         (cached)
+2026-07-01 11:24:06  SKIP  decorators_guild       (cached)
+2026-07-01 11:24:06  === batch done: 1 generated, 78 skipped, 1 failed ===
+2026-07-01 11:24:06  FAILED IDS: training_ground
+2026-07-01 11:44:58  === batch start: 80 card(s), force=False dry_run=False retries=1 ===
+2026-07-01 11:44:58  SKIP  lumber_yard            (cached)
+2026-07-01 11:44:58  SKIP  stone_pit              (cached)
+2026-07-01 11:44:58  SKIP  clay_pool              (cached)
+2026-07-01 11:44:58  SKIP  ore_vein               (cached)
+2026-07-01 11:44:58  SKIP  tree_farm              (cached)
+2026-07-01 11:44:58  SKIP  excavation             (cached)
+2026-07-01 11:44:58  SKIP  clay_pit               (cached)
+2026-07-01 11:44:58  SKIP  timber_yard            (cached)
+2026-07-01 11:44:58  SKIP  forest_cave            (cached)
+2026-07-01 11:44:58  SKIP  mine                   (cached)
+2026-07-01 11:44:58  SKIP  glassworks             (cached)
+2026-07-01 11:44:58  SKIP  press                  (cached)
+2026-07-01 11:44:58  SKIP  loom                   (cached)
+2026-07-01 11:44:58  SKIP  well                   (cached)
+2026-07-01 11:44:58  SKIP  baths                  (cached)
+2026-07-01 11:44:58  SKIP  altar                  (cached)
+2026-07-01 11:44:58  SKIP  theater                (cached)
+2026-07-01 11:44:58  SKIP  tavern                 (cached)
+2026-07-01 11:44:58  SKIP  marketplace            (cached)
+2026-07-01 11:44:58  SKIP  west_trading_post      (cached)
+2026-07-01 11:44:58  SKIP  east_trading_post      (cached)
+2026-07-01 11:44:58  SKIP  stockade               (cached)
+2026-07-01 11:44:58  SKIP  barracks               (cached)
+2026-07-01 11:44:58  SKIP  guard_tower            (cached)
+2026-07-01 11:44:58  SKIP  apothecary             (cached)
+2026-07-01 11:44:58  SKIP  workshop               (cached)
+2026-07-01 11:44:58  SKIP  scriptorium            (cached)
+2026-07-01 11:44:58  SKIP  sawmill                (cached)
+2026-07-01 11:44:58  SKIP  quarry                 (cached)
+2026-07-01 11:44:58  SKIP  brickyard              (cached)
+2026-07-01 11:44:58  SKIP  foundry                (cached)
+2026-07-01 11:44:58  SKIP  glassworks_II          (cached)
+2026-07-01 11:44:58  SKIP  press_II               (cached)
+2026-07-01 11:44:58  SKIP  loom_II                (cached)
+2026-07-01 11:44:58  SKIP  statue                 (cached)
+2026-07-01 11:44:58  SKIP  aqueduct               (cached)
+2026-07-01 11:44:58  SKIP  temple                 (cached)
+2026-07-01 11:44:58  SKIP  courthouse             (cached)
+2026-07-01 11:44:58  SKIP  caravansery            (cached)
+2026-07-01 11:44:58  SKIP  forum                  (cached)
+2026-07-01 11:44:58  SKIP  vineyard               (cached)
+2026-07-01 11:44:58  SKIP  bazar                  (cached)
+2026-07-01 11:44:58  SKIP  stables                (cached)
+2026-07-01 11:44:58  SKIP  archery_range          (cached)
+2026-07-01 11:44:58  SKIP  walls                  (cached)
+2026-07-01 11:45:05  FAIL  training_ground        after 1 attempt(s)
+2026-07-01 11:45:05  SKIP  dispensary             (cached)
+2026-07-01 11:45:05  SKIP  laboratory             (cached)
+2026-07-01 11:45:05  SKIP  library                (cached)
+2026-07-01 11:45:05  SKIP  school                 (cached)
+2026-07-01 11:45:05  SKIP  pantheon               (cached)
+2026-07-01 11:45:05  SKIP  gardens                (cached)
+2026-07-01 11:45:05  SKIP  town_hall              (cached)
+2026-07-01 11:45:05  SKIP  palace                 (cached)
+2026-07-01 11:45:05  SKIP  senate                 (cached)
+2026-07-01 11:45:05  SKIP  lighthouse             (cached)
+2026-07-01 11:45:05  SKIP  haven                  (cached)
+2026-07-01 11:45:05  SKIP  chamber_of_commerce    (cached)
+2026-07-01 11:45:05  SKIP  ludus                  (cached)
+2026-07-01 11:45:05  SKIP  arena                  (cached)
+2026-07-01 11:45:05  SKIP  castrum                (cached)
+2026-07-01 11:45:05  SKIP  fortifications         (cached)
+2026-07-01 11:45:05  SKIP  circus                 (cached)
+2026-07-01 11:45:05  SKIP  arsenal                (cached)
+2026-07-01 11:45:05  SKIP  siege_workshop         (cached)
+2026-07-01 11:45:05  SKIP  lodge                  (cached)
+2026-07-01 11:45:05  SKIP  academy                (cached)
+2026-07-01 11:45:05  SKIP  observatory            (cached)
+2026-07-01 11:45:05  SKIP  study                  (cached)
+2026-07-01 11:45:05  SKIP  university             (cached)
+2026-07-01 11:45:05  SKIP  workers_guild          (cached)
+2026-07-01 11:45:05  SKIP  craftsmens_guild       (cached)
+2026-07-01 11:45:05  SKIP  magistrates_guild      (cached)
+2026-07-01 11:45:05  SKIP  traders_guild          (cached)
+2026-07-01 11:45:05  SKIP  spies_guild            (cached)
+2026-07-01 11:45:05  SKIP  philosophers_guild     (cached)
+2026-07-01 11:45:05  SKIP  scientists_guild       (cached)
+2026-07-01 11:45:05  SKIP  shipowners_guild       (cached)
+2026-07-01 11:45:05  SKIP  builders_guild         (cached)
+2026-07-01 11:45:05  SKIP  decorators_guild       (cached)
+2026-07-01 11:45:05  === batch done: 0 generated, 79 skipped, 1 failed ===
+2026-07-01 11:45:05  FAILED IDS: training_ground
+2026-07-01 12:37:15  === batch start: 1 card(s), force=False dry_run=False retries=3 ===
+2026-07-01 12:37:28  OK    training_ground        flux-2-pro (570, 623) -> illustration_cache\training_ground.png
+2026-07-01 12:37:28  === batch done: 1 generated, 0 skipped, 0 failed ===

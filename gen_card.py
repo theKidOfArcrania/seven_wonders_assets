@@ -618,17 +618,16 @@ def _trade_medallion(icons, layout, cx, cy):
     # arrows on every other effect card (rr*1.44 with the standard rr=42)
     ar = 42.0 * 1.44
     half = ew / 2 + ar - 20
-    if arrows in ('both', 'left'):
+    if arrows in ('all', 'both', 'left'):
         parts.append(icons.place('arrow_left', cx - half, ecy, ar))
-    if arrows in ('both', 'right'):
+    if arrows in ('all', 'both', 'right'):
         parts.append(icons.place('arrow_right', cx + half, ecy, ar))
     return '\n'.join(parts)
 
 def _effect_medallion(icons, layout, cx, cy, r):
     '''Compose a commercial / guild power from a structured `medallion` layout:
-      { arrows: both|left|right|none, down: bool, tokens: [ {...}, ... ] }
+      { arrows: both|left|right|none|all, tokens: [ {...}, ... ] }
     optionally flanked by flat neighbour arrows and/or a down arrow.'''
-    down = bool(layout.get("down"))
     arrows = layout.get('arrows', 'none')
     row = layout.get('tokens', []) or []
 
@@ -636,12 +635,12 @@ def _effect_medallion(icons, layout, cx, cy, r):
         return _trade_medallion(icons, layout, cx, cy)
 
     # a down arrow (vineyard / bazar) pushes the glyph set up to make room below
-    dy = -24.0 if down else 0.0
+    dy = -24.0 if arrows == 'all' else 0.0
     gy = cy + dy
 
     slashes = sum(1 for tok in row if tok == 'slash')
     n = len(row) - slashes
-    has_arrows = arrows in ('both', 'left', 'right')
+    has_arrows = arrows in ('all', 'both', 'left', 'right')
     gap = 14
 
     # Every effect glyph renders at the same target size for visual consistency
@@ -655,12 +654,12 @@ def _effect_medallion(icons, layout, cx, cy, r):
     if has_arrows:
         ar = rr * 1.44
         half = sep * (n - 1) / 2.0 + rr + ar + 8
-        if arrows in ('both', 'left'):
+        if arrows in ('all', 'both', 'left'):
             parts.append(icons.place('arrow_left', cx - half, gy, ar))
-        if arrows in ('both', 'right'):
+        if arrows in ('all', 'both', 'right'):
             parts.append(icons.place('arrow_right', cx + half, gy, ar))
 
-    if down:
+    if arrows == 'all':
         parts.append(_chain_glyph(icons, 'ArrowDown', cx, gy + rr * 1.6, rr))
 
     i = 0

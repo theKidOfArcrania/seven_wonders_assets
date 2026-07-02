@@ -1,24 +1,6 @@
 # =====================================================================
 # 7 Wonders (base game) - card database
 # =====================================================================
-# SOURCES OF TRUTH (nothing here is invented from memory):
-#   - reference/tech_tree.jpg : "List of Cards" + "List of Chains".
-#       Gives: name, color/type, effect, min-player counts, chain links.
-#       Does NOT give: build cost (the resources needed to build a card).
-#   - reference/card_1.png .. card_7.png : 7 full card FACES.
-#   - reference/more_cards1.jpg : 10 guild (purple) faces.
-#   - reference/more_cards2.jpg : 20 Age III faces.
-#   - reference/more_cards3.jpg : 27 Age I + Age II faces.
-#       build_cost was read directly from the cost badges on these faces.
-#
-# READ BEFORE USING (see `_gaps` at the bottom):
-#   * build_cost is a {resource: count} map for all 80 cards; { } means free.
-#   * `color` and the banner end-symbol are NOT repeated per card - look them
-#     up from `type` in the `card_types` table below.
-#   * Some banner / chain / science icons are not yet drawn (see `_assets`).
-#   * Age III card names Ludus & Castrum and the exact numbers on the Age III
-#     yellow/guild cards were read from small chart icons - flagged to verify.
-# ---------------------------------------------------------------------
 
 meta:
   game: "7 Wonders (base game)"
@@ -29,6 +11,22 @@ meta:
     Style: painterly digital illustration, warm cinematic lighting, semi-realistic, muted earthy palette, classical antiquity art style. Portrait-orientation scene with no borders, no frame and no text.
   transcribed_ages: [I, II, III]
   notation:
+    benefit: >
+      This is an unused field, but it can be used by any other game engine
+      reading this card list to identify the behavior of a card. There are a few
+      basic principals for how this structured layout is done. It can be
+      {produces: [clay] } which says the card produces one of the specified
+      resources. It has optional `tradable` field (determines if the resource
+      is tradable with its neighbors), and `amount` if it produces two or more.
+      { trade: [clay, ore], direction: left } to reduce the trade amount to 1
+      coin when traded in the direction specified
+      { sci: compass } when the card produces a science (or can be choose one
+      if it is instead a list of them)
+      { coin: 1 } for it producing number of coins immediately
+      { vp: 1 } for it being worth the number of vp points
+      The last two fields can be combined with { criteria: military, direction: both }
+      to make the card dependent on how many of such cards (or wonder stages)
+      exist in the specified direction.
     appears_at: >
       Player counts at which a copy of the card enters the deck. e.g. [3, 4]
       = one copy present from 3 players, a second copy added at 4 players
@@ -45,7 +43,7 @@ meta:
       small placeholder disc).
     medallion: >
       The central benefit medallion. It is a STRUCTURED layout with the defined
-      as { arrows: both|left|right|none, down: bool, tokens: [ ... ] } where each
+      as { arrows: both|left|right|all|none, tokens: [ ... ] } where each
       token is a map such as { coin: 1 }, { vp: 1 }, { wonder: true, vp: 7 },
       { card: brown, vp: 1 (optional), coin: 2 (optional) }, shield, slash,
       { sci: compass|gear|tablet }, { entity: RawResources|ManufacturedGoods },
@@ -97,7 +95,7 @@ cards:
     appears_at: [3, 4]
     build_cost: {}                            # verified: card_1
     benefit:
-      produces_one_of: [wood]
+      produces: [wood]
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -114,7 +112,7 @@ cards:
     appears_at: [3, 5]
     build_cost: {}          # single-producer (user rule: free like Lumber Yard)
     benefit:
-      produces_one_of: [stone]
+      produces: [stone]
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -131,7 +129,7 @@ cards:
     appears_at: [3, 5]
     build_cost: {}          # single-producer (user rule)
     benefit:
-      produces_one_of: [clay]
+      produces: [clay]
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -148,7 +146,7 @@ cards:
     appears_at: [3, 4]
     build_cost: {}          # single-producer (user rule)
     benefit:
-      produces_one_of: [ore]
+      produces: [ore]
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -167,7 +165,7 @@ cards:
     build_cost:                # choice raw card (user rule: 1 coin)
       coin: 1
     benefit:
-      produces_one_of: [wood, clay]
+      produces: [wood, clay]
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -187,7 +185,7 @@ cards:
     build_cost:                # choice raw card (user rule)
       coin: 1
     benefit:
-      produces_one_of: [stone, clay]
+      produces: [stone, clay]
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -207,7 +205,7 @@ cards:
     build_cost:                # choice raw card (user rule)
       coin: 1
     benefit:
-      produces_one_of: [clay, ore]
+      produces: [clay, ore]
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -227,7 +225,7 @@ cards:
     build_cost:                # choice raw card (user rule)
       coin: 1
     benefit:
-      produces_one_of: [wood, stone]
+      produces: [wood, stone]
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -247,7 +245,7 @@ cards:
     build_cost:                                # verified: card_2
       coin: 1
     benefit:
-      produces_one_of: [wood, ore]
+      produces: [wood, ore]
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -267,7 +265,7 @@ cards:
     build_cost:                # choice raw card (user rule)
       coin: 1
     benefit:
-      produces_one_of: [ore, stone]
+      produces: [ore, stone]
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -287,7 +285,7 @@ cards:
     appears_at: [3, 6]
     build_cost: {}          # manufactured good; free (pattern: Press verified card_7)
     benefit:
-      produces_one_of: [glass]
+      produces: [glass]
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -304,7 +302,7 @@ cards:
     appears_at: [3, 6]
     build_cost: {}                            # verified: card_7
     benefit:
-      produces_one_of: [papyrus]
+      produces: [papyrus]
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -321,7 +319,7 @@ cards:
     appears_at: [3, 6]
     build_cost: {}          # manufactured good; free (pattern: Press verified card_7)
     benefit:
-      produces_one_of: [loom]
+      produces: [loom]
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -339,7 +337,7 @@ cards:
     appears_at: [4, 7]
     build_cost: {}          # read from more_cards3 photo (no cost badge)
     benefit:
-      victory_points: 3
+      vp: 3
     banner:
       chain_out_symbol: [hammer]
       chain_in_symbol:
@@ -357,7 +355,7 @@ cards:
     build_cost:                 # read from more_cards3 photo
       stone: 1
     benefit:
-      victory_points: 3
+      vp: 3
     banner:
       chain_out_symbol: [water_drop]
       chain_in_symbol:
@@ -374,7 +372,7 @@ cards:
     appears_at: [3, 5]
     build_cost: {}                            # verified: card_3
     benefit:
-      victory_points: 3
+      vp: 3
     banner:
       chain_out_symbol: [star]
       chain_in_symbol:
@@ -391,7 +389,7 @@ cards:
     appears_at: [3, 6]
     build_cost: {}          # read from more_cards3 photo (no cost badge)
     benefit:
-      victory_points: 3
+      vp: 3
     banner:
       chain_out_symbol: [mask]
       chain_in_symbol:
@@ -409,7 +407,7 @@ cards:
     appears_at: [4, 5, 7]
     build_cost: {}                            # verified: card_4
     benefit:
-      coins: 5
+      coin: 5
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -426,7 +424,8 @@ cards:
     appears_at: [3, 6]
     build_cost: {}          # no resource cost (user-confirmed)
     benefit:
-      effect: "trade manufactured goods (glass/loom/papyrus) with BOTH neighbours for 1 coin each"
+      trade: [glass, loom, papyrus]
+      direction: both
     banner:
       chain_out_symbol: [camel]
       chain_in_symbol:
@@ -444,7 +443,8 @@ cards:
     appears_at: [3, 7]
     build_cost: {}                            # verified: card_6
     benefit:
-      effect: "buy raw materials (brown) from the WEST (left) neighbour for 1 coin each"
+      trade: [wood, stone, ore, clay]
+      direction: left
     banner:
       chain_out_symbol: [trading_post_stall]
       chain_in_symbol:
@@ -462,7 +462,8 @@ cards:
     appears_at: [3, 7]
     build_cost: {}          # mirror of west_trading_post (verified free card_6)
     benefit:
-      effect: "buy raw materials (brown) from the EAST (right) neighbour for 1 coin each"
+      trade: [wood, stone, ore, clay]
+      direction: right
     banner:
       chain_out_symbol: [trading_post_stall]
       chain_in_symbol:
@@ -482,7 +483,7 @@ cards:
     build_cost:                # read from more_cards3 photo
       wood: 1
     benefit:
-      military_shields: 1
+      shields: 1
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -500,7 +501,7 @@ cards:
     build_cost:                                # verified: card_5
       ore: 1
     benefit:
-      military_shields: 1
+      shields: 1
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -518,7 +519,7 @@ cards:
     build_cost:                # read from more_cards3 photo
       clay: 1
     benefit:
-      military_shields: 1
+      shields: 1
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -538,7 +539,7 @@ cards:
     build_cost:                # read from more_cards3 photo
       loom: 1
     benefit:
-      science_symbol: compass
+      sci: compass
     banner:
       chain_out_symbol: [horseshoe, mortar_pestle]
       chain_in_symbol:
@@ -556,7 +557,7 @@ cards:
     build_cost:                 # read from more_cards3 photo
       glass: 1
     benefit:
-      science_symbol: gear
+      sci: gear
     banner:
       chain_out_symbol: [target, teapot]
       chain_in_symbol:
@@ -574,7 +575,7 @@ cards:
     build_cost:                   # read from more_cards3 photo
       papyrus: 1
     benefit:
-      science_symbol: tablet
+      sci: tablet
     banner:
       chain_out_symbol: [scales, open_book]
       chain_in_symbol:
@@ -598,7 +599,7 @@ cards:
     build_cost:                # Age II double-producer (user rule; Quarry verified)
       coin: 1
     benefit:
-      produces_one_of: [wood]
+      produces: [wood]
       amount: 2
     banner:
       chain_out_symbol: []
@@ -618,7 +619,7 @@ cards:
     build_cost:                # read from more_cards3 photo (coin badge; produces 2 stone)
       coin: 1
     benefit:
-      produces_one_of: [stone]
+      produces: [stone]
       amount: 2
     banner:
       chain_out_symbol: []
@@ -638,7 +639,7 @@ cards:
     build_cost:                # Age II double-producer (user rule; Quarry verified)
       coin: 1
     benefit:
-      produces_one_of: [clay]
+      produces: [clay]
       amount: 2
     banner:
       chain_out_symbol: []
@@ -658,7 +659,7 @@ cards:
     build_cost:                # Age II double-producer (user rule; Quarry verified)
       coin: 1
     benefit:
-      produces_one_of: [ore]
+      produces: [ore]
       amount: 2
     banner:
       chain_out_symbol: []
@@ -678,7 +679,7 @@ cards:
     appears_at: [3, 5]
     build_cost: {}          # manufactured good; free (pattern: Press verified card_7)
     benefit:
-      produces_one_of: [glass]
+      produces: [glass]
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -695,7 +696,7 @@ cards:
     appears_at: [3, 5]
     build_cost: {}          # manufactured good; free (pattern: Press verified card_7)
     benefit:
-      produces_one_of: [papyrus]
+      produces: [papyrus]
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -712,7 +713,7 @@ cards:
     appears_at: [3, 5]
     build_cost: {}          # manufactured good; free (pattern: Press verified card_7)
     benefit:
-      produces_one_of: [loom]
+      produces: [loom]
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -732,7 +733,7 @@ cards:
       wood: 1
       ore: 2
     benefit:
-      victory_points: 4
+      vp: 4
     banner:
       chain_out_symbol: []
       chain_in_symbol: hammer
@@ -750,7 +751,7 @@ cards:
     build_cost:                 # read from more_cards3 photo
       stone: 3
     benefit:
-      victory_points: 5
+      vp: 5
     banner:
       chain_out_symbol: []
       chain_in_symbol: water_drop
@@ -770,7 +771,7 @@ cards:
       clay: 1
       glass: 1
     benefit:
-      victory_points: 4
+      vp: 4
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -789,7 +790,7 @@ cards:
       clay: 2
       loom: 1
     benefit:
-      victory_points: 4
+      vp: 4
     banner:
       chain_out_symbol: []
       chain_in_symbol: scales
@@ -808,7 +809,8 @@ cards:
     build_cost:                # read from more_cards3 photo
       wood: 2
     benefit:                                                       # 1 raw material of your choice
-      produces_one_of: [wood, stone, clay, ore]
+      produces: [wood, stone, clay, ore]
+      tradable: false
     banner:
       chain_out_symbol: [lighthouse]
       chain_in_symbol: camel
@@ -832,7 +834,8 @@ cards:
     build_cost:                # read from more_cards3 photo
       clay: 2
     benefit:                                                       # 1 manufactured good of your choice
-      produces_one_of: [glass, loom, papyrus]
+      produces: [glass, loom, papyrus]
+      tradable: false
     banner:
       chain_out_symbol: [barrel]
       chain_in_symbol: trading_post_stall
@@ -853,13 +856,14 @@ cards:
     appears_at: [3, 6]
     build_cost: {}          # no resource cost (user-confirmed)
     benefit:
-      effect: "+1 coin for each raw-material (brown) card owned by YOU and BOTH neighbours"
+      criteria: raw_material
+      direction: all
+      coin: 1
     banner:
       chain_out_symbol: []
       chain_in_symbol:
       medallion:
-        arrows: both
-        down: true
+        arrows: all
         tokens:
         - card: brown
           coin: 1
@@ -872,13 +876,14 @@ cards:
     appears_at: [4, 7]
     build_cost: {}          # no resource cost (user-confirmed)
     benefit:
-      effect: "+2 coins for each manufactured-good (grey) card owned by YOU and BOTH neighbours"
+      criteria: manufactured_good
+      direction: all
+      coin: 1
     banner:
       chain_out_symbol: []
       chain_in_symbol:
       medallion:
-        arrows: both
-        down: true
+        arrows: all
         tokens:
         - card: grey
           coin: 2
@@ -895,7 +900,7 @@ cards:
       ore: 1
       clay: 1
     benefit:
-      military_shields: 2
+      shields: 2
     banner:
       chain_out_symbol: []
       chain_in_symbol: horseshoe
@@ -915,7 +920,7 @@ cards:
       wood: 2
       ore: 1
     benefit:
-      military_shields: 2
+      shields: 2
     banner:
       chain_out_symbol: []
       chain_in_symbol: target
@@ -934,7 +939,7 @@ cards:
     build_cost:                 # read from more_cards3 photo
       stone: 3
     benefit:
-      military_shields: 2
+      shields: 2
     banner:
       chain_out_symbol: [tower]
       chain_in_symbol:
@@ -954,7 +959,7 @@ cards:
       ore: 2
       wood: 1
     benefit:
-      military_shields: 2
+      shields: 2
     banner:
       chain_out_symbol: [helmet]
       chain_in_symbol:
@@ -975,7 +980,7 @@ cards:
       ore: 2
       glass: 1
     benefit:
-      science_symbol: compass
+      sci: compass
     banner:
       chain_out_symbol: [lightning, torch]
       chain_in_symbol: mortar_pestle
@@ -994,7 +999,7 @@ cards:
       clay: 2
       papyrus: 1
     benefit:
-      science_symbol: gear
+      sci: gear
     banner:
       chain_out_symbol: [saw, planet]
       chain_in_symbol: teapot
@@ -1013,7 +1018,7 @@ cards:
       stone: 2
       loom: 1
     benefit:
-      science_symbol: tablet
+      sci: tablet
     banner:
       chain_out_symbol: [pillars, scroll]
       chain_in_symbol: open_book
@@ -1032,7 +1037,7 @@ cards:
       wood: 1
       papyrus: 1
     benefit:
-      science_symbol: tablet
+      sci: tablet
     banner:
       chain_out_symbol: [lyre, feather]
       chain_in_symbol:
@@ -1062,7 +1067,7 @@ cards:
       papyrus: 1
       loom: 1
     benefit:
-      victory_points: 7
+      vp: 7
     banner:
       chain_out_symbol: []
       chain_in_symbol: star
@@ -1081,7 +1086,7 @@ cards:
       clay: 2
       papyrus: 1
     benefit:
-      victory_points: 5
+      vp: 5
     banner:
       chain_out_symbol: []
       chain_in_symbol: mask
@@ -1101,7 +1106,7 @@ cards:
       ore: 1
       glass: 1
     benefit:
-      victory_points: 6
+      vp: 6
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -1125,7 +1130,7 @@ cards:
       papyrus: 1
       loom: 1
     benefit:
-      victory_points: 8
+      vp: 8
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -1145,7 +1150,7 @@ cards:
       stone: 1
       ore: 1
     benefit:
-      victory_points: 6
+      vp: 6
     banner:
       chain_out_symbol: []
       chain_in_symbol: pillars
@@ -1165,7 +1170,10 @@ cards:
       stone: 1
       glass: 1
     benefit:
-      effect: "+1 coin and +1 VP for each commercial (yellow) card in YOUR city"
+      criteria: commercial
+      direction: none
+      coin: 1
+      vp: 1
     banner:
       chain_out_symbol: []
       chain_in_symbol: lighthouse
@@ -1187,7 +1195,10 @@ cards:
       ore: 1
       loom: 1
     benefit:
-      effect: "+1 coin and +1 VP for each raw-material (brown) card in YOUR city"
+      criteria: raw_material
+      direction: none
+      coin: 1
+      vp: 1
     banner:
       chain_out_symbol: []
       chain_in_symbol: barrel
@@ -1208,7 +1219,10 @@ cards:
       clay: 2
       papyrus: 1
     benefit:
-      effect: "+2 coins and +2 VP for each manufactured-good (grey) card in YOUR city"
+      criteria: manufactured_good
+      direction: none
+      coin: 2
+      vp: 2
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -1229,7 +1243,10 @@ cards:
       stone: 1
       ore: 1
     benefit:
-      effect: "+3 coins and +1 VP for each military (red) card in YOUR city (icons read from chart - verify)"
+      criteria: military
+      direction: none
+      coin: 3
+      vp: 1
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -1250,7 +1267,10 @@ cards:
       stone: 2
       ore: 1
     benefit:
-      effect: "+3 coins and +1 VP for each completed wonder stage in YOUR city"
+      criteria: wonder
+      direction: none
+      coin: 3
+      vp: 1
     banner:
       chain_out_symbol: []
       chain_in_symbol: lightning
@@ -1273,7 +1293,7 @@ cards:
       wood: 1
       papyrus: 1
     benefit:
-      military_shields: 3
+      shields: 3
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -1294,7 +1314,7 @@ cards:
       ore: 3
       clay: 1
     benefit:
-      military_shields: 3
+      shields: 3
     banner:
       chain_out_symbol: []
       chain_in_symbol: tower
@@ -1315,7 +1335,7 @@ cards:
       stone: 3
       ore: 1
     benefit:
-      military_shields: 3
+      shields: 3
     banner:
       chain_out_symbol: []
       chain_in_symbol: helmet
@@ -1337,7 +1357,7 @@ cards:
       ore: 1
       loom: 1
     benefit:
-      military_shields: 3
+      shields: 3
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -1358,7 +1378,7 @@ cards:
       clay: 3
       wood: 1
     benefit:
-      military_shields: 3
+      shields: 3
     banner:
       chain_out_symbol: []
       chain_in_symbol: saw
@@ -1381,7 +1401,7 @@ cards:
       papyrus: 1
       loom: 1
     benefit:
-      science_symbol: compass
+      sci: compass
     banner:
       chain_out_symbol: []
       chain_in_symbol: torch
@@ -1400,7 +1420,7 @@ cards:
       stone: 3
       glass: 1
     benefit:
-      science_symbol: compass
+      sci: compass
     banner:
       chain_out_symbol: []
       chain_in_symbol: lyre
@@ -1420,7 +1440,7 @@ cards:
       glass: 1
       loom: 1
     benefit:
-      science_symbol: gear
+      sci: gear
     banner:
       chain_out_symbol: []
       chain_in_symbol: planet
@@ -1440,7 +1460,7 @@ cards:
       papyrus: 1
       loom: 1
     benefit:
-      science_symbol: gear
+      sci: gear
     banner:
       chain_out_symbol: []
       chain_in_symbol: feather
@@ -1460,7 +1480,7 @@ cards:
       glass: 1
       papyrus: 1
     benefit:
-      science_symbol: tablet
+      sci: tablet
     banner:
       chain_out_symbol: []
       chain_in_symbol: scroll
@@ -1483,7 +1503,9 @@ cards:
       stone: 1
       clay: 1
     benefit:
-      effect: "+1 VP for each raw-material (brown) card in BOTH neighbouring cities"
+      criteria: raw_material
+      direction: both
+      vp: 1
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -1503,7 +1525,9 @@ cards:
       stone: 2
       ore: 2
     benefit:
-      effect: "+2 VP for each manufactured-good (grey) card in BOTH neighbouring cities"
+      criteria: raw_material
+      direction: both
+      vp: 2
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -1524,7 +1548,9 @@ cards:
       stone: 1
       loom: 1
     benefit:
-      effect: "+1 VP for each civilian (blue) card in BOTH neighbouring cities"
+      criteria: civilian
+      direction: both
+      vp: 1
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -1545,7 +1571,9 @@ cards:
       papyrus: 1
       loom: 1
     benefit:
-      effect: "+1 VP for each commercial (yellow) card in BOTH neighbouring cities"
+      criteria: commercial
+      direction: both
+      vp: 1
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -1565,7 +1593,9 @@ cards:
       clay: 2
       glass: 1
     benefit:
-      effect: "+1 VP for each military (red) card in BOTH neighbouring cities"
+      criteria: military
+      direction: both
+      vp: 1
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -1586,7 +1616,9 @@ cards:
       papyrus: 1
       loom: 1
     benefit:
-      effect: "+1 VP for each scientific (green) card in BOTH neighbouring cities"
+      criteria: scientific
+      direction: both
+      vp: 1
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -1607,7 +1639,7 @@ cards:
       ore: 2
       papyrus: 1
     benefit:
-      effect: "choose one extra science symbol (compass, gear or tablet)"
+      sci: [compass, gear, tablet]
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -1631,7 +1663,12 @@ cards:
       glass: 1
       papyrus: 1
     benefit:
-      effect: "+1 VP for each raw-material (brown), manufactured-good (grey) and guild (purple) card in YOUR city"
+      criteria:
+      - raw_material
+      - manufactured_good
+      - guild
+      direction: none
+      vp: 1
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -1656,13 +1693,14 @@ cards:
       clay: 2
       glass: 1
     benefit:
-      effect: "+1 VP for each completed wonder stage of YOU and BOTH neighbours"
+      criteria: wonder
+      direction: all
+      vp: 1
     banner:
       chain_out_symbol: []
       chain_in_symbol:
       medallion:
-        arrows: both
-        down: true
+        arrows: all
         tokens:
         - wonder: partial
           vp: 1
@@ -1678,7 +1716,9 @@ cards:
       stone: 1
       loom: 1
     benefit:
-      effect: "+7 VP if all stages of YOUR wonder are built"
+      criteria: wonder_full
+      direction: none
+      vp: 7
     banner:
       chain_out_symbol: []
       chain_in_symbol:
@@ -1689,57 +1729,3 @@ cards:
           vp: 7
     illustration_prompt: |
       Decorators and artisans adorning a newly completed wonder, gilding statues and hanging garlands and rich drapery. A craftsman on a ladder applies gold leaf to a frieze, colourful banners in triumphant light.
-
-# =====================================================================
-# ASSET INVENTORY  (for the SVG production pipeline)
-# =====================================================================
-_assets:
-  icons_available:        # hand-drawn in seven_wonders_icons.svg
-  - wood                # group g64 ("Wood") - already wired into card_1
-  - stone
-  - ore
-  - clay                # labelled "Brick" in the svg
-  - victory_point       # laurel, labelled "VP"
-  - slash               # the "/" separator for choice cards
-  icons_missing:          # COMPLEX SHAPES - flagged, NOT to be invented
-    resources: [glass, papyrus, loom]
-    economy: [coin, shield]
-    science_symbols: [compass, gear, tablet]
-    trade_arrows: [west_arrow, east_arrow, both_arrows]
-    banner_end_symbols:
-      have_reference: [square, diamond, tablet, circle, cross_x, triangle, star]   # triangle=scientific, star=guild resolved from photos
-      need_reference: []
-    chain_symbols: [star, mask, camel, trading_post_stall, horseshoe, mortar_pestle, target, teapot, scales, open_book, water_drop, hammer, lighthouse, barrel, lightning, torch, saw, planet, pillars, scroll, lyre, feather, tower, helmet]                        # the linking glyphs used across the chain list
-
-# =====================================================================
-# OPEN GAPS / QUESTIONS  (per "flag any info you are missing")
-# =====================================================================
-_gaps:
-  build_costs:
-    issue: >
-      Build costs are complete for all 80 cards. Sources: card_1..7 (7 faces),
-      more_cards1 (10 guilds), more_cards2 (20 Age III), more_cards3 (27 Age
-      I+II faces). Manufactured goods set free (pattern: Press verified free on
-      card_7); Age II double-brown producers (sawmill/brickyard/foundry) set to
-      1 coin per user rule (Quarry verified 1 coin on more_cards3). Marketplace,
-      Vineyard and Bazar are free (user-confirmed: no resource cost).
-    still_unknown: []
-    need: "None - all build costs resolved."
-  green_and_guild_faces:
-    issue: "Resolved: green (scientific) banner end-symbol = triangle; guild (purple) = star."
-    need: "None - read from more_cards1 (guild) and more_cards2/3 (green) photos."
-  age_III_confidence:
-    issue: >
-      Age III yellow cards (lighthouse/haven/chamber_of_commerce/ludus/arena)
-      and the 10 guilds: exact coin/VP numbers and self-vs-neighbour scope
-      were read from small chart icons plus standard rules. Card names 'Ludus'
-      and 'Castrum' are unusual for the base game (possibly a 2nd-edition
-      naming) - transcribed as printed on the chart.
-    need: "Confirm these against card faces if precision matters."
-  choice_resource_costs:
-    issue: >
-      Age I choice-browns (tree_farm/excavation/clay_pit/timber_yard/mine)
-      set to 1 coin per user rule; Mine (more_cards3) and forest_cave (card_2)
-      show the coin badge. Age II double-browns: Quarry verified 1 coin
-      (more_cards3); sawmill/brickyard/foundry set 1 coin by the same rule
-      (not individually photographed).

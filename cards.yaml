@@ -20,11 +20,11 @@ meta:
       is tradable with its neighbors), and `amount` if it produces two or more.
       { trade: [clay, ore], direction: left } to reduce the trade amount to 1
       coin when traded in the direction specified
-      { sci: compass } when the card produces a science (or can be choose one
-      if it is instead a list of them)
+      { sci: [compass] } when the card produces one of the specified science
+      tokens
       { coin: 1 } for it producing number of coins immediately
       { vp: 1 } for it being worth the number of vp points
-      The last two fields can be combined with { criteria: military, direction: both }
+      The last two fields can be combined with { criteria: [military], direction: both }
       to make the card dependent on how many of such cards (or wonder stages)
       exist in the specified direction.
     appears_at: >
@@ -98,7 +98,7 @@ cards:
       produces: [wood]
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -115,7 +115,7 @@ cards:
       produces: [stone]
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -132,7 +132,7 @@ cards:
       produces: [clay]
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -149,7 +149,7 @@ cards:
       produces: [ore]
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -168,7 +168,7 @@ cards:
       produces: [wood, clay]
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -188,7 +188,7 @@ cards:
       produces: [stone, clay]
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -208,7 +208,7 @@ cards:
       produces: [clay, ore]
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -228,7 +228,7 @@ cards:
       produces: [wood, stone]
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -248,7 +248,7 @@ cards:
       produces: [wood, ore]
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -268,7 +268,7 @@ cards:
       produces: [ore, stone]
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -288,7 +288,7 @@ cards:
       produces: [glass]
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -305,7 +305,7 @@ cards:
       produces: [papyrus]
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -322,7 +322,7 @@ cards:
       produces: [loom]
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -340,7 +340,7 @@ cards:
       vp: 3
     banner:
       chain_out_symbol: [hammer]
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -358,7 +358,7 @@ cards:
       vp: 3
     banner:
       chain_out_symbol: [water_drop]
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -375,7 +375,7 @@ cards:
       vp: 3
     banner:
       chain_out_symbol: [star]
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -392,7 +392,7 @@ cards:
       vp: 3
     banner:
       chain_out_symbol: [mask]
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -410,7 +410,7 @@ cards:
       coin: 5
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -428,7 +428,7 @@ cards:
       direction: both
     banner:
       chain_out_symbol: [camel]
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: both
         tokens:
@@ -447,7 +447,7 @@ cards:
       direction: left
     banner:
       chain_out_symbol: [trading_post_stall]
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: left
         tokens:
@@ -466,7 +466,7 @@ cards:
       direction: right
     banner:
       chain_out_symbol: [trading_post_stall]
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: right
         tokens:
@@ -486,7 +486,7 @@ cards:
       shields: 1
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -504,7 +504,7 @@ cards:
       shields: 1
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -522,7 +522,7 @@ cards:
       shields: 1
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -539,10 +539,10 @@ cards:
     build_cost:                # read from more_cards3 photo
       loom: 1
     benefit:
-      sci: compass
+      sci: [compass]
     banner:
       chain_out_symbol: [horseshoe, mortar_pestle]
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -557,10 +557,10 @@ cards:
     build_cost:                 # read from more_cards3 photo
       glass: 1
     benefit:
-      sci: gear
+      sci: [gear]
     banner:
       chain_out_symbol: [target, teapot]
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -575,10 +575,10 @@ cards:
     build_cost:                   # read from more_cards3 photo
       papyrus: 1
     benefit:
-      sci: tablet
+      sci: [tablet]
     banner:
       chain_out_symbol: [scales, open_book]
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -603,7 +603,7 @@ cards:
       amount: 2
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -623,7 +623,7 @@ cards:
       amount: 2
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -643,7 +643,7 @@ cards:
       amount: 2
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -663,7 +663,7 @@ cards:
       amount: 2
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -682,7 +682,7 @@ cards:
       produces: [glass]
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -699,7 +699,7 @@ cards:
       produces: [papyrus]
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -716,7 +716,7 @@ cards:
       produces: [loom]
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -774,7 +774,7 @@ cards:
       vp: 4
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -856,12 +856,12 @@ cards:
     appears_at: [3, 6]
     build_cost: {}          # no resource cost (user-confirmed)
     benefit:
-      criteria: raw_material
+      criteria: [raw_material]
       direction: all
       coin: 1
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: all
         tokens:
@@ -876,12 +876,12 @@ cards:
     appears_at: [4, 7]
     build_cost: {}          # no resource cost (user-confirmed)
     benefit:
-      criteria: manufactured_good
+      criteria: [manufactured_good]
       direction: all
       coin: 1
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: all
         tokens:
@@ -942,7 +942,7 @@ cards:
       shields: 2
     banner:
       chain_out_symbol: [tower]
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -962,7 +962,7 @@ cards:
       shields: 2
     banner:
       chain_out_symbol: [helmet]
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -980,7 +980,7 @@ cards:
       ore: 2
       glass: 1
     benefit:
-      sci: compass
+      sci: [compass]
     banner:
       chain_out_symbol: [lightning, torch]
       chain_in_symbol: mortar_pestle
@@ -999,7 +999,7 @@ cards:
       clay: 2
       papyrus: 1
     benefit:
-      sci: gear
+      sci: [gear]
     banner:
       chain_out_symbol: [saw, planet]
       chain_in_symbol: teapot
@@ -1018,7 +1018,7 @@ cards:
       stone: 2
       loom: 1
     benefit:
-      sci: tablet
+      sci: [tablet]
     banner:
       chain_out_symbol: [pillars, scroll]
       chain_in_symbol: open_book
@@ -1037,10 +1037,10 @@ cards:
       wood: 1
       papyrus: 1
     benefit:
-      sci: tablet
+      sci: [tablet]
     banner:
       chain_out_symbol: [lyre, feather]
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -1109,7 +1109,7 @@ cards:
       vp: 6
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -1133,7 +1133,7 @@ cards:
       vp: 8
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -1170,7 +1170,7 @@ cards:
       stone: 1
       glass: 1
     benefit:
-      criteria: commercial
+      criteria: [commercial]
       direction: none
       coin: 1
       vp: 1
@@ -1195,7 +1195,7 @@ cards:
       ore: 1
       loom: 1
     benefit:
-      criteria: raw_material
+      criteria: [raw_material]
       direction: none
       coin: 1
       vp: 1
@@ -1219,13 +1219,13 @@ cards:
       clay: 2
       papyrus: 1
     benefit:
-      criteria: manufactured_good
+      criteria: [manufactured_good]
       direction: none
       coin: 2
       vp: 2
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -1243,13 +1243,13 @@ cards:
       stone: 1
       ore: 1
     benefit:
-      criteria: military
+      criteria: [military]
       direction: none
       coin: 3
       vp: 1
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -1267,7 +1267,7 @@ cards:
       stone: 2
       ore: 1
     benefit:
-      criteria: wonder
+      criteria: [wonder]
       direction: none
       coin: 3
       vp: 1
@@ -1296,7 +1296,7 @@ cards:
       shields: 3
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -1360,7 +1360,7 @@ cards:
       shields: 3
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -1401,7 +1401,7 @@ cards:
       papyrus: 1
       loom: 1
     benefit:
-      sci: compass
+      sci: [compass]
     banner:
       chain_out_symbol: []
       chain_in_symbol: torch
@@ -1420,7 +1420,7 @@ cards:
       stone: 3
       glass: 1
     benefit:
-      sci: compass
+      sci: [compass]
     banner:
       chain_out_symbol: []
       chain_in_symbol: lyre
@@ -1440,7 +1440,7 @@ cards:
       glass: 1
       loom: 1
     benefit:
-      sci: gear
+      sci: [gear]
     banner:
       chain_out_symbol: []
       chain_in_symbol: planet
@@ -1460,7 +1460,7 @@ cards:
       papyrus: 1
       loom: 1
     benefit:
-      sci: gear
+      sci: [gear]
     banner:
       chain_out_symbol: []
       chain_in_symbol: feather
@@ -1480,7 +1480,7 @@ cards:
       glass: 1
       papyrus: 1
     benefit:
-      sci: tablet
+      sci: [tablet]
     banner:
       chain_out_symbol: []
       chain_in_symbol: scroll
@@ -1503,12 +1503,12 @@ cards:
       stone: 1
       clay: 1
     benefit:
-      criteria: raw_material
+      criteria: [raw_material]
       direction: both
       vp: 1
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: both
         tokens:
@@ -1525,12 +1525,12 @@ cards:
       stone: 2
       ore: 2
     benefit:
-      criteria: raw_material
+      criteria: [raw_material]
       direction: both
       vp: 2
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: both
         tokens:
@@ -1548,12 +1548,12 @@ cards:
       stone: 1
       loom: 1
     benefit:
-      criteria: civilian
+      criteria: [civilian]
       direction: both
       vp: 1
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: both
         tokens:
@@ -1571,12 +1571,12 @@ cards:
       papyrus: 1
       loom: 1
     benefit:
-      criteria: commercial
+      criteria: [commercial]
       direction: both
       vp: 1
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: both
         tokens:
@@ -1593,12 +1593,12 @@ cards:
       clay: 2
       glass: 1
     benefit:
-      criteria: military
+      criteria: [military]
       direction: both
       vp: 1
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: both
         tokens:
@@ -1616,12 +1616,12 @@ cards:
       papyrus: 1
       loom: 1
     benefit:
-      criteria: scientific
+      criteria: [scientific]
       direction: both
       vp: 1
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: both
         tokens:
@@ -1642,7 +1642,7 @@ cards:
       sci: [compass, gear, tablet]
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -1671,7 +1671,7 @@ cards:
       vp: 1
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:
@@ -1693,12 +1693,12 @@ cards:
       clay: 2
       glass: 1
     benefit:
-      criteria: wonder
+      criteria: [wonder]
       direction: all
       vp: 1
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: all
         tokens:
@@ -1716,12 +1716,12 @@ cards:
       stone: 1
       loom: 1
     benefit:
-      criteria: wonder_full
+      criteria: [wonder_full]
       direction: none
       vp: 7
     banner:
       chain_out_symbol: []
-      chain_in_symbol:
+      chain_in_symbol: null
       medallion:
         arrows: none
         tokens:

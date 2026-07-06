@@ -48,7 +48,7 @@ meta:
     medallion: >
       The central benefit medallion. It is a STRUCTURED layout with the defined
       as { arrows: both|left|right|all|none, tokens: [ ... ] } where each
-      token is a map such as { coin: 1 }, { vp: 1 }, { wonder: true, vp: 7 },
+      token is a map such as { coin: 1 }, { vp: 1 }, { wonder: partial, vp: 7 },
       { card: brown, vp: 1 (optional), coin: 2 (optional) }, shield, slash,
       { sci: compass|gear|tablet }, { entity: RawResources|ManufacturedGoods },
       or { res: wood|stone|ore|clay|glass|papyrus|loom }.

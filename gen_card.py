@@ -829,9 +829,8 @@ def load_cards(path='cards.yaml'):
     data = yaml.safe_load(open(path, encoding='utf-8'))
     types = data['card_types']
     index = {}
-    for age, cards in data['cards'].items():
-        for c in cards:
-            index[c['id']] = (c, types[c['type']])
+    for c in data['cards']:
+        index[c['id']] = (c, types[c['type']])
     return index
 
 

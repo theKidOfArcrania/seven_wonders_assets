@@ -11,6 +11,10 @@ meta:
     Style: painterly digital illustration, warm cinematic lighting, semi-realistic, muted earthy palette, classical antiquity art style. Portrait-orientation scene with no borders, no frame and no text.
   transcribed_ages: [I, II, III]
   notation:
+    age: >
+      The age this card belongs to, one of I, II, or III. Every entry under the
+      top-level `cards:` list carries this field; the deck is a single flat list
+      rather than being grouped by age.
     benefit: >
       This is an unused field, but it can be used by any other game engine
       reading this card list to identify the behavior of a card. There are a few
@@ -86,10 +90,10 @@ card_types:
 # AGE I  (27 cards) - fully cross-checked vs the 7 card photos
 # =====================================================================
 cards:
-  age_I:
 
     # ---- Raw materials (brown): 1 resource ------------------------
   - id: lumber_yard
+    age: I
     name: "Lumber Yard"
     type: raw_material
     appears_at: [3, 4]
@@ -107,6 +111,7 @@ cards:
       A sun-dappled ancient Mediterranean forest of tall oak and pine, golden light breaking through the dense green canopy. A woodcutters' clearing with a freshly cut stump of pale exposed wood, stacked logs and scattered wood chips. Two Greek workers in short white tunics fell a thick trunk in the foreground, one kneeling with an axe, one steadying the tree.
 
   - id: stone_pit
+    age: I
     name: "Stone Pit"
     type: raw_material
     appears_at: [3, 5]
@@ -124,6 +129,7 @@ cards:
       An open limestone quarry cut into a dry hillside under a bright sky, terraces of pale stone blocks. Workers in tunics split a large block free with iron wedges and mallets, chalky dust hanging in the warm air, wooden sledges and levers nearby.
 
   - id: clay_pool
+    age: I
     name: "Clay Pool"
     type: raw_material
     appears_at: [3, 5]
@@ -141,6 +147,7 @@ cards:
       A muddy riverside clay pit at golden hour, glossy reddish-brown clay banks and shallow pools. Barefoot workers dig wet clay with wooden spades and load it into large earthen jars and a handcart, reeds along the water's edge.
 
   - id: ore_vein
+    age: I
     name: "Ore Vein"
     type: raw_material
     appears_at: [3, 4]
@@ -159,6 +166,7 @@ cards:
 
     # ---- Raw materials (brown): choice of two, cost 1 coin --------
   - id: tree_farm
+    age: I
     name: "Tree Farm"
     type: raw_material
     appears_at: [6]
@@ -179,6 +187,7 @@ cards:
       A managed woodland clearing meeting an open reddish clay bank, orderly young trees on one side and a dug clay pit on the other. A worker stacks cut logs while another carries a basket of wet clay, warm afternoon light.
 
   - id: excavation
+    age: I
     name: "Excavation"
     type: raw_material
     appears_at: [4]
@@ -199,6 +208,7 @@ cards:
       A broad open earthwork trench under a wide sky, layered soil exposing both grey stone and reddish clay. Labourers dig with spades and haul spoil in wicker baskets, a wooden ramp and levering beams along the pit wall.
 
   - id: clay_pit
+    age: I
     name: "Clay Pit"
     type: raw_material
     appears_at: [3]
@@ -219,6 +229,7 @@ cards:
       A deep reddish clay pit streaked with dark bands of ore, sculpted terraces glistening after rain. Workers dig the rich earth with spades, separating lumps of clay from nodules of dark ore into two piles, tools resting against the bank.
 
   - id: timber_yard
+    age: I
     name: "Timber Yard"
     type: raw_material
     appears_at: [3]
@@ -239,6 +250,7 @@ cards:
       A busy timber yard beside a stone-cutting area, tall stacks of trimmed logs next to squared blocks of pale stone. A worker rolls a log with a peavey while another dresses a stone block with a chisel, sawdust and stone chips on the ground.
 
   - id: forest_cave
+    age: I
     name: "Forest Cave"
     type: raw_material
     appears_at: [5]
@@ -259,6 +271,7 @@ cards:
       A shadowed cave mouth set into a wooded rocky hillside, dark ore glinting on the damp cave walls while timber grows above. A worker emerges by torchlight carrying ore, cut logs stacked at the entrance, ferns and moss around the stones.
 
   - id: mine
+    age: I
     name: "Mine"
     type: raw_material
     appears_at: [6]
@@ -280,6 +293,7 @@ cards:
 
     # ---- Manufactured goods (grey) --------------------------------
   - id: glassworks
+    age: I
     name: "Glassworks"
     type: manufactured_good
     appears_at: [3, 6]
@@ -297,6 +311,7 @@ cards:
       A glassblower's workshop glowing with the orange light of a domed brick furnace. A craftsman turns a long blowpipe holding a molten bubble of glass, finished vessels and glowing embers around him, warm smoky interior.
 
   - id: press
+    age: I
     name: "Press"
     type: manufactured_good
     appears_at: [3, 6]
@@ -314,6 +329,7 @@ cards:
       A dim scriptorium workshop where craftsmen press and dry pale papyrus sheets on wooden frames. Reeds soak in a stone trough, finished scrolls stacked on a shelf, soft daylight from a high window.
 
   - id: loom
+    age: I
     name: "Loom"
     type: manufactured_good
     appears_at: [3, 6]
@@ -332,6 +348,7 @@ cards:
 
     # ---- Civilian (blue): victory points --------------------------
   - id: well
+    age: I
     name: "Well"
     type: civilian
     appears_at: [4, 7]
@@ -349,6 +366,7 @@ cards:
       A village square around an old stone well with a wooden crossbeam and rope, worn steps and a mossy trough. Women in draped robes draw and carry water jars, dust and warm morning light, low whitewashed houses behind.
 
   - id: baths
+    age: I
     name: "Baths"
     type: civilian
     appears_at: [3, 7]
@@ -367,6 +385,7 @@ cards:
       A Roman bath house interior with steaming turquoise pools and pale marble columns. Bathers relax in the warm water beneath vaulted arches, gentle shafts of light and rising steam, mosaic floors.
 
   - id: altar
+    age: I
     name: "Altar"
     type: civilian
     appears_at: [3, 5]
@@ -384,6 +403,7 @@ cards:
       An open-air marble altar on a temple terrace, fragrant offerings and a curling ribbon of incense smoke rising into blue sky. A white-robed priest raises his hands in blessing, laurel garlands and a bronze offering bowl.
 
   - id: theater
+    age: I
     name: "Theater"
     type: civilian
     appears_at: [3, 6]
@@ -402,6 +422,7 @@ cards:
 
     # ---- Commercial (yellow) --------------------------------------
   - id: tavern
+    age: I
     name: "Tavern"
     type: commercial
     appears_at: [4, 5, 7]
@@ -419,6 +440,7 @@ cards:
       A warm, lively tavern interior lit by oil lamps, patrons in tunics laughing over cups of wine at wooden tables scattered with coins. A serving woman pours from an amphora, hanging herbs and barrels behind.
 
   - id: marketplace
+    age: I
     name: "Marketplace"
     type: commercial
     appears_at: [3, 6]
@@ -438,6 +460,7 @@ cards:
       A bustling ancient marketplace at midday, rows of awning-covered stalls piled with pottery, cloth, fruit and glassware. Traders and shoppers haggle in the crowd, coins changing hands, colourful banners overhead.
 
   - id: west_trading_post
+    age: I
     name: "West Trading Post"
     type: commercial
     appears_at: [3, 7]
@@ -457,6 +480,7 @@ cards:
       A busy harbourside trading stall on a stone quay at sunset, merchants unloading amphorae and bales of raw goods from a moored ship. A trader gestures over stacked crates, gulls and rigging against a golden sky.
 
   - id: east_trading_post
+    age: I
     name: "East Trading Post"
     type: commercial
     appears_at: [3, 7]
@@ -477,6 +501,7 @@ cards:
 
     # ---- Military (red): 1 shield ---------------------------------
   - id: stockade
+    age: I
     name: "Stockade"
     type: military
     appears_at: [3, 7]
@@ -495,6 +520,7 @@ cards:
       A rugged timber palisade of tall sharpened logs encircling a small frontier settlement at dusk. Warm brazier light glows along the wooden rampart walkway, thatched rooftops peek above the wall, a dark pine forest and misty hills stretching beyond.
 
   - id: barracks
+    age: I
     name: "Barracks"
     type: military
     appears_at: [3, 5]
@@ -513,6 +539,7 @@ cards:
       A long stone barracks building with a colonnaded courtyard at dawn, orderly arched doorways and red tiled roofs. Neat rows of bunks glimpsed through open shutters, a quiet empty parade yard, banners on tall poles, soft golden morning light.
 
   - id: guard_tower
+    age: I
     name: "Guard Tower"
     type: military
     appears_at: [3, 4]
@@ -533,6 +560,7 @@ cards:
     # ---- Scientific (green): science symbols ----------------------
     # symbol read from tech-tree medallion (no green face to confirm glyph).
   - id: apothecary
+    age: I
     name: "Apothecary"
     type: scientific
     appears_at: [3, 5]
@@ -551,6 +579,7 @@ cards:
       An apothecary's shop crowded with hanging dried herbs, ceramic jars and a bronze mortar and pestle. A robed healer grinds remedies at a wooden bench by warm lamplight, scrolls and vials on shelves.
 
   - id: workshop
+    age: I
     name: "Workshop"
     type: scientific
     appears_at: [3, 7]
@@ -569,6 +598,7 @@ cards:
       A craftsman's workshop cluttered with tools, wooden gears and half-built mechanisms on a sturdy bench. An artisan bends over a geared device by lamplight, wood shavings and bronze fittings around him.
 
   - id: scriptorium
+    age: I
     name: "Scriptorium"
     type: scientific
     appears_at: [3, 4]
@@ -589,10 +619,10 @@ cards:
   # =====================================================================
   # AGE II  (23 cards)
   # =====================================================================
-  age_II:
 
     # ---- Raw materials (brown): 2 of a resource -------------------
   - id: sawmill
+    age: II
     name: "Sawmill"
     type: raw_material
     appears_at: [3, 4]
@@ -613,6 +643,7 @@ cards:
       A water-powered sawmill on a rushing stream, a great wooden wheel driving a saw through a fresh log. Stacks of sawn planks and heaps of sawdust fill the yard, workers guiding timber, spray and mist in morning light.
 
   - id: quarry
+    age: II
     name: "Quarry"
     type: raw_material
     appears_at: [3, 4]
@@ -633,6 +664,7 @@ cards:
       A vast stone quarry with stepped terraces of pale blocks, wooden cranes and rope hoists lifting massive cut stones. Teams of workers lever and roll blocks onto sledges, dust and bright sun over the pit.
 
   - id: brickyard
+    age: II
     name: "Brickyard"
     type: raw_material
     appears_at: [3, 4]
@@ -653,6 +685,7 @@ cards:
       A brickmakers' yard with rows of clay bricks drying in the sun and a smoking domed kiln. Workers press wet clay into wooden moulds and stack fired bricks, mud pits and firewood around the kiln's orange glow.
 
   - id: foundry
+    age: II
     name: "Foundry"
     type: raw_material
     appears_at: [3, 4]
@@ -674,6 +707,7 @@ cards:
 
     # ---- Manufactured goods (grey) --------------------------------
   - id: glassworks_II
+    age: II
     name: "Glassworks"
     type: manufactured_good
     appears_at: [3, 5]
@@ -691,6 +725,7 @@ cards:
       A large glassworks hall with several roaring furnaces, glassblowers shaping glowing vessels on blowpipes. Racks of finished bottles and beads catch the firelight, apprentices tending the flames in the smoky heat.
 
   - id: press_II
+    age: II
     name: "Press"
     type: manufactured_good
     appears_at: [3, 5]
@@ -708,6 +743,7 @@ cards:
       A busy papyrus workshop with long tables of pressed sheets and workers hanging scrolls to dry. Bundles of river reeds soak in troughs, stacks of finished papyrus, dusty light from high windows.
 
   - id: loom_II
+    age: II
     name: "Loom"
     type: manufactured_good
     appears_at: [3, 5]
@@ -726,6 +762,7 @@ cards:
 
     # ---- Civilian (blue) ------------------------------------------
   - id: statue
+    age: II
     name: "Statue"
     type: civilian
     appears_at: [3, 7]
@@ -745,6 +782,7 @@ cards:
       A sculptor's courtyard where an artist carves a heroic marble statue, chisel in hand, stone dust drifting in sunlight. Finished busts and a half-shaped figure stand nearby, tools and a ladder against the marble.
 
   - id: aqueduct
+    age: II
     name: "Aqueduct"
     type: civilian
     appears_at: [3, 7]
@@ -763,6 +801,7 @@ cards:
       A monumental Roman aqueduct of tiered stone arches striding across a green valley at golden hour. Water glints in the channel atop the arches, tiny figures and cypress trees below, warm sky beyond.
 
   - id: temple
+    age: II
     name: "Temple"
     type: civilian
     appears_at: [3, 6]
@@ -783,6 +822,7 @@ cards:
       A grand columned temple on a rise, white marble steps and a pediment glowing in evening light. Robed priests ascend between fluted columns, smoke from an altar, blue sky framing the sacred building.
 
   - id: courthouse
+    age: II
     name: "Courthouse"
     type: civilian
     appears_at: [3, 5]
@@ -803,6 +843,7 @@ cards:
 
     # ---- Commercial (yellow) --------------------------------------
   - id: caravansery
+    age: II
     name: "Caravansery"
     type: commercial
     appears_at: [3, 5, 6]
@@ -828,6 +869,7 @@ cards:
       A caravanserai courtyard at dusk, kneeling camels and laden mules resting beside stacked goods and water troughs. Merchants in robes gather under arched arcades, lanterns glowing, a starry desert sky above.
 
   - id: forum
+    age: II
     name: "Forum"
     type: commercial
     appears_at: [3, 6, 7]
@@ -851,6 +893,7 @@ cards:
       A bustling Roman forum plaza ringed by columns and statues, merchants and citizens trading amid stalls of varied goods. Togas and awnings in the crowd, a temple facade rising behind in warm afternoon light.
 
   - id: vineyard
+    age: II
     name: "Vineyard"
     type: commercial
     appears_at: [3, 6]
@@ -871,6 +914,7 @@ cards:
       Terraced hillside vineyards heavy with ripe grapes at harvest, rows of vines glowing in golden light. Workers carry baskets of grapes and tread them in a stone vat, an amphora of wine and a distant villa.
 
   - id: bazar
+    age: II
     name: "Bazar"
     type: commercial
     appears_at: [4, 7]
@@ -892,6 +936,7 @@ cards:
 
     # ---- Military (red): 2 shields --------------------------------
   - id: stables
+    age: II
     name: "Stables"
     type: military
     appears_at: [3, 5]
@@ -913,6 +958,7 @@ cards:
       A cavalry stable yard where grooms tend strong horses, a rider in a crested helmet mounting for drill. Saddles and lances rest against timber stalls, straw and dust in the warm morning sun.
 
   - id: archery_range
+    age: II
     name: "Archery Range"
     type: military
     appears_at: [3, 6]
@@ -933,6 +979,7 @@ cards:
       A long open practice field at golden hour with rows of round straw targets down the grass, split-rail wooden fences and a small timber equipment shed. An empty range, drifting dust, warm low sun casting long shadows across the meadow.
 
   - id: walls
+    age: II
     name: "Walls"
     type: military
     appears_at: [3, 7]
@@ -952,6 +999,7 @@ cards:
       Massive city defensive walls under construction, workers hoisting cut stone blocks up timber scaffolding with ropes and pulleys. Ramparts and a gate tower rise against the sky, tools and rubble at the base.
 
   - id: training_ground
+    age: II
     name: "Training Ground"
     type: military
     appears_at: [4, 6, 7]
@@ -973,6 +1021,7 @@ cards:
 
     # ---- Scientific (green) ---------------------------------------
   - id: dispensary
+    age: II
     name: "Dispensary"
     type: scientific
     appears_at: [3, 4]
@@ -992,6 +1041,7 @@ cards:
       A physician's dispensary lined with shelves of labelled jars, dried herbs and bronze instruments. A robed doctor mixes a remedy at a marble counter while a patient waits, warm lamplight and scrolls of remedies.
 
   - id: laboratory
+    age: II
     name: "Laboratory"
     type: scientific
     appears_at: [3, 5]
@@ -1011,6 +1061,7 @@ cards:
       An early scholar's laboratory cluttered with brass instruments, a balance scale, glass vessels and geared devices on a workbench. A robed investigator studies a mechanism by lamplight, diagrams pinned to the wall.
 
   - id: library
+    age: II
     name: "Library"
     type: scientific
     appears_at: [3, 6]
@@ -1030,6 +1081,7 @@ cards:
       A grand library hall with towering shelves of scrolls and codices, ladders reaching to the upper racks. A robed scholar reads at a long table beneath shafts of dusty golden light from high windows.
 
   - id: school
+    age: II
     name: "School"
     type: scientific
     appears_at: [3, 7]
@@ -1053,10 +1105,10 @@ cards:
   # NOTE: Ludus & Castrum names + Age III yellow/guild numbers were read
   # from small chart icons - see `_gaps.age_III_confidence`.
   # =====================================================================
-  age_III:
 
     # ---- Civilian (blue) ------------------------------------------
   - id: pantheon
+    age: III
     name: "Pantheon"
     type: civilian
     appears_at: [3, 6]
@@ -1079,6 +1131,7 @@ cards:
       The soaring interior of a domed pantheon, a great oculus casting a beam of light onto a marble floor ringed by statues of gods. Worshippers stand small beneath the vast coffered dome, incense drifting in the light.
 
   - id: gardens
+    age: III
     name: "Gardens"
     type: civilian
     appears_at: [3, 4]
@@ -1098,6 +1151,7 @@ cards:
       Lush terraced palace gardens with flowering vines cascading over stone balustrades, fountains and reflecting pools. Cypress and fruit trees frame a shaded path, peacocks and warm light over a distant city.
 
   - id: town_hall
+    age: III
     name: "Town Hall"
     type: civilian
     appears_at: [3, 6]
@@ -1118,6 +1172,7 @@ cards:
       A dignified civic hall interior, councilmen in robes gathered around a great table beneath banners and columns. Shafts of light fall on the marble floor, a raised speaker's platform and city records on shelves.
 
   - id: palace
+    age: III
     name: "Palace"
     type: civilian
     appears_at: [3, 7]
@@ -1142,6 +1197,7 @@ cards:
       An opulent royal palace hall with gilded columns, rich drapery and a marble throne on a dais. Courtiers in fine robes attend beneath a painted ceiling, golden lamplight glinting off treasures and mosaics.
 
   - id: senate
+    age: III
     name: "Senate"
     type: civilian
     appears_at: [3, 5]
@@ -1163,6 +1219,7 @@ cards:
 
     # ---- Commercial (yellow): VP + coins per own card type --------
   - id: lighthouse
+    age: III
     name: "Lighthouse"
     type: commercial
     appears_at: [3, 6]
@@ -1187,6 +1244,7 @@ cards:
       A towering stone lighthouse crowned with a blazing beacon fire on a rocky harbour headland at dusk. Ships with furled sails glide into port below, waves breaking on the rocks, gulls against a purple sky.
 
   - id: haven
+    age: III
     name: "Haven"
     type: commercial
     appears_at: [3, 4]
@@ -1212,6 +1270,7 @@ cards:
       A sheltered harbour crowded with moored merchant ships, dockworkers rolling barrels and stacking crates along a stone quay. Sails and rigging catch the golden light, warehouses and a calm sea beyond.
 
   - id: chamber_of_commerce
+    age: III
     name: "Chamber of Commerce"
     type: commercial
     appears_at: [4, 6]
@@ -1236,6 +1295,7 @@ cards:
       A merchants' counting house where robed traders tally coins and goods over ledgers and scales at a long table. Stacked crates of wares and strongboxes line the walls, warm lamplight and an abacus of beads.
 
   - id: ludus                              # name read from chart - verify
+    age: III
     name: "Ludus"
     type: commercial
     appears_at: [5, 7]
@@ -1260,6 +1320,7 @@ cards:
       A sunlit training school courtyard ringed by an arched arcade, athletes exercising and stretching on the packed sand beneath the colonnade. Amphorae and striped cloth awnings in the shade, a patterned mosaic floor, dust and bright Mediterranean midday light.
 
   - id: arena
+    age: III
     name: "Arena"
     type: commercial
     appears_at: [3, 5]
@@ -1285,6 +1346,7 @@ cards:
 
     # ---- Military (red): 3 shields --------------------------------
   - id: castrum                            # name read from chart - verify
+    age: III
     name: "Castrum"
     type: military
     appears_at: [4, 7]
@@ -1307,6 +1369,7 @@ cards:
       A fortified Roman military camp with a timber-and-earth rampart, watchtowers and orderly rows of tents. Legionaries in armour drill and stand guard at the gate, standards planted, campfires smoking at dusk.
 
   - id: fortifications
+    age: III
     name: "Fortifications"
     type: military
     appears_at: [3, 7]
@@ -1328,6 +1391,7 @@ cards:
       Massive stone fortifications with angular bastions and battlements crowning a hill at sunset. Soldiers patrol the ramparts with spears, banners flying from the towers, a deep dry moat below the walls.
 
   - id: circus
+    age: III
     name: "Circus"
     type: military
     appears_at: [4, 6]
@@ -1349,6 +1413,7 @@ cards:
       A grand chariot-racing circus, teams of horses thundering around the sand track past a central spine of obelisks. Roaring crowds fill the tiered stands, dust and dramatic light, banners whipping in the wind.
 
   - id: arsenal
+    age: III
     name: "Arsenal"
     type: military
     appears_at: [3, 5]
@@ -1371,6 +1436,7 @@ cards:
       A busy arsenal and shipyard where smiths forge weapons and workers assemble a war galley on timber stocks. Racks of spears, shields and armour line the walls, sparks and sawdust in the smoky glow of forges.
 
   - id: siege_workshop
+    age: III
     name: "Siege Workshop"
     type: military
     appears_at: [3, 5]
@@ -1393,6 +1459,7 @@ cards:
 
     # ---- Scientific (green) ---------------------------------------
   - id: lodge
+    age: III
     name: "Lodge"
     type: scientific
     appears_at: [3, 6]
@@ -1413,6 +1480,7 @@ cards:
       A secretive scholars' lodge of dark carved wood, robed members gathered by candlelight around a table strewn with charts and instruments. Shadowed alcoves and shelves of tomes, a single lamp casting warm glow.
 
   - id: academy
+    age: III
     name: "Academy"
     type: scientific
     appears_at: [3, 7]
@@ -1432,6 +1500,7 @@ cards:
       A tranquil philosophers' academy in a sunlit colonnade beside a garden, robed thinkers strolling and debating in pairs. A teacher gestures to seated students, scrolls and a geometric diagram in the dust.
 
   - id: observatory
+    age: III
     name: "Observatory"
     type: scientific
     appears_at: [3, 7]
@@ -1452,6 +1521,7 @@ cards:
       Astronomers on a rooftop terrace at night studying the stars with an armillary sphere and charts by lamplight. The Milky Way arcs over a domed city skyline, a scholar pointing to a constellation.
 
   - id: study
+    age: III
     name: "Study"
     type: scientific
     appears_at: [3, 5]
@@ -1472,6 +1542,7 @@ cards:
       A scholar's private study lined with scrolls and instruments, a robed thinker writing at a cluttered desk by candlelight. An open codex, a celestial globe and a quill, warm intimate light and deep shadows.
 
   - id: university
+    age: III
     name: "University"
     type: scientific
     appears_at: [3, 4]
@@ -1494,6 +1565,7 @@ cards:
     # ---- Guilds (purple): all appear from 3 players ---------------
     # Guild effects read from chart icons + card colours; verify exact wording.
   - id: workers_guild
+    age: III
     name: "Workers Guild"
     type: guild
     appears_at: [3]
@@ -1518,6 +1590,7 @@ cards:
       A guild of labourers and masons at a great construction site, workers hauling stone and timber with ropes and pulleys around rising scaffolding. Foremen consult plans, dust and sweat in strong daylight.
 
   - id: craftsmens_guild
+    age: III
     name: "Craftsmens Guild"
     type: guild
     appears_at: [3]
@@ -1540,6 +1613,7 @@ cards:
       An artisans' guild workshop bustling with potters, smiths and carvers each at their craft. Finished wares displayed on shelves, sparks and shavings in the air, warm cooperative light through high windows.
 
   - id: magistrates_guild
+    age: III
     name: "Magistrates Guild"
     type: guild
     appears_at: [3]
@@ -1563,6 +1637,7 @@ cards:
       A solemn assembly of robed magistrates on a marble dais, one holding a scroll of law before an attentive gathering. Columns and civic banners frame the hall, dignified light on the stone floor.
 
   - id: traders_guild
+    age: III
     name: "Traders Guild"
     type: guild
     appears_at: [3]
@@ -1586,6 +1661,7 @@ cards:
       A merchant traders' guild hall where robed dealers inspect goods, weigh coins and seal agreements over a long table. Bales, amphorae and exotic wares stacked around, ledgers and scales in warm lamplight.
 
   - id: spies_guild
+    age: III
     name: "Spies Guild"
     type: guild
     appears_at: [3]
@@ -1608,6 +1684,7 @@ cards:
       A shadowy scene of cloaked spies exchanging a sealed message in a dim torchlit alley at night. Hooded figures whisper in the gloom, one glancing over a shoulder, moonlight glinting on a dagger's hilt.
 
   - id: philosophers_guild
+    age: III
     name: "Philosophers Guild"
     type: guild
     appears_at: [3]
@@ -1631,6 +1708,7 @@ cards:
       A gathering of robed philosophers in earnest discourse beneath a colonnade at dusk, one making a point with an open hand. Scrolls and a geometric diagram between them, olive trees and a fading golden sky.
 
   - id: scientists_guild
+    age: III
     name: "Scientists Guild"
     type: guild
     appears_at: [3]
@@ -1655,6 +1733,7 @@ cards:
       A guild of scholars surrounded by instruments of learning, an armillary sphere, compass, gears and charts spread across a table. Robed thinkers measure and debate by lamplight, diagrams pinned to the walls.
 
   - id: shipowners_guild
+    age: III
     name: "Shipowners Guild"
     type: guild
     appears_at: [3]
@@ -1685,6 +1764,7 @@ cards:
       Wealthy shipowners overseeing a thriving port, directing the loading of laden merchant vessels from a stone quay. Rows of ships, stacked cargo and ledgers, gulls wheeling under a bright golden sky.
 
   - id: builders_guild
+    age: III
     name: "Builders Guild"
     type: guild
     appears_at: [3]
@@ -1708,6 +1788,7 @@ cards:
       Master builders studying plans at a monumental construction site, a great wonder rising behind timber scaffolding and cranes. Workers hoist massive stones, a foreman points aloft, dust and sun over the works.
 
   - id: decorators_guild
+    age: III
     name: "Decorators Guild"
     type: guild
     appears_at: [3]

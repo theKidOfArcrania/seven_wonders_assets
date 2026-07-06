@@ -55,10 +55,7 @@ def load_cards():
     # send only the actual "Style: ..." guidance, not the human-facing preamble
     idx = style.find("Style:")
     style = style[idx:].strip() if idx != -1 else style.strip()
-    cards = []
-    for age in ("age_I", "age_II", "age_III"):
-        for c in doc.get("cards", {}).get(age, []) or []:
-            cards.append(c)
+    cards = list(doc.get("cards", []) or [])
     return cards, style
 
 

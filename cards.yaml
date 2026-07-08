@@ -86,6 +86,514 @@ card_types:
     banner_end_symbol: star
     verified_from: [more_cards1 guild faces]
 
+wonders:
+- name: Alexandria (Day)
+  illustration_prompt: TODO
+  resource: glass
+  stages:
+  - effects:
+    - vp: 3
+    build_cost:
+      stone: 2
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 3
+  - effects:
+    - produces: [wood, stone, clay, ore]
+      tradable: false
+    build_cost:
+      ore: 2
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - res: wood
+        - slash
+        - res: stone
+        - slash
+        - res: clay
+        - slash
+        - res: ore
+  - effects:
+    - vp: 7
+    build_cost:
+      papyrus: 1
+      loom: 1
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 7
+- name: Alexandria (Night)
+  illustration_prompt: TODO
+  resource: glass
+  stages:
+  - effects:
+    - produces: [wood, stone, clay, ore]
+      tradable: false
+    build_cost:
+      clay: 2
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - res: wood
+        - slash
+        - res: stone
+        - slash
+        - res: clay
+        - slash
+        - res: ore
+  - effects:
+    - produces: [glass, papyrus, loom]
+      tradable: false
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - res: glass
+        - slash
+        - res: papyrus
+        - slash
+        - res: loom
+    build_cost:
+      ore: 3
+  - effects:
+    - vp: 7
+    build_cost:
+      wood: 4
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 7
+- name: Babylon (Day)
+  illustration_prompt: TODO
+  resource: wood
+  stages:
+  - effects:
+    - vp: 3
+    build_cost:
+      clay: 2
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - res: wood
+        - slash
+        - res: stone
+        - slash
+        - res: clay
+        - slash
+        - res: ore
+  - effects:
+    - sci: [compass, tablet, gear]
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - sci: compass
+        - slash
+        - sci: tablet
+        - slash
+        - sci: gear
+    build_cost:
+      ore: 2
+      loom: 1
+  - effects:
+    - vp: 7
+    build_cost:
+      wood: 4
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 7
+- name: Babylon (Night)
+  illustration_prompt: TODO
+  resource: wood
+  stages:
+  - effects:
+    - play: seventh
+    build_cost:
+      stone: 2
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - play: seventh
+  - effects:
+    - sci: [compass, tablet, gear]
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - sci: compass
+        - slash
+        - sci: tablet
+        - slash
+        - sci: gear
+    build_cost:
+      clay: 3
+      glass: 1
+- name: Olympia (Day)
+  illustration_prompt: TODO
+  resource: clay
+  stages:
+  - effects:
+    - vp: 3
+    build_cost:
+      stone: 2
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 3
+  - effects:
+    - play: first_color
+      cost: false
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - play: first_color
+          cost: false
+    build_cost:
+      wood: 2
+  - effects:
+    - vp: 7
+    build_cost:
+      clay: 3
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 7
+- name: Olympia (Night)
+  illustration_prompt: TODO
+  resource: clay
+  stages:
+  - effects:
+    - play: first_turn
+      cost: false
+    - vp: 2
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - play: first_turn
+          cost: false
+        - vp: 2
+    build_cost:
+      ore: 2
+  - effects:
+    - play: last_turn
+      cost: false
+    - vp: 3
+    build_cost:
+      clay: 3
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - play: last_turn
+          cost: false
+        - vp: 3
+  - effects:
+    - vp: 5
+    build_cost:
+      glass: 1
+      papyrus: 1
+      loom: 1
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 5
+- name: Halikarnoassos (Day)
+  illustration_prompt: TODO
+  resource: loom
+  stages:
+  - effects:
+    - vp: 3
+    build_cost:
+      ore: 2
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 3
+  - effects:
+    - play: discard
+      cost: false
+    build_cost:
+      glass: 1
+      papyrus: 1
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - play: discard
+          cost: false
+  - effects:
+    - vp: 7
+    build_cost:
+      stone: 3
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 7
+- name: Halikarnoassos (Night)
+  illustration_prompt: TODO
+  resource: loom
+  stages:
+  - effects:
+    - play: discard
+      cost: false
+    - vp: 2
+    build_cost:
+      clay: 2
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - play: discard
+          cost: false
+        - vp: 2
+  - effects:
+    - play: discard
+      cost: false
+    - vp: 1
+    build_cost:
+      glass: 1
+      papyrus: 1
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - play: discard
+          cost: false
+        - vp: 1
+  - effects:
+    - play: discard
+      cost: false
+    build_cost:
+      wood: 3
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - play: discard
+          cost: false
+- name: Gizah (Day)
+  illustration_prompt: TODO
+  resource: stone
+  stages:
+  - effects:
+    - vp: 3
+    build_cost:
+      wood: 2
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 3
+  - effects:
+    - vp: 5
+    build_cost:
+      clay: 2
+      loom: 1
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 5
+  - effects:
+    - vp: 7
+    build_cost:
+      stone: 4
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 7
+- name: Gizah (Night)
+  illustration_prompt: TODO
+  resource: stone
+  stages:
+  - effects:
+    - vp: 3
+    build_cost:
+      wood: 2
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 3
+  - effects:
+    - vp: 5
+    build_cost:
+      stone: 3
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 5
+  - effects:
+    - vp: 5
+    build_cost:
+      clay: 3
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 5
+  - effects:
+    - vp: 7
+    build_cost:
+      stone: 4
+      papyrus: 1
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 7
+- name: Ephesos (Day)
+  illustration_prompt: TODO
+  resource: papyrus
+  stages:
+  - effects:
+    - vp: 3
+    build_cost:
+      clay: 2
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 3
+  - effects:
+    - coin: 9
+    build_cost:
+      wood: 2
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - coin: 5
+  - effects:
+    - vp: 7
+    build_cost:
+      ore: 2
+      glass: 1
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 7
+- name: Ephesos (Night)
+  illustration_prompt: TODO
+  resource: papyrus
+  stages:
+  - effects:
+    - coin: 4
+    - vp: 2
+    build_cost:
+      stone: 2
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - coin: 4
+        - vp: 2
+  - effects:
+    - coin: 4
+    - vp: 3
+    build_cost:
+      wood: 2
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - coin: 4
+        - vp: 3
+  - effects:
+    - coin: 4
+    - vp: 5
+    build_cost:
+      ore: 2
+      loom: 2
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - coin: 4
+        - vp: 5
+- name: Rhodes (Day)
+  illustration_prompt: TODO
+  resource: ore
+  stages:
+  - effects:
+    - vp: 3
+    build_cost:
+      wood: 2
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 3
+  - effects:
+    - shields: 2
+    build_cost:
+      clay: 3
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - shield
+        - shield
+  - effects:
+    - vp: 7
+    build_cost:
+      ore: 4
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+        - vp: 7
+- name: Rhodes (Night)
+  illustration_prompt: TODO
+  resource: ore
+  stages:
+  - effects:
+    - shields: 1
+    - coin: 3
+    - vp: 3
+    build_cost:
+      stone: 3
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+          - shield
+          - coin: 3
+          - vp: 3
+  - effects:
+    - shields: 1
+    - coin: 4
+    - vp: 4
+    build_cost:
+      ore: 4
+    banner:
+      medallion:
+        arrows: none
+        tokens:
+          - shield
+          - coin: 4
+          - vp: 4
+
 # =====================================================================
 # AGE I  (27 cards) - fully cross-checked vs the 7 card photos
 # =====================================================================
@@ -1591,7 +2099,7 @@ cards:
 
   - id: craftsmens_guild
     age: III
-    name: "Craftsmens Guild"
+    name: "Craftsmen's Guild"
     type: guild
     appears_at: [3]
     build_cost:                        # read from more_cards1 photo
@@ -1717,7 +2225,7 @@ cards:
       ore: 2
       papyrus: 1
     benefit:
-      sci: [compass, gear, tablet]
+      sci: [compass, tablet, gear]
     banner:
       chain_out_symbol: []
       chain_in_symbol: null
@@ -1726,9 +2234,9 @@ cards:
         tokens:
         - sci: compass
         - slash
-        - sci: gear
-        - slash
         - sci: tablet
+        - slash
+        - sci: gear
     illustration_prompt: |
       A guild of scholars surrounded by instruments of learning, an armillary sphere, compass, gears and charts spread across a table. Robed thinkers measure and debate by lamplight, diagrams pinned to the walls.
 

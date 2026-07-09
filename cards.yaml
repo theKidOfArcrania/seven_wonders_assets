@@ -88,6 +88,7 @@ card_types:
 
 wonders:
 - name: Alexandria (Day)
+  id: alexandria_day
   illustration_prompt: TODO
   resource: glass
   stages:
@@ -127,6 +128,7 @@ wonders:
         tokens:
         - vp: 7
 - name: Alexandria (Night)
+  id: alexandria_night
   illustration_prompt: TODO
   resource: glass
   stages:
@@ -170,6 +172,7 @@ wonders:
         tokens:
         - vp: 7
 - name: Babylon (Day)
+  id: babylon_day
   illustration_prompt: TODO
   resource: wood
   stages:
@@ -212,18 +215,19 @@ wonders:
         tokens:
         - vp: 7
 - name: Babylon (Night)
+  id: babylon_night
   illustration_prompt: TODO
   resource: wood
   stages:
   - effects:
-    - play: seventh
+    - timing: seventh
     build_cost:
       stone: 2
     banner:
       medallion:
         arrows: none
         tokens:
-        - play: seventh
+        - timing: seventh
   - effects:
     - sci: [compass, tablet, gear]
     banner:
@@ -239,6 +243,7 @@ wonders:
       clay: 3
       glass: 1
 - name: Olympia (Day)
+  id: olympia_day
   illustration_prompt: TODO
   resource: clay
   stages:
@@ -252,13 +257,13 @@ wonders:
         tokens:
         - vp: 3
   - effects:
-    - play: first_color
+    - timing: first_color
       cost: false
     banner:
       medallion:
         arrows: none
         tokens:
-        - play: first_color
+        - timing: first_color
           cost: false
     build_cost:
       wood: 2
@@ -272,24 +277,25 @@ wonders:
         tokens:
         - vp: 7
 - name: Olympia (Night)
+  id: olympia_night
   illustration_prompt: TODO
   resource: clay
   stages:
   - effects:
-    - play: first_turn
+    - timing: first_turn
       cost: false
     - vp: 2
     banner:
       medallion:
         arrows: none
         tokens:
-        - play: first_turn
+        - timing: first_turn
           cost: false
         - vp: 2
     build_cost:
       ore: 2
   - effects:
-    - play: last_turn
+    - timing: last_turn
       cost: false
     - vp: 3
     build_cost:
@@ -298,7 +304,7 @@ wonders:
       medallion:
         arrows: none
         tokens:
-        - play: last_turn
+        - timing: last_turn
           cost: false
         - vp: 3
   - effects:
@@ -313,6 +319,7 @@ wonders:
         tokens:
         - vp: 5
 - name: Halikarnoassos (Day)
+  id: halikarnoassos_day
   illustration_prompt: TODO
   resource: loom
   stages:
@@ -326,7 +333,7 @@ wonders:
         tokens:
         - vp: 3
   - effects:
-    - play: discard
+    - timing: discard
       cost: false
     build_cost:
       glass: 1
@@ -335,7 +342,7 @@ wonders:
       medallion:
         arrows: none
         tokens:
-        - play: discard
+        - timing: discard
           cost: false
   - effects:
     - vp: 7
@@ -347,11 +354,12 @@ wonders:
         tokens:
         - vp: 7
 - name: Halikarnoassos (Night)
+  id: halikarnoassos_night
   illustration_prompt: TODO
   resource: loom
   stages:
   - effects:
-    - play: discard
+    - timing: discard
       cost: false
     - vp: 2
     build_cost:
@@ -360,11 +368,11 @@ wonders:
       medallion:
         arrows: none
         tokens:
-        - play: discard
+        - timing: discard
           cost: false
         - vp: 2
   - effects:
-    - play: discard
+    - timing: discard
       cost: false
     - vp: 1
     build_cost:
@@ -374,11 +382,11 @@ wonders:
       medallion:
         arrows: none
         tokens:
-        - play: discard
+        - timing: discard
           cost: false
         - vp: 1
   - effects:
-    - play: discard
+    - timing: discard
       cost: false
     build_cost:
       wood: 3
@@ -386,9 +394,10 @@ wonders:
       medallion:
         arrows: none
         tokens:
-        - play: discard
+        - timing: discard
           cost: false
 - name: Gizah (Day)
+  id: gizah_day
   illustration_prompt: TODO
   resource: stone
   stages:
@@ -421,6 +430,7 @@ wonders:
         tokens:
         - vp: 7
 - name: Gizah (Night)
+  id: gizah_night
   illustration_prompt: TODO
   resource: stone
   stages:
@@ -462,6 +472,7 @@ wonders:
         tokens:
         - vp: 7
 - name: Ephesos (Day)
+  id: ephesos_day
   illustration_prompt: TODO
   resource: papyrus
   stages:
@@ -494,6 +505,7 @@ wonders:
         tokens:
         - vp: 7
 - name: Ephesos (Night)
+  id: ephesos_night
   illustration_prompt: TODO
   resource: papyrus
   stages:
@@ -532,6 +544,7 @@ wonders:
         - coin: 4
         - vp: 5
 - name: Rhodes (Day)
+  id: rhodes_day
   illustration_prompt: TODO
   resource: ore
   stages:
@@ -564,6 +577,7 @@ wonders:
         tokens:
         - vp: 7
 - name: Rhodes (Night)
+  id: rhodes_night
   illustration_prompt: TODO
   resource: ore
   stages:

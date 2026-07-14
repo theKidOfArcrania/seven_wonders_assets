@@ -4,3 +4,9 @@ __pycache__/
 out/
 *.pyc
 *.sw?
+
+# Uncommitted asset-generation intermediaries (raw pre-crop sources and the
+# background+building composites). Final assets in illustration_cache/ ARE
+# committed; the keyed <id>_building.png files may be hand-retouched.
+illustration_cache/.src/
+experiment_out/

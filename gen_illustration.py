@@ -2,11 +2,20 @@
 
 Pipeline: prompt (illustration\\prompt.txt) -> image-generation -> PNG.
 
-Two backends:
-  * If OPENAI_API_KEY is set, calls the OpenAI Images API (model gpt-image-1)
-    to synthesize an original painting from the prompt.
+Backends (all gpt-image-1):
+  * By default the project's Azure AI Foundry resource is used via its
+    OpenAI-compatible v1 endpoint
+    (https://<resource>.services.ai.azure.com/openai/v1/), reached with the
+    standard OpenAI client + the resource api-key.
+  * If only OPENAI_API_KEY is set, public OpenAI (api.openai.com) is used.
   * Otherwise falls back to a deterministic, fully-original procedural forest
     scene drawn with PIL so the pipeline is runnable offline.
+
+Both text-to-image (`gen_openai`/`gen_azure`) and image-to-image editing
+(`edit_openai`/`edit_azure`, used to derive a Night asset from its Day image)
+are supported, as is transparent output (`transparent=True`) for isolated
+monuments. Generation helpers return the RAW model image at the requested size;
+callers crop/resize to their target with `fit()`.
 
 The reference photo is never read here.
 """
@@ -25,9 +34,12 @@ KEY_FILE = ".openai_key"             # local secret file (never commit / print)
 def load_key_file():
     """Load the API key from a local .openai_key file into the environment.
 
-    The file holds ONLY the secret key (a single line). It is wired to the
-    Azure resource by default; set AZURE_OPENAI_API_KEY/OPENAI_API_KEY env
-    vars directly to override. The key is never printed.
+    The file holds ONLY the secret key (a single line). By default it wires the
+    project's **Azure AI Foundry** resource, whose OpenAI-compatible v1 endpoint
+    (https://<resource>.services.ai.azure.com/openai/v1/) serves gpt-image-1.
+    Set the env vars directly to override, or point at public OpenAI by setting
+    OPENAI_API_KEY and leaving AZURE_FOUNDRY_ENDPOINT unset. The key is never
+    printed.
     """
     if not os.path.exists(KEY_FILE):
         return
@@ -35,17 +47,12 @@ def load_key_file():
         key = f.read().strip()
     if not key:
         return
-    # default to the project's Azure AI Foundry resource (endpoint is not secret)
+    # default to the project's Azure AI Foundry resource (endpoint is not secret).
+    # Its OpenAI-compatible v1 route is reached with the standard OpenAI client.
     os.environ.setdefault(
-        "AZURE_FOUNDRY_ENDPOINT", "https://wanghenry-testai.services.ai.azure.com/"
+        "AZURE_FOUNDRY_ENDPOINT", "https://wanghenry-testai2.services.ai.azure.com/"
     )
-    os.environ.setdefault("FLUX_DEPLOYMENT", "flux.2-pro")
     os.environ.setdefault("AZURE_FOUNDRY_API_KEY", key)
-    # also wire the legacy Azure OpenAI / OpenAI paths in case they're used
-    os.environ.setdefault(
-        "AZURE_OPENAI_ENDPOINT", "https://wanghenry-testai.openai.azure.com/"
-    )
-    os.environ.setdefault("AZURE_OPENAI_API_KEY", key)
 
 
 def read_prompt():
@@ -53,153 +60,136 @@ def read_prompt():
         return f.read().strip()
 
 
-def gen_flux(prompt):
-    """Generate via Black Forest Labs FLUX-2-pro on Azure AI Foundry.
+def _decode(b64_json):
+    """Decode a base64 image into a PIL.Image at the model's native size.
 
-    FLUX is NOT OpenAI-compatible, so it uses the BFL provider route directly:
-      POST {endpoint}providers/blackforestlabs/v1/flux-2-pro?api-version=preview
-
-    Requires:
-      * AZURE_FOUNDRY_ENDPOINT  e.g. https://<resource>.services.ai.azure.com/
-      * FLUX_DEPLOYMENT         deployment name, lower-case (e.g. flux.2-pro)
-    Auth (either one):
-      * AZURE_FOUNDRY_API_KEY   resource key, OR
-      * EntraID via azure-identity (DefaultAzureCredential / `az login`)
-    Returns a PIL.Image or None on failure.
+    Transparent PNGs keep their alpha (mode RGBA); opaque images stay RGB.
     """
-    endpoint = os.environ.get("AZURE_FOUNDRY_ENDPOINT")
-    deployment = os.environ.get("FLUX_DEPLOYMENT")
-    if not endpoint or not deployment:
-        return None
-    try:
-        import requests
-    except Exception:
-        return None
-    if not endpoint.endswith("/"):
-        endpoint += "/"
-    url = f"{endpoint}providers/blackforestlabs/v1/flux-2-pro?api-version=preview"
+    from io import BytesIO
+    return Image.open(BytesIO(base64.b64decode(b64_json)))
 
-    headers = {"Content-Type": "application/json"}
-    if os.environ.get("AZURE_FOUNDRY_API_KEY"):
-        headers["api-key"] = os.environ["AZURE_FOUNDRY_API_KEY"]
+
+def fit(img, out_size=None):
+    """Center-crop `img` to the target aspect then resize to `out_size`.
+
+    The crop preserves the target aspect ratio regardless of the source
+    orientation (portrait card, wide panorama, or tall monument), so the same
+    path serves cards and every wonder illustration kind. Alpha is preserved
+    when the source image has a transparent background.
+    """
+    out_w, out_h = out_size or (W, H)
+    img = img.convert("RGBA") if "A" in img.getbands() else img.convert("RGB")
+    ar = out_w / out_h
+    cw = int(img.height * ar)
+    if cw <= img.width:
+        left = (img.width - cw) // 2
+        img = img.crop((left, 0, left + cw, img.height))
     else:
-        try:
-            from azure.identity import DefaultAzureCredential
-            tok = DefaultAzureCredential().get_token(
-                "https://cognitiveservices.azure.com/.default"
-            )
-            headers["Authorization"] = f"Bearer {tok.token}"
-        except Exception:
-            return None
-
-    # generate aspect-matched, slightly oversampled; _b64_to_card crops to area
-    body = {
-        "prompt": prompt,
-        "n": 1,
-        "width": 1024,
-        "height": 1120,
-        "output_format": "png",
-        "model": deployment,
-    }
-    # FLUX content moderation is non-deterministic: an identical prompt may be
-    # refused (empty data, stop_reason="refusal") then accepted. Retry a few times.
-    attempts = int(os.environ.get("FLUX_MAX_ATTEMPTS", "8"))
-    last = None
-    for i in range(attempts):
-        try:
-            r = requests.post(url, headers=headers, json=body, timeout=180)
-            if r.status_code != 200:
-                print(f"FLUX generation failed: HTTP {r.status_code} {r.text[:200]}")
-                return None
-            j = r.json()
-            data = j.get("data") or []
-            if data:
-                return _b64_to_card(data[0]["b64_json"])
-            last = j.get("stop_reason")
-            print(f"FLUX attempt {i + 1}/{attempts}: no image (stop_reason={last}); retrying")
-        except Exception as e:
-            print("FLUX image generation failed:", e)
-            return None
-    print(f"FLUX gave up after {attempts} attempts (last stop_reason={last})")
-    return None
+        ch = int(img.width / ar)
+        top = (img.height - ch) // 2
+        img = img.crop((0, top, img.width, top + ch))
+    return img.resize((out_w, out_h), Image.LANCZOS)
 
 
-def gen_openai(prompt):
-    """Generate via OpenAI Images API. Returns a PIL.Image or None on failure."""
+def _img_to_png_buf(img, name="source.png"):
+    """Serialize a PIL.Image to a named in-memory PNG for the edit endpoint."""
+    from io import BytesIO
+    buf = BytesIO()
+    img.convert("RGBA").save(buf, format="PNG")
+    buf.seek(0)
+    buf.name = name
+    return buf
+
+
+def _transparent_kwargs(transparent):
+    return {"background": "transparent", "output_format": "png"} if transparent else {}
+
+
+def _call_with_optional(fn, base_kwargs, optional):
+    """Call `fn(**base_kwargs, **optional)`, retrying without any optional
+    kwargs the installed SDK/endpoint rejects (older SDKs lack e.g.
+    input_fidelity). Returns the response."""
+    try:
+        return fn(**base_kwargs, **optional)
+    except TypeError:
+        return fn(**base_kwargs)
+
+
+def _image_client():
+    """Build a gpt-image-1 client + model name, or (None, None, None).
+
+    Prefers the Azure AI Foundry resource via its OpenAI-compatible v1 endpoint
+    (base_url=https://<resource>.services.ai.azure.com/openai/v1/), reached with
+    the STANDARD OpenAI client and the resource api-key. Falls back to public
+    OpenAI (api.openai.com) when only OPENAI_API_KEY is set.
+
+    Returns (client, model, label). For the Foundry route `model` is the image
+    DEPLOYMENT name (AZURE_FOUNDRY_IMAGE_DEPLOYMENT, default "gpt-image-1.5"); the
+    preview API surface is selected with ?api-version=preview unless overridden.
+    """
     try:
         from openai import OpenAI
     except Exception:
-        return None
-    if not os.environ.get("OPENAI_API_KEY"):
-        return None
-    try:
-        client = OpenAI()
-        resp = client.images.generate(
-            model="gpt-image-1", prompt=prompt, size="1024x1024", n=1,
-        )
-        return _b64_to_card(resp.data[0].b64_json)
-    except Exception as e:
-        print("OpenAI image generation failed:", e)
-        return None
+        return None, None, None
+    endpoint = os.environ.get("AZURE_FOUNDRY_ENDPOINT")
+    key = os.environ.get("AZURE_FOUNDRY_API_KEY")
+    if endpoint and key:
+        base_url = endpoint.rstrip("/") + "/openai/v1/"
+        model = os.environ.get("AZURE_FOUNDRY_IMAGE_DEPLOYMENT", "gpt-image-1.5")
+        kwargs = {"base_url": base_url, "api_key": key}
+        api_version = os.environ.get("AZURE_FOUNDRY_API_VERSION", "preview")
+        if api_version:
+            kwargs["default_query"] = {"api-version": api_version}
+        return OpenAI(**kwargs), model, "azure-foundry"
+    if os.environ.get("OPENAI_API_KEY"):
+        return OpenAI(), os.environ.get("OPENAI_IMAGE_MODEL", "gpt-image-1.5"), "openai"
+    return None, None, None
 
 
-def gen_azure(prompt):
-    """Generate via Azure OpenAI Images (Microsoft-internal path).
+def gen_image(prompt, size="1024x1024", transparent=False):
+    """Text-to-image via gpt-image-1 (Azure Foundry v1, else public OpenAI).
 
-    Requires:
-      * AZURE_OPENAI_ENDPOINT          e.g. https://<resource>.openai.azure.com
-      * AZURE_OPENAI_IMAGE_DEPLOYMENT  the image model deployment name
-                                       (e.g. a gpt-image-1 or dall-e-3 deployment)
-    Auth (either one):
-      * AZURE_OPENAI_API_KEY           resource key, OR
-      * EntraID via azure-identity (DefaultAzureCredential / `az login`)
-    Returns a PIL.Image or None on failure.
+    `size` must be a gpt-image-1 value (1024x1024 / 1024x1536 / 1536x1024).
+    Returns (RAW PIL.Image, backend_label) or (None, None). Callers crop to
+    their final target with `fit()`.
     """
-    endpoint = os.environ.get("AZURE_OPENAI_ENDPOINT")
-    deployment = os.environ.get("AZURE_OPENAI_IMAGE_DEPLOYMENT")
-    if not endpoint or not deployment:
-        return None
+    client, model, label = _image_client()
+    if client is None:
+        return None, None
     try:
-        from openai import AzureOpenAI
-    except Exception:
-        return None
-    api_version = os.environ.get("AZURE_OPENAI_API_VERSION", "2024-10-21")
-    try:
-        if os.environ.get("AZURE_OPENAI_API_KEY"):
-            client = AzureOpenAI(
-                azure_endpoint=endpoint, api_version=api_version,
-                api_key=os.environ["AZURE_OPENAI_API_KEY"],
-            )
-        else:
-            from azure.identity import (
-                DefaultAzureCredential, get_bearer_token_provider,
-            )
-            token_provider = get_bearer_token_provider(
-                DefaultAzureCredential(),
-                "https://cognitiveservices.azure.com/.default",
-            )
-            client = AzureOpenAI(
-                azure_endpoint=endpoint, api_version=api_version,
-                azure_ad_token_provider=token_provider,
-            )
         resp = client.images.generate(
-            model=deployment, prompt=prompt, size="1024x1024", n=1,
+            model=model, prompt=prompt, size=size, n=1,
+            **_transparent_kwargs(transparent),
         )
-        return _b64_to_card(resp.data[0].b64_json)
+        return _decode(resp.data[0].b64_json), label
     except Exception as e:
-        print("Azure OpenAI image generation failed:", e)
-        return None
+        print("image generation failed:", e)
+        return None, None
 
 
-def _b64_to_card(b64_json):
-    """Decode a base64 PNG and crop/resize to the card illustration area."""
-    from io import BytesIO
-    img = Image.open(BytesIO(base64.b64decode(b64_json))).convert("RGB")
-    ar = W / H
-    cw = int(img.height * ar)
-    img = img.crop(((img.width - cw) // 2, 0,
-                    (img.width - cw) // 2 + cw, img.height))
-    return img.resize((W, H), Image.LANCZOS)
+def edit_image(src_img, prompt, size="1024x1024", transparent=False,
+               input_fidelity="high"):
+    """Image-to-image edit via gpt-image-1 (Azure Foundry v1, else public OpenAI).
+
+    Feeds `src_img` (a Day PIL.Image) plus a relight instruction to derive the
+    matching Night asset while preserving composition (input_fidelity="high").
+    Returns (RAW PIL.Image, backend_label) or (None, None).
+    """
+    client, model, label = _image_client()
+    if client is None:
+        return None, None
+    try:
+        base = dict(
+            model=model, image=_img_to_png_buf(src_img), prompt=prompt,
+            size=size, n=1, **_transparent_kwargs(transparent),
+        )
+        resp = _call_with_optional(
+            client.images.edit, base, {"input_fidelity": input_fidelity},
+        )
+        return _decode(resp.data[0].b64_json), label
+    except Exception as e:
+        print("image edit failed:", e)
+        return None, None
 
 
 def gen_procedural(seed=7):
@@ -290,12 +280,10 @@ def gen_procedural(seed=7):
 def main():
     load_key_file()
     prompt = read_prompt()
-    img, backend = gen_flux(prompt), "flux-2-pro"
-    if img is None:
-        img, backend = gen_azure(prompt), "azure-openai"
-    if img is None:
-        img, backend = gen_openai(prompt), "openai"
-    if img is None:
+    raw, backend = gen_image(prompt)
+    if raw is not None:
+        img = fit(raw, (W, H))
+    else:
         img, backend = gen_procedural(), "procedural-fallback"
     os.makedirs("illustration", exist_ok=True)
     img.save(OUT)

@@ -450,3 +450,1476 @@
 2026-07-01 12:37:15  === batch start: 1 card(s), force=False dry_run=False retries=3 ===
 2026-07-01 12:37:28  OK    training_ground        flux-2-pro (570, 623) -> illustration_cache\training_ground.png
 2026-07-01 12:37:28  === batch done: 1 generated, 0 skipped, 0 failed ===
+2026-07-13 10:39:37  === batch start: 122 item(s) [80 card(s), 14 wonder(s) x 3 kind(s)], force=False dry_run=True retries=3 ===
+2026-07-13 10:39:37  SKIP  lumber_yard                    (cached)
+2026-07-13 10:39:37  SKIP  stone_pit                      (cached)
+2026-07-13 10:39:37  SKIP  clay_pool                      (cached)
+2026-07-13 10:39:37  SKIP  ore_vein                       (cached)
+2026-07-13 10:39:37  SKIP  tree_farm                      (cached)
+2026-07-13 10:39:37  SKIP  excavation                     (cached)
+2026-07-13 10:39:37  SKIP  clay_pit                       (cached)
+2026-07-13 10:39:37  SKIP  timber_yard                    (cached)
+2026-07-13 10:39:37  SKIP  forest_cave                    (cached)
+2026-07-13 10:39:37  SKIP  mine                           (cached)
+2026-07-13 10:39:37  SKIP  glassworks                     (cached)
+2026-07-13 10:39:37  SKIP  press                          (cached)
+2026-07-13 10:39:37  SKIP  loom                           (cached)
+2026-07-13 10:39:37  SKIP  well                           (cached)
+2026-07-13 10:39:37  SKIP  baths                          (cached)
+2026-07-13 10:39:37  SKIP  altar                          (cached)
+2026-07-13 10:39:37  SKIP  theater                        (cached)
+2026-07-13 10:39:37  SKIP  tavern                         (cached)
+2026-07-13 10:39:37  SKIP  marketplace                    (cached)
+2026-07-13 10:39:37  SKIP  west_trading_post              (cached)
+2026-07-13 10:39:37  SKIP  east_trading_post              (cached)
+2026-07-13 10:39:37  SKIP  stockade                       (cached)
+2026-07-13 10:39:37  SKIP  barracks                       (cached)
+2026-07-13 10:39:37  SKIP  guard_tower                    (cached)
+2026-07-13 10:39:37  SKIP  apothecary                     (cached)
+2026-07-13 10:39:37  SKIP  workshop                       (cached)
+2026-07-13 10:39:37  SKIP  scriptorium                    (cached)
+2026-07-13 10:39:37  SKIP  sawmill                        (cached)
+2026-07-13 10:39:37  SKIP  quarry                         (cached)
+2026-07-13 10:39:37  SKIP  brickyard                      (cached)
+2026-07-13 10:39:37  SKIP  foundry                        (cached)
+2026-07-13 10:39:37  SKIP  glassworks_II                  (cached)
+2026-07-13 10:39:37  SKIP  press_II                       (cached)
+2026-07-13 10:39:37  SKIP  loom_II                        (cached)
+2026-07-13 10:39:37  SKIP  statue                         (cached)
+2026-07-13 10:39:37  SKIP  aqueduct                       (cached)
+2026-07-13 10:39:37  SKIP  temple                         (cached)
+2026-07-13 10:39:37  SKIP  courthouse                     (cached)
+2026-07-13 10:39:37  SKIP  caravansery                    (cached)
+2026-07-13 10:39:37  SKIP  forum                          (cached)
+2026-07-13 10:39:37  SKIP  vineyard                       (cached)
+2026-07-13 10:39:37  SKIP  bazar                          (cached)
+2026-07-13 10:39:37  SKIP  stables                        (cached)
+2026-07-13 10:39:37  SKIP  archery_range                  (cached)
+2026-07-13 10:39:37  SKIP  walls                          (cached)
+2026-07-13 10:39:37  SKIP  training_ground                (cached)
+2026-07-13 10:39:37  SKIP  dispensary                     (cached)
+2026-07-13 10:39:37  SKIP  laboratory                     (cached)
+2026-07-13 10:39:37  SKIP  library                        (cached)
+2026-07-13 10:39:37  SKIP  school                         (cached)
+2026-07-13 10:39:37  SKIP  pantheon                       (cached)
+2026-07-13 10:39:37  SKIP  gardens                        (cached)
+2026-07-13 10:39:37  SKIP  town_hall                      (cached)
+2026-07-13 10:39:37  SKIP  palace                         (cached)
+2026-07-13 10:39:37  SKIP  senate                         (cached)
+2026-07-13 10:39:37  SKIP  lighthouse                     (cached)
+2026-07-13 10:39:37  SKIP  haven                          (cached)
+2026-07-13 10:39:37  SKIP  chamber_of_commerce            (cached)
+2026-07-13 10:39:37  SKIP  ludus                          (cached)
+2026-07-13 10:39:37  SKIP  arena                          (cached)
+2026-07-13 10:39:37  SKIP  castrum                        (cached)
+2026-07-13 10:39:37  SKIP  fortifications                 (cached)
+2026-07-13 10:39:37  SKIP  circus                         (cached)
+2026-07-13 10:39:37  SKIP  arsenal                        (cached)
+2026-07-13 10:39:37  SKIP  siege_workshop                 (cached)
+2026-07-13 10:39:37  SKIP  lodge                          (cached)
+2026-07-13 10:39:37  SKIP  academy                        (cached)
+2026-07-13 10:39:37  SKIP  observatory                    (cached)
+2026-07-13 10:39:37  SKIP  study                          (cached)
+2026-07-13 10:39:37  SKIP  university                     (cached)
+2026-07-13 10:39:37  SKIP  workers_guild                  (cached)
+2026-07-13 10:39:37  SKIP  craftsmens_guild               (cached)
+2026-07-13 10:39:37  SKIP  magistrates_guild              (cached)
+2026-07-13 10:39:37  SKIP  traders_guild                  (cached)
+2026-07-13 10:39:37  SKIP  spies_guild                    (cached)
+2026-07-13 10:39:37  SKIP  philosophers_guild             (cached)
+2026-07-13 10:39:37  SKIP  scientists_guild               (cached)
+2026-07-13 10:39:37  SKIP  shipowners_guild               (cached)
+2026-07-13 10:39:37  SKIP  builders_guild                 (cached)
+2026-07-13 10:39:37  SKIP  decorators_guild               (cached)
+2026-07-13 10:39:37  DRY   alexandria_day_illustration    would generate
+2026-07-13 10:39:37  DRY   alexandria_day_background      would generate
+2026-07-13 10:39:37  DRY   alexandria_day_building        would generate
+2026-07-13 10:39:37  DRY   alexandria_night_illustration  would generate
+2026-07-13 10:39:37  DRY   alexandria_night_background    would generate
+2026-07-13 10:39:37  DRY   alexandria_night_building      would generate
+2026-07-13 10:39:37  DRY   babylon_day_illustration       would generate
+2026-07-13 10:39:37  DRY   babylon_day_background         would generate
+2026-07-13 10:39:37  DRY   babylon_day_building           would generate
+2026-07-13 10:39:37  DRY   babylon_night_illustration     would generate
+2026-07-13 10:39:37  DRY   babylon_night_background       would generate
+2026-07-13 10:39:37  DRY   babylon_night_building         would generate
+2026-07-13 10:39:37  DRY   olympia_day_illustration       would generate
+2026-07-13 10:39:37  DRY   olympia_day_background         would generate
+2026-07-13 10:39:37  DRY   olympia_day_building           would generate
+2026-07-13 10:39:37  DRY   olympia_night_illustration     would generate
+2026-07-13 10:39:37  DRY   olympia_night_background       would generate
+2026-07-13 10:39:37  DRY   olympia_night_building         would generate
+2026-07-13 10:39:37  DRY   halikarnoassos_day_illustration would generate
+2026-07-13 10:39:37  DRY   halikarnoassos_day_background  would generate
+2026-07-13 10:39:37  DRY   halikarnoassos_day_building    would generate
+2026-07-13 10:39:37  DRY   halikarnoassos_night_illustration would generate
+2026-07-13 10:39:37  DRY   halikarnoassos_night_background would generate
+2026-07-13 10:39:37  DRY   halikarnoassos_night_building  would generate
+2026-07-13 10:39:37  DRY   gizah_day_illustration         would generate
+2026-07-13 10:39:37  DRY   gizah_day_background           would generate
+2026-07-13 10:39:37  DRY   gizah_day_building             would generate
+2026-07-13 10:39:37  DRY   gizah_night_illustration       would generate
+2026-07-13 10:39:37  DRY   gizah_night_background         would generate
+2026-07-13 10:39:37  DRY   gizah_night_building           would generate
+2026-07-13 10:39:37  DRY   ephesos_day_illustration       would generate
+2026-07-13 10:39:37  DRY   ephesos_day_background         would generate
+2026-07-13 10:39:37  DRY   ephesos_day_building           would generate
+2026-07-13 10:39:37  DRY   ephesos_night_illustration     would generate
+2026-07-13 10:39:37  DRY   ephesos_night_background       would generate
+2026-07-13 10:39:37  DRY   ephesos_night_building         would generate
+2026-07-13 10:39:37  DRY   rhodes_day_illustration        would generate
+2026-07-13 10:39:37  DRY   rhodes_day_background          would generate
+2026-07-13 10:39:37  DRY   rhodes_day_building            would generate
+2026-07-13 10:39:37  DRY   rhodes_night_illustration      would generate
+2026-07-13 10:39:37  DRY   rhodes_night_background        would generate
+2026-07-13 10:39:37  DRY   rhodes_night_building          would generate
+2026-07-13 10:39:37  === batch done: 42 generated, 80 skipped, 0 failed ===
+2026-07-13 10:39:52  === batch start: 3 item(s) [0 card(s), 1 wonder(s) x 3 kind(s)], force=False dry_run=True retries=3 ===
+2026-07-13 10:39:52  DRY   rhodes_day_illustration        would generate
+2026-07-13 10:39:52  DRY   rhodes_day_background          would generate
+2026-07-13 10:39:52  DRY   rhodes_day_building            would generate
+2026-07-13 10:39:52  === batch done: 3 generated, 0 skipped, 0 failed ===
+2026-07-13 10:39:52  === batch start: 1 item(s) [1 card(s), 0 wonder(s) x 3 kind(s)], force=True dry_run=True retries=5 ===
+2026-07-13 10:39:52  DRY   lumber_yard                    would generate
+2026-07-13 10:39:52  === batch done: 1 generated, 0 skipped, 0 failed ===
+2026-07-13 10:45:16  === batch start: 122 item(s) [80 card(s), 14 wonder(s) x 3 kind(s)], force=False dry_run=False retries=3 ===
+2026-07-13 10:45:16  SKIP  lumber_yard                    (cached)
+2026-07-13 10:45:16  SKIP  stone_pit                      (cached)
+2026-07-13 10:45:16  SKIP  clay_pool                      (cached)
+2026-07-13 10:45:16  SKIP  ore_vein                       (cached)
+2026-07-13 10:45:16  SKIP  tree_farm                      (cached)
+2026-07-13 10:45:16  SKIP  excavation                     (cached)
+2026-07-13 10:45:16  SKIP  clay_pit                       (cached)
+2026-07-13 10:45:16  SKIP  timber_yard                    (cached)
+2026-07-13 10:45:16  SKIP  forest_cave                    (cached)
+2026-07-13 10:45:16  SKIP  mine                           (cached)
+2026-07-13 10:45:16  SKIP  glassworks                     (cached)
+2026-07-13 10:45:16  SKIP  press                          (cached)
+2026-07-13 10:45:16  SKIP  loom                           (cached)
+2026-07-13 10:45:16  SKIP  well                           (cached)
+2026-07-13 10:45:16  SKIP  baths                          (cached)
+2026-07-13 10:45:16  SKIP  altar                          (cached)
+2026-07-13 10:45:16  SKIP  theater                        (cached)
+2026-07-13 10:45:16  SKIP  tavern                         (cached)
+2026-07-13 10:45:16  SKIP  marketplace                    (cached)
+2026-07-13 10:45:16  SKIP  west_trading_post              (cached)
+2026-07-13 10:45:16  SKIP  east_trading_post              (cached)
+2026-07-13 10:45:16  SKIP  stockade                       (cached)
+2026-07-13 10:45:16  SKIP  barracks                       (cached)
+2026-07-13 10:45:16  SKIP  guard_tower                    (cached)
+2026-07-13 10:45:16  SKIP  apothecary                     (cached)
+2026-07-13 10:45:16  SKIP  workshop                       (cached)
+2026-07-13 10:45:16  SKIP  scriptorium                    (cached)
+2026-07-13 10:45:16  SKIP  sawmill                        (cached)
+2026-07-13 10:45:16  SKIP  quarry                         (cached)
+2026-07-13 10:45:16  SKIP  brickyard                      (cached)
+2026-07-13 10:45:16  SKIP  foundry                        (cached)
+2026-07-13 10:45:16  SKIP  glassworks_II                  (cached)
+2026-07-13 10:45:16  SKIP  press_II                       (cached)
+2026-07-13 10:45:16  SKIP  loom_II                        (cached)
+2026-07-13 10:45:16  SKIP  statue                         (cached)
+2026-07-13 10:45:16  SKIP  aqueduct                       (cached)
+2026-07-13 10:45:16  SKIP  temple                         (cached)
+2026-07-13 10:45:16  SKIP  courthouse                     (cached)
+2026-07-13 10:45:16  SKIP  caravansery                    (cached)
+2026-07-13 10:45:16  SKIP  forum                          (cached)
+2026-07-13 10:45:16  SKIP  vineyard                       (cached)
+2026-07-13 10:45:16  SKIP  bazar                          (cached)
+2026-07-13 10:45:16  SKIP  stables                        (cached)
+2026-07-13 10:45:16  SKIP  archery_range                  (cached)
+2026-07-13 10:45:16  SKIP  walls                          (cached)
+2026-07-13 10:45:16  SKIP  training_ground                (cached)
+2026-07-13 10:45:16  SKIP  dispensary                     (cached)
+2026-07-13 10:45:16  SKIP  laboratory                     (cached)
+2026-07-13 10:45:16  SKIP  library                        (cached)
+2026-07-13 10:45:16  SKIP  school                         (cached)
+2026-07-13 10:45:16  SKIP  pantheon                       (cached)
+2026-07-13 10:45:16  SKIP  gardens                        (cached)
+2026-07-13 10:45:16  SKIP  town_hall                      (cached)
+2026-07-13 10:45:16  SKIP  palace                         (cached)
+2026-07-13 10:45:16  SKIP  senate                         (cached)
+2026-07-13 10:45:16  SKIP  lighthouse                     (cached)
+2026-07-13 10:45:16  SKIP  haven                          (cached)
+2026-07-13 10:45:16  SKIP  chamber_of_commerce            (cached)
+2026-07-13 10:45:16  SKIP  ludus                          (cached)
+2026-07-13 10:45:16  SKIP  arena                          (cached)
+2026-07-13 10:45:16  SKIP  castrum                        (cached)
+2026-07-13 10:45:16  SKIP  fortifications                 (cached)
+2026-07-13 10:45:16  SKIP  circus                         (cached)
+2026-07-13 10:45:16  SKIP  arsenal                        (cached)
+2026-07-13 10:45:16  SKIP  siege_workshop                 (cached)
+2026-07-13 10:45:16  SKIP  lodge                          (cached)
+2026-07-13 10:45:16  SKIP  academy                        (cached)
+2026-07-13 10:45:16  SKIP  observatory                    (cached)
+2026-07-13 10:45:16  SKIP  study                          (cached)
+2026-07-13 10:45:16  SKIP  university                     (cached)
+2026-07-13 10:45:16  SKIP  workers_guild                  (cached)
+2026-07-13 10:45:16  SKIP  craftsmens_guild               (cached)
+2026-07-13 10:45:16  SKIP  magistrates_guild              (cached)
+2026-07-13 10:45:16  SKIP  traders_guild                  (cached)
+2026-07-13 10:45:16  SKIP  spies_guild                    (cached)
+2026-07-13 10:45:16  SKIP  philosophers_guild             (cached)
+2026-07-13 10:45:16  SKIP  scientists_guild               (cached)
+2026-07-13 10:45:16  SKIP  shipowners_guild               (cached)
+2026-07-13 10:45:16  SKIP  builders_guild                 (cached)
+2026-07-13 10:45:16  SKIP  decorators_guild               (cached)
+2026-07-13 10:45:42  OK    alexandria_day_illustration    flux-2-pro (570, 623) -> illustration_cache/alexandria_day_illustration.png
+2026-07-13 10:46:02  OK    alexandria_day_background      flux-2-pro (1280, 512) -> illustration_cache/alexandria_day_background.png
+2026-07-13 10:46:15  OK    alexandria_day_building        flux-2-pro (768, 1024) -> illustration_cache/alexandria_day_building.png
+2026-07-13 10:46:31  OK    alexandria_night_illustration  flux-2-pro (570, 623) -> illustration_cache/alexandria_night_illustration.png
+2026-07-13 10:46:51  OK    alexandria_night_background    flux-2-pro (1280, 512) -> illustration_cache/alexandria_night_background.png
+2026-07-13 10:47:03  OK    alexandria_night_building      flux-2-pro (768, 1024) -> illustration_cache/alexandria_night_building.png
+2026-07-13 10:47:14  OK    babylon_day_illustration       flux-2-pro (570, 623) -> illustration_cache/babylon_day_illustration.png
+2026-07-13 10:47:29  OK    babylon_day_background         flux-2-pro (1280, 512) -> illustration_cache/babylon_day_background.png
+2026-07-13 10:47:41  OK    babylon_day_building           flux-2-pro (768, 1024) -> illustration_cache/babylon_day_building.png
+2026-07-13 10:47:54  OK    babylon_night_illustration     flux-2-pro (570, 623) -> illustration_cache/babylon_night_illustration.png
+2026-07-13 10:48:05  OK    babylon_night_background       flux-2-pro (1280, 512) -> illustration_cache/babylon_night_background.png
+2026-07-13 10:48:17  OK    babylon_night_building         flux-2-pro (768, 1024) -> illustration_cache/babylon_night_building.png
+2026-07-13 10:48:34  OK    olympia_day_illustration       flux-2-pro (570, 623) -> illustration_cache/olympia_day_illustration.png
+2026-07-13 10:48:49  OK    olympia_day_background         flux-2-pro (1280, 512) -> illustration_cache/olympia_day_background.png
+2026-07-13 10:49:04  OK    olympia_day_building           flux-2-pro (768, 1024) -> illustration_cache/olympia_day_building.png
+2026-07-13 10:49:29  OK    olympia_night_illustration     flux-2-pro (570, 623) -> illustration_cache/olympia_night_illustration.png
+2026-07-13 10:49:40  OK    olympia_night_background       flux-2-pro (1280, 512) -> illustration_cache/olympia_night_background.png
+2026-07-13 10:49:54  OK    olympia_night_building         flux-2-pro (768, 1024) -> illustration_cache/olympia_night_building.png
+2026-07-13 10:50:08  OK    halikarnoassos_day_illustration flux-2-pro (570, 623) -> illustration_cache/halikarnoassos_day_illustration.png
+2026-07-13 10:50:22  OK    halikarnoassos_day_background  flux-2-pro (1280, 512) -> illustration_cache/halikarnoassos_day_background.png
+2026-07-13 10:50:38  OK    halikarnoassos_day_building    flux-2-pro (768, 1024) -> illustration_cache/halikarnoassos_day_building.png
+2026-07-13 10:50:56  OK    halikarnoassos_night_illustration flux-2-pro (570, 623) -> illustration_cache/halikarnoassos_night_illustration.png
+2026-07-13 10:51:06  OK    halikarnoassos_night_background flux-2-pro (1280, 512) -> illustration_cache/halikarnoassos_night_background.png
+2026-07-13 10:51:26  OK    halikarnoassos_night_building  flux-2-pro (768, 1024) -> illustration_cache/halikarnoassos_night_building.png
+2026-07-13 10:51:41  OK    gizah_day_illustration         flux-2-pro (570, 623) -> illustration_cache/gizah_day_illustration.png
+2026-07-13 10:51:54  OK    gizah_day_background           flux-2-pro (1280, 512) -> illustration_cache/gizah_day_background.png
+2026-07-13 10:52:04  OK    gizah_day_building             flux-2-pro (768, 1024) -> illustration_cache/gizah_day_building.png
+2026-07-13 10:52:16  OK    gizah_night_illustration       flux-2-pro (570, 623) -> illustration_cache/gizah_night_illustration.png
+2026-07-13 10:52:28  OK    gizah_night_background         flux-2-pro (1280, 512) -> illustration_cache/gizah_night_background.png
+2026-07-13 10:52:41  OK    gizah_night_building           flux-2-pro (768, 1024) -> illustration_cache/gizah_night_building.png
+2026-07-13 10:52:54  OK    ephesos_day_illustration       flux-2-pro (570, 623) -> illustration_cache/ephesos_day_illustration.png
+2026-07-13 10:53:08  OK    ephesos_day_background         flux-2-pro (1280, 512) -> illustration_cache/ephesos_day_background.png
+2026-07-13 10:53:23  OK    ephesos_day_building           flux-2-pro (768, 1024) -> illustration_cache/ephesos_day_building.png
+2026-07-13 10:53:43  OK    ephesos_night_illustration     flux-2-pro (570, 623) -> illustration_cache/ephesos_night_illustration.png
+2026-07-13 10:53:55  OK    ephesos_night_background       flux-2-pro (1280, 512) -> illustration_cache/ephesos_night_background.png
+2026-07-13 10:54:06  OK    ephesos_night_building         flux-2-pro (768, 1024) -> illustration_cache/ephesos_night_building.png
+2026-07-13 10:54:18  OK    rhodes_day_illustration        flux-2-pro (570, 623) -> illustration_cache/rhodes_day_illustration.png
+2026-07-13 10:54:29  OK    rhodes_day_background          flux-2-pro (1280, 512) -> illustration_cache/rhodes_day_background.png
+2026-07-13 10:54:40  OK    rhodes_day_building            flux-2-pro (768, 1024) -> illustration_cache/rhodes_day_building.png
+2026-07-13 10:54:54  OK    rhodes_night_illustration      flux-2-pro (570, 623) -> illustration_cache/rhodes_night_illustration.png
+2026-07-13 10:55:07  OK    rhodes_night_background        flux-2-pro (1280, 512) -> illustration_cache/rhodes_night_background.png
+2026-07-13 10:55:32  OK    rhodes_night_building          flux-2-pro (768, 1024) -> illustration_cache/rhodes_night_building.png
+2026-07-13 10:55:32  === batch done: 42 generated, 80 skipped, 0 failed ===
+2026-07-13 11:45:00  === batch start: 42 item(s) [0 card(s), 14 wonder(s) x 3 kind(s)], force=False dry_run=True retries=3 ===
+2026-07-13 11:45:00  DRY   alexandria_day_illustration    would text2img
+2026-07-13 11:45:00  DRY   alexandria_day_background      would text2img
+2026-07-13 11:45:00  DRY   alexandria_day_building        would text2img
+2026-07-13 11:45:00  DRY   alexandria_night_illustration  would text2img
+2026-07-13 11:45:00  DRY   babylon_day_illustration       would text2img
+2026-07-13 11:45:00  DRY   babylon_day_background         would text2img
+2026-07-13 11:45:00  DRY   babylon_day_building           would text2img
+2026-07-13 11:45:00  DRY   babylon_night_illustration     would text2img
+2026-07-13 11:45:00  DRY   olympia_day_illustration       would text2img
+2026-07-13 11:45:00  DRY   olympia_day_background         would text2img
+2026-07-13 11:45:00  DRY   olympia_day_building           would text2img
+2026-07-13 11:45:00  DRY   olympia_night_illustration     would text2img
+2026-07-13 11:45:00  DRY   halikarnoassos_day_illustration would text2img
+2026-07-13 11:45:00  DRY   halikarnoassos_day_background  would text2img
+2026-07-13 11:45:00  DRY   halikarnoassos_day_building    would text2img
+2026-07-13 11:45:00  DRY   halikarnoassos_night_illustration would text2img
+2026-07-13 11:45:00  DRY   gizah_day_illustration         would text2img
+2026-07-13 11:45:00  DRY   gizah_day_background           would text2img
+2026-07-13 11:45:00  DRY   gizah_day_building             would text2img
+2026-07-13 11:45:00  DRY   gizah_night_illustration       would text2img
+2026-07-13 11:45:00  DRY   ephesos_day_illustration       would text2img
+2026-07-13 11:45:00  DRY   ephesos_day_background         would text2img
+2026-07-13 11:45:00  DRY   ephesos_day_building           would text2img
+2026-07-13 11:45:00  DRY   ephesos_night_illustration     would text2img
+2026-07-13 11:45:00  DRY   rhodes_day_illustration        would text2img
+2026-07-13 11:45:00  DRY   rhodes_day_background          would text2img
+2026-07-13 11:45:00  DRY   rhodes_day_building            would text2img
+2026-07-13 11:45:00  DRY   rhodes_night_illustration      would text2img
+2026-07-13 11:45:00  DRY   alexandria_night_background    would edit
+2026-07-13 11:45:00  DRY   alexandria_night_building      would edit
+2026-07-13 11:45:00  DRY   babylon_night_background       would edit
+2026-07-13 11:45:00  DRY   babylon_night_building         would edit
+2026-07-13 11:45:00  DRY   olympia_night_background       would edit
+2026-07-13 11:45:00  DRY   olympia_night_building         would edit
+2026-07-13 11:45:00  DRY   halikarnoassos_night_background would edit
+2026-07-13 11:45:00  DRY   halikarnoassos_night_building  would edit
+2026-07-13 11:45:00  DRY   gizah_night_background         would edit
+2026-07-13 11:45:00  DRY   gizah_night_building           would edit
+2026-07-13 11:45:00  DRY   ephesos_night_background       would edit
+2026-07-13 11:45:00  DRY   ephesos_night_building         would edit
+2026-07-13 11:45:00  DRY   rhodes_night_background        would edit
+2026-07-13 11:45:00  DRY   rhodes_night_building          would edit
+2026-07-13 11:45:00  === batch done: 42 generated, 0 skipped, 0 failed ===
+2026-07-13 11:45:55  === batch start: 42 item(s) [0 card(s), 14 wonder(s) x 3 kind(s)], force=False dry_run=True retries=3 ===
+2026-07-13 11:45:55  DRY   alexandria_day_illustration    would text2img
+2026-07-13 11:45:55  DRY   alexandria_day_background      would text2img
+2026-07-13 11:45:55  DRY   alexandria_day_building        would text2img
+2026-07-13 11:45:55  DRY   alexandria_night_illustration  would text2img
+2026-07-13 11:45:55  DRY   babylon_day_illustration       would text2img
+2026-07-13 11:45:55  DRY   babylon_day_background         would text2img
+2026-07-13 11:45:55  DRY   babylon_day_building           would text2img
+2026-07-13 11:45:55  DRY   babylon_night_illustration     would text2img
+2026-07-13 11:45:55  DRY   olympia_day_illustration       would text2img
+2026-07-13 11:45:55  DRY   olympia_day_background         would text2img
+2026-07-13 11:45:55  DRY   olympia_day_building           would text2img
+2026-07-13 11:45:55  DRY   olympia_night_illustration     would text2img
+2026-07-13 11:45:55  DRY   halikarnoassos_day_illustration would text2img
+2026-07-13 11:45:55  DRY   halikarnoassos_day_background  would text2img
+2026-07-13 11:45:55  DRY   halikarnoassos_day_building    would text2img
+2026-07-13 11:45:55  DRY   halikarnoassos_night_illustration would text2img
+2026-07-13 11:45:55  DRY   gizah_day_illustration         would text2img
+2026-07-13 11:45:55  DRY   gizah_day_background           would text2img
+2026-07-13 11:45:55  DRY   gizah_day_building             would text2img
+2026-07-13 11:45:55  DRY   gizah_night_illustration       would text2img
+2026-07-13 11:45:55  DRY   ephesos_day_illustration       would text2img
+2026-07-13 11:45:55  DRY   ephesos_day_background         would text2img
+2026-07-13 11:45:55  DRY   ephesos_day_building           would text2img
+2026-07-13 11:45:55  DRY   ephesos_night_illustration     would text2img
+2026-07-13 11:45:55  DRY   rhodes_day_illustration        would text2img
+2026-07-13 11:45:55  DRY   rhodes_day_background          would text2img
+2026-07-13 11:45:55  DRY   rhodes_day_building            would text2img
+2026-07-13 11:45:55  DRY   rhodes_night_illustration      would text2img
+2026-07-13 11:45:55  DRY   alexandria_night_background    would edit
+2026-07-13 11:45:55  DRY   alexandria_night_building      would edit
+2026-07-13 11:45:55  DRY   babylon_night_background       would edit
+2026-07-13 11:45:55  DRY   babylon_night_building         would edit
+2026-07-13 11:45:55  DRY   olympia_night_background       would edit
+2026-07-13 11:45:55  DRY   olympia_night_building         would edit
+2026-07-13 11:45:55  DRY   halikarnoassos_night_background would edit
+2026-07-13 11:45:55  DRY   halikarnoassos_night_building  would edit
+2026-07-13 11:45:55  DRY   gizah_night_background         would edit
+2026-07-13 11:45:55  DRY   gizah_night_building           would edit
+2026-07-13 11:45:55  DRY   ephesos_night_background       would edit
+2026-07-13 11:45:55  DRY   ephesos_night_building         would edit
+2026-07-13 11:45:55  DRY   rhodes_night_background        would edit
+2026-07-13 11:45:55  DRY   rhodes_night_building          would edit
+2026-07-13 11:45:55  === batch done: 42 generated, 0 skipped, 0 failed ===
+2026-07-13 11:45:55  === batch start: 42 item(s) [0 card(s), 14 wonder(s) x 3 kind(s)], force=False dry_run=True retries=3 ===
+2026-07-13 11:45:55  DRY   alexandria_day_illustration    would text2img
+2026-07-13 11:45:55  DRY   alexandria_day_background      would text2img
+2026-07-13 11:45:55  DRY   alexandria_day_building        would text2img
+2026-07-13 11:45:55  DRY   alexandria_night_illustration  would text2img
+2026-07-13 11:45:55  DRY   babylon_day_illustration       would text2img
+2026-07-13 11:45:55  DRY   babylon_day_background         would text2img
+2026-07-13 11:45:55  DRY   babylon_day_building           would text2img
+2026-07-13 11:45:55  DRY   babylon_night_illustration     would text2img
+2026-07-13 11:45:55  DRY   olympia_day_illustration       would text2img
+2026-07-13 11:45:55  DRY   olympia_day_background         would text2img
+2026-07-13 11:45:55  DRY   olympia_day_building           would text2img
+2026-07-13 11:45:55  DRY   olympia_night_illustration     would text2img
+2026-07-13 11:45:55  DRY   halikarnoassos_day_illustration would text2img
+2026-07-13 11:45:55  DRY   halikarnoassos_day_background  would text2img
+2026-07-13 11:45:55  DRY   halikarnoassos_day_building    would text2img
+2026-07-13 11:45:55  DRY   halikarnoassos_night_illustration would text2img
+2026-07-13 11:45:55  DRY   gizah_day_illustration         would text2img
+2026-07-13 11:45:55  DRY   gizah_day_background           would text2img
+2026-07-13 11:45:55  DRY   gizah_day_building             would text2img
+2026-07-13 11:45:55  DRY   gizah_night_illustration       would text2img
+2026-07-13 11:45:55  DRY   ephesos_day_illustration       would text2img
+2026-07-13 11:45:55  DRY   ephesos_day_background         would text2img
+2026-07-13 11:45:55  DRY   ephesos_day_building           would text2img
+2026-07-13 11:45:55  DRY   ephesos_night_illustration     would text2img
+2026-07-13 11:45:55  DRY   rhodes_day_illustration        would text2img
+2026-07-13 11:45:55  DRY   rhodes_day_background          would text2img
+2026-07-13 11:45:55  DRY   rhodes_day_building            would text2img
+2026-07-13 11:45:55  DRY   rhodes_night_illustration      would text2img
+2026-07-13 11:45:55  DRY   alexandria_night_background    would edit
+2026-07-13 11:45:55  DRY   alexandria_night_building      would edit
+2026-07-13 11:45:55  DRY   babylon_night_background       would edit
+2026-07-13 11:45:55  DRY   babylon_night_building         would edit
+2026-07-13 11:45:55  DRY   olympia_night_background       would edit
+2026-07-13 11:45:55  DRY   olympia_night_building         would edit
+2026-07-13 11:45:55  DRY   halikarnoassos_night_background would edit
+2026-07-13 11:45:55  DRY   halikarnoassos_night_building  would edit
+2026-07-13 11:45:55  DRY   gizah_night_background         would edit
+2026-07-13 11:45:55  DRY   gizah_night_building           would edit
+2026-07-13 11:45:55  DRY   ephesos_night_background       would edit
+2026-07-13 11:45:55  DRY   ephesos_night_building         would edit
+2026-07-13 11:45:55  DRY   rhodes_night_background        would edit
+2026-07-13 11:45:55  DRY   rhodes_night_building          would edit
+2026-07-13 11:45:55  === batch done: 42 generated, 0 skipped, 0 failed ===
+2026-07-13 11:45:56  === batch start: 42 item(s) [0 card(s), 14 wonder(s) x 3 kind(s)], force=False dry_run=True retries=3 ===
+2026-07-13 11:45:56  DRY   alexandria_day_illustration    would text2img
+2026-07-13 11:45:56  DRY   alexandria_day_background      would text2img
+2026-07-13 11:45:56  DRY   alexandria_day_building        would text2img
+2026-07-13 11:45:56  DRY   alexandria_night_illustration  would text2img
+2026-07-13 11:45:56  DRY   babylon_day_illustration       would text2img
+2026-07-13 11:45:56  DRY   babylon_day_background         would text2img
+2026-07-13 11:45:56  DRY   babylon_day_building           would text2img
+2026-07-13 11:45:56  DRY   babylon_night_illustration     would text2img
+2026-07-13 11:45:56  DRY   olympia_day_illustration       would text2img
+2026-07-13 11:45:56  DRY   olympia_day_background         would text2img
+2026-07-13 11:45:56  DRY   olympia_day_building           would text2img
+2026-07-13 11:45:56  DRY   olympia_night_illustration     would text2img
+2026-07-13 11:45:56  DRY   halikarnoassos_day_illustration would text2img
+2026-07-13 11:45:56  DRY   halikarnoassos_day_background  would text2img
+2026-07-13 11:45:56  DRY   halikarnoassos_day_building    would text2img
+2026-07-13 11:45:56  DRY   halikarnoassos_night_illustration would text2img
+2026-07-13 11:45:56  DRY   gizah_day_illustration         would text2img
+2026-07-13 11:45:56  DRY   gizah_day_background           would text2img
+2026-07-13 11:45:56  DRY   gizah_day_building             would text2img
+2026-07-13 11:45:56  DRY   gizah_night_illustration       would text2img
+2026-07-13 11:45:56  DRY   ephesos_day_illustration       would text2img
+2026-07-13 11:45:56  DRY   ephesos_day_background         would text2img
+2026-07-13 11:45:56  DRY   ephesos_day_building           would text2img
+2026-07-13 11:45:56  DRY   ephesos_night_illustration     would text2img
+2026-07-13 11:45:56  DRY   rhodes_day_illustration        would text2img
+2026-07-13 11:45:56  DRY   rhodes_day_background          would text2img
+2026-07-13 11:45:56  DRY   rhodes_day_building            would text2img
+2026-07-13 11:45:56  DRY   rhodes_night_illustration      would text2img
+2026-07-13 11:45:56  DRY   alexandria_night_background    would edit
+2026-07-13 11:45:56  DRY   alexandria_night_building      would edit
+2026-07-13 11:45:56  DRY   babylon_night_background       would edit
+2026-07-13 11:45:56  DRY   babylon_night_building         would edit
+2026-07-13 11:45:56  DRY   olympia_night_background       would edit
+2026-07-13 11:45:56  DRY   olympia_night_building         would edit
+2026-07-13 11:45:56  DRY   halikarnoassos_night_background would edit
+2026-07-13 11:45:56  DRY   halikarnoassos_night_building  would edit
+2026-07-13 11:45:56  DRY   gizah_night_background         would edit
+2026-07-13 11:45:56  DRY   gizah_night_building           would edit
+2026-07-13 11:45:56  DRY   ephesos_night_background       would edit
+2026-07-13 11:45:56  DRY   ephesos_night_building         would edit
+2026-07-13 11:45:56  DRY   rhodes_night_background        would edit
+2026-07-13 11:45:56  DRY   rhodes_night_building          would edit
+2026-07-13 11:45:56  === batch done: 42 generated, 0 skipped, 0 failed ===
+2026-07-13 11:48:46  === batch start: 122 item(s) [80 card(s), 14 wonder(s) x 3 kind(s)], force=False dry_run=False retries=3 ===
+2026-07-13 11:48:46  SKIP  lumber_yard                    (cached)
+2026-07-13 11:48:46  SKIP  stone_pit                      (cached)
+2026-07-13 11:48:46  SKIP  clay_pool                      (cached)
+2026-07-13 11:48:46  SKIP  ore_vein                       (cached)
+2026-07-13 11:48:46  SKIP  tree_farm                      (cached)
+2026-07-13 11:48:46  SKIP  excavation                     (cached)
+2026-07-13 11:48:46  SKIP  clay_pit                       (cached)
+2026-07-13 11:48:46  SKIP  timber_yard                    (cached)
+2026-07-13 11:48:46  SKIP  forest_cave                    (cached)
+2026-07-13 11:48:46  SKIP  mine                           (cached)
+2026-07-13 11:48:46  SKIP  glassworks                     (cached)
+2026-07-13 11:48:46  SKIP  press                          (cached)
+2026-07-13 11:48:46  SKIP  loom                           (cached)
+2026-07-13 11:48:46  SKIP  well                           (cached)
+2026-07-13 11:48:46  SKIP  baths                          (cached)
+2026-07-13 11:48:46  SKIP  altar                          (cached)
+2026-07-13 11:48:46  SKIP  theater                        (cached)
+2026-07-13 11:48:46  SKIP  tavern                         (cached)
+2026-07-13 11:48:46  SKIP  marketplace                    (cached)
+2026-07-13 11:48:46  SKIP  west_trading_post              (cached)
+2026-07-13 11:48:46  SKIP  east_trading_post              (cached)
+2026-07-13 11:48:46  SKIP  stockade                       (cached)
+2026-07-13 11:48:46  SKIP  barracks                       (cached)
+2026-07-13 11:48:46  SKIP  guard_tower                    (cached)
+2026-07-13 11:48:46  SKIP  apothecary                     (cached)
+2026-07-13 11:48:46  SKIP  workshop                       (cached)
+2026-07-13 11:48:46  SKIP  scriptorium                    (cached)
+2026-07-13 11:48:46  SKIP  sawmill                        (cached)
+2026-07-13 11:48:46  SKIP  quarry                         (cached)
+2026-07-13 11:48:46  SKIP  brickyard                      (cached)
+2026-07-13 11:48:46  SKIP  foundry                        (cached)
+2026-07-13 11:48:46  SKIP  glassworks_II                  (cached)
+2026-07-13 11:48:46  SKIP  press_II                       (cached)
+2026-07-13 11:48:46  SKIP  loom_II                        (cached)
+2026-07-13 11:48:46  SKIP  statue                         (cached)
+2026-07-13 11:48:46  SKIP  aqueduct                       (cached)
+2026-07-13 11:48:46  SKIP  temple                         (cached)
+2026-07-13 11:48:46  SKIP  courthouse                     (cached)
+2026-07-13 11:48:46  SKIP  caravansery                    (cached)
+2026-07-13 11:48:46  SKIP  forum                          (cached)
+2026-07-13 11:48:46  SKIP  vineyard                       (cached)
+2026-07-13 11:48:46  SKIP  bazar                          (cached)
+2026-07-13 11:48:46  SKIP  stables                        (cached)
+2026-07-13 11:48:46  SKIP  archery_range                  (cached)
+2026-07-13 11:48:46  SKIP  walls                          (cached)
+2026-07-13 11:48:46  SKIP  training_ground                (cached)
+2026-07-13 11:48:46  SKIP  dispensary                     (cached)
+2026-07-13 11:48:46  SKIP  laboratory                     (cached)
+2026-07-13 11:48:46  SKIP  library                        (cached)
+2026-07-13 11:48:46  SKIP  school                         (cached)
+2026-07-13 11:48:46  SKIP  pantheon                       (cached)
+2026-07-13 11:48:46  SKIP  gardens                        (cached)
+2026-07-13 11:48:46  SKIP  town_hall                      (cached)
+2026-07-13 11:48:46  SKIP  palace                         (cached)
+2026-07-13 11:48:46  SKIP  senate                         (cached)
+2026-07-13 11:48:46  SKIP  lighthouse                     (cached)
+2026-07-13 11:48:46  SKIP  haven                          (cached)
+2026-07-13 11:48:46  SKIP  chamber_of_commerce            (cached)
+2026-07-13 11:48:46  SKIP  ludus                          (cached)
+2026-07-13 11:48:46  SKIP  arena                          (cached)
+2026-07-13 11:48:46  SKIP  castrum                        (cached)
+2026-07-13 11:48:46  SKIP  fortifications                 (cached)
+2026-07-13 11:48:46  SKIP  circus                         (cached)
+2026-07-13 11:48:46  SKIP  arsenal                        (cached)
+2026-07-13 11:48:46  SKIP  siege_workshop                 (cached)
+2026-07-13 11:48:46  SKIP  lodge                          (cached)
+2026-07-13 11:48:46  SKIP  academy                        (cached)
+2026-07-13 11:48:46  SKIP  observatory                    (cached)
+2026-07-13 11:48:46  SKIP  study                          (cached)
+2026-07-13 11:48:46  SKIP  university                     (cached)
+2026-07-13 11:48:46  SKIP  workers_guild                  (cached)
+2026-07-13 11:48:46  SKIP  craftsmens_guild               (cached)
+2026-07-13 11:48:46  SKIP  magistrates_guild              (cached)
+2026-07-13 11:48:46  SKIP  traders_guild                  (cached)
+2026-07-13 11:48:46  SKIP  spies_guild                    (cached)
+2026-07-13 11:48:46  SKIP  philosophers_guild             (cached)
+2026-07-13 11:48:46  SKIP  scientists_guild               (cached)
+2026-07-13 11:48:46  SKIP  shipowners_guild               (cached)
+2026-07-13 11:48:46  SKIP  builders_guild                 (cached)
+2026-07-13 11:48:46  SKIP  decorators_guild               (cached)
+2026-07-13 11:48:46  RETRY alexandria_day_illustration    attempt 1/3 failed; waiting 5s
+2026-07-13 11:48:51  RETRY alexandria_day_illustration    attempt 2/3 failed; waiting 10s
+2026-07-13 11:49:01  FAIL  alexandria_day_illustration    after 3 attempt(s)
+2026-07-13 11:49:01  RETRY alexandria_day_background      attempt 1/3 failed; waiting 5s
+2026-07-13 11:49:06  RETRY alexandria_day_background      attempt 2/3 failed; waiting 10s
+2026-07-13 11:49:16  FAIL  alexandria_day_background      after 3 attempt(s)
+2026-07-13 11:49:16  RETRY alexandria_day_building        attempt 1/3 failed; waiting 5s
+2026-07-13 11:49:21  RETRY alexandria_day_building        attempt 2/3 failed; waiting 10s
+2026-07-13 12:03:44  === batch start: 6 item(s) [0 card(s), 2 wonder(s) x 3 kind(s)], force=True dry_run=False retries=3 ===
+2026-07-13 12:04:33  OK    rhodes_day_illustration        azure-foundry (570, 623) -> illustration_cache/rhodes_day_illustration.png
+2026-07-13 12:05:16  OK    rhodes_day_background          azure-foundry (1280, 512) -> illustration_cache/rhodes_day_background.png
+2026-07-13 12:06:03  OK    rhodes_day_building            azure-foundry (768, 1024) -> illustration_cache/rhodes_day_building.png
+2026-07-13 12:06:45  OK    rhodes_night_illustration      azure-foundry (570, 623) -> illustration_cache/rhodes_night_illustration.png
+2026-07-13 12:07:51  OK    rhodes_night_background        azure-foundry (1280, 512) -> illustration_cache/rhodes_night_background.png
+2026-07-13 12:08:38  === batch start: 122 item(s) [80 card(s), 14 wonder(s) x 3 kind(s)], force=False dry_run=False retries=3 ===
+2026-07-13 12:08:38  SKIP  lumber_yard                    (cached)
+2026-07-13 12:08:38  SKIP  stone_pit                      (cached)
+2026-07-13 12:08:38  SKIP  clay_pool                      (cached)
+2026-07-13 12:08:38  SKIP  ore_vein                       (cached)
+2026-07-13 12:08:38  SKIP  tree_farm                      (cached)
+2026-07-13 12:08:38  SKIP  excavation                     (cached)
+2026-07-13 12:08:38  SKIP  clay_pit                       (cached)
+2026-07-13 12:08:38  SKIP  timber_yard                    (cached)
+2026-07-13 12:08:38  SKIP  forest_cave                    (cached)
+2026-07-13 12:08:38  SKIP  mine                           (cached)
+2026-07-13 12:08:38  SKIP  glassworks                     (cached)
+2026-07-13 12:08:38  SKIP  press                          (cached)
+2026-07-13 12:08:38  SKIP  loom                           (cached)
+2026-07-13 12:08:38  SKIP  well                           (cached)
+2026-07-13 12:08:38  SKIP  baths                          (cached)
+2026-07-13 12:08:38  SKIP  altar                          (cached)
+2026-07-13 12:08:38  SKIP  theater                        (cached)
+2026-07-13 12:08:38  SKIP  tavern                         (cached)
+2026-07-13 12:08:38  SKIP  marketplace                    (cached)
+2026-07-13 12:08:38  SKIP  west_trading_post              (cached)
+2026-07-13 12:08:38  SKIP  east_trading_post              (cached)
+2026-07-13 12:08:38  SKIP  stockade                       (cached)
+2026-07-13 12:08:38  SKIP  barracks                       (cached)
+2026-07-13 12:08:38  SKIP  guard_tower                    (cached)
+2026-07-13 12:08:38  SKIP  apothecary                     (cached)
+2026-07-13 12:08:38  SKIP  workshop                       (cached)
+2026-07-13 12:08:38  SKIP  scriptorium                    (cached)
+2026-07-13 12:08:38  SKIP  sawmill                        (cached)
+2026-07-13 12:08:38  SKIP  quarry                         (cached)
+2026-07-13 12:08:38  SKIP  brickyard                      (cached)
+2026-07-13 12:08:38  SKIP  foundry                        (cached)
+2026-07-13 12:08:38  SKIP  glassworks_II                  (cached)
+2026-07-13 12:08:38  SKIP  press_II                       (cached)
+2026-07-13 12:08:38  SKIP  loom_II                        (cached)
+2026-07-13 12:08:38  SKIP  statue                         (cached)
+2026-07-13 12:08:38  SKIP  aqueduct                       (cached)
+2026-07-13 12:08:38  SKIP  temple                         (cached)
+2026-07-13 12:08:38  SKIP  courthouse                     (cached)
+2026-07-13 12:08:38  SKIP  caravansery                    (cached)
+2026-07-13 12:08:38  SKIP  forum                          (cached)
+2026-07-13 12:08:38  SKIP  vineyard                       (cached)
+2026-07-13 12:08:38  SKIP  bazar                          (cached)
+2026-07-13 12:08:38  SKIP  stables                        (cached)
+2026-07-13 12:08:38  SKIP  archery_range                  (cached)
+2026-07-13 12:08:38  SKIP  walls                          (cached)
+2026-07-13 12:08:38  SKIP  training_ground                (cached)
+2026-07-13 12:08:38  SKIP  dispensary                     (cached)
+2026-07-13 12:08:38  SKIP  laboratory                     (cached)
+2026-07-13 12:08:38  SKIP  library                        (cached)
+2026-07-13 12:08:38  SKIP  school                         (cached)
+2026-07-13 12:08:38  SKIP  pantheon                       (cached)
+2026-07-13 12:08:38  SKIP  gardens                        (cached)
+2026-07-13 12:08:38  SKIP  town_hall                      (cached)
+2026-07-13 12:08:38  SKIP  palace                         (cached)
+2026-07-13 12:08:38  SKIP  senate                         (cached)
+2026-07-13 12:08:38  SKIP  lighthouse                     (cached)
+2026-07-13 12:08:38  SKIP  haven                          (cached)
+2026-07-13 12:08:38  SKIP  chamber_of_commerce            (cached)
+2026-07-13 12:08:38  SKIP  ludus                          (cached)
+2026-07-13 12:08:38  SKIP  arena                          (cached)
+2026-07-13 12:08:38  SKIP  castrum                        (cached)
+2026-07-13 12:08:38  SKIP  fortifications                 (cached)
+2026-07-13 12:08:38  SKIP  circus                         (cached)
+2026-07-13 12:08:38  SKIP  arsenal                        (cached)
+2026-07-13 12:08:38  SKIP  siege_workshop                 (cached)
+2026-07-13 12:08:38  SKIP  lodge                          (cached)
+2026-07-13 12:08:38  SKIP  academy                        (cached)
+2026-07-13 12:08:38  SKIP  observatory                    (cached)
+2026-07-13 12:08:38  SKIP  study                          (cached)
+2026-07-13 12:08:38  SKIP  university                     (cached)
+2026-07-13 12:08:38  SKIP  workers_guild                  (cached)
+2026-07-13 12:08:38  SKIP  craftsmens_guild               (cached)
+2026-07-13 12:08:38  SKIP  magistrates_guild              (cached)
+2026-07-13 12:08:38  SKIP  traders_guild                  (cached)
+2026-07-13 12:08:38  SKIP  spies_guild                    (cached)
+2026-07-13 12:08:38  SKIP  philosophers_guild             (cached)
+2026-07-13 12:08:38  SKIP  scientists_guild               (cached)
+2026-07-13 12:08:38  SKIP  shipowners_guild               (cached)
+2026-07-13 12:08:38  SKIP  builders_guild                 (cached)
+2026-07-13 12:08:38  SKIP  decorators_guild               (cached)
+2026-07-13 12:08:38  RETRY alexandria_day_illustration    attempt 1/3 failed; waiting 5s
+2026-07-13 12:08:46  OK    rhodes_night_building          azure-foundry (768, 1024) -> illustration_cache/rhodes_night_building.png
+2026-07-13 12:08:46  === batch done: 6 generated, 0 skipped, 0 failed ===
+2026-07-13 12:23:59  === batch start: 6 item(s) [0 card(s), 2 wonder(s) x 3 kind(s)], force=False dry_run=False retries=3 ===
+2026-07-13 12:23:59  SKIP  rhodes_day_illustration        (cached)
+2026-07-13 12:23:59  SKIP  rhodes_day_background          (cached)
+2026-07-13 12:24:54  OK    rhodes_day_building            azure-foundry (768, 1024) -> illustration_cache/rhodes_day_building.png
+2026-07-13 12:24:54  SKIP  rhodes_night_illustration      (cached)
+2026-07-13 12:24:54  SKIP  rhodes_night_background        (cached)
+2026-07-13 12:25:46  OK    rhodes_night_building          azure-foundry (768, 1024) -> illustration_cache/rhodes_night_building.png
+2026-07-13 12:25:46  === batch done: 2 generated, 4 skipped, 0 failed ===
+2026-07-13 15:28:23  === batch start: 8 item(s) [0 card(s), 2 wonder(s) x 4 kind(s)], force=False dry_run=False retries=3 ===
+2026-07-13 15:28:23  SKIP  rhodes_day_illustration        (cached)
+2026-07-13 15:28:23  SKIP  rhodes_day_background          (cached)
+2026-07-13 15:28:23  SKIP  rhodes_night_illustration      (cached)
+2026-07-13 15:28:23  SKIP  rhodes_day_composite           (cached)
+2026-07-13 15:29:18  OK    rhodes_night_background        azure-foundry (1280, 512) -> illustration_cache/rhodes_night_background.png
+2026-07-13 15:29:18  SKIP  rhodes_night_composite         (cached)
+2026-07-13 15:29:21  OK    rhodes_day_building            keyout (768, 1024) -> illustration_cache/rhodes_day_building.png
+2026-07-13 15:29:23  OK    rhodes_night_building          keyout (768, 1024) -> illustration_cache/rhodes_night_building.png
+2026-07-13 15:29:23  === batch done: 3 generated, 5 skipped, 0 failed ===
+2026-07-13 15:33:24  === batch start: 8 item(s) [0 card(s), 2 wonder(s) x 4 kind(s)], force=False dry_run=True retries=3 ===
+2026-07-13 15:33:24  SKIP  rhodes_day_illustration        (cached)
+2026-07-13 15:33:24  SKIP  rhodes_day_background          (cached)
+2026-07-13 15:33:24  SKIP  rhodes_night_illustration      (cached)
+2026-07-13 15:33:24  SKIP  rhodes_day_composite           (cached)
+2026-07-13 15:33:24  SKIP  rhodes_night_background        (cached)
+2026-07-13 15:33:24  SKIP  rhodes_night_composite         (cached)
+2026-07-13 15:33:24  SKIP  rhodes_day_building            (cached)
+2026-07-13 15:33:24  SKIP  rhodes_night_building          (cached)
+2026-07-13 15:33:24  === batch done: 0 generated, 8 skipped, 0 failed ===
+2026-07-13 15:33:24  === batch start: 8 item(s) [0 card(s), 2 wonder(s) x 4 kind(s)], force=False dry_run=False retries=3 ===
+2026-07-13 15:33:24  SKIP  rhodes_day_illustration        (cached)
+2026-07-13 15:33:24  SKIP  rhodes_day_background          (cached)
+2026-07-13 15:33:24  SKIP  rhodes_night_illustration      (cached)
+2026-07-13 15:33:24  SKIP  rhodes_day_composite           (cached)
+2026-07-13 15:33:24  SKIP  rhodes_night_background        (cached)
+2026-07-13 15:33:24  SKIP  rhodes_night_composite         (cached)
+2026-07-13 15:33:24  SKIP  rhodes_day_building            (cached)
+2026-07-13 15:33:24  SKIP  rhodes_night_building          (cached)
+2026-07-13 15:33:24  === batch done: 0 generated, 8 skipped, 0 failed ===
+2026-07-13 15:35:03  === batch start: 56 item(s) [0 card(s), 14 wonder(s) x 4 kind(s)], force=True dry_run=True retries=3 ===
+2026-07-13 15:35:03  DRY   alexandria_day_illustration    would text2img
+2026-07-13 15:35:03  DRY   alexandria_day_background      would text2img
+2026-07-13 15:35:03  DRY   alexandria_night_illustration  would text2img
+2026-07-13 15:35:03  DRY   babylon_day_illustration       would text2img
+2026-07-13 15:35:03  DRY   babylon_day_background         would text2img
+2026-07-13 15:35:03  DRY   babylon_night_illustration     would text2img
+2026-07-13 15:35:03  DRY   olympia_day_illustration       would text2img
+2026-07-13 15:35:03  DRY   olympia_day_background         would text2img
+2026-07-13 15:35:03  DRY   olympia_night_illustration     would text2img
+2026-07-13 15:35:03  DRY   halikarnoassos_day_illustration would text2img
+2026-07-13 15:35:03  DRY   halikarnoassos_day_background  would text2img
+2026-07-13 15:35:03  DRY   halikarnoassos_night_illustration would text2img
+2026-07-13 15:35:03  DRY   gizah_day_illustration         would text2img
+2026-07-13 15:35:03  DRY   gizah_day_background           would text2img
+2026-07-13 15:35:03  DRY   gizah_night_illustration       would text2img
+2026-07-13 15:35:03  DRY   ephesos_day_illustration       would text2img
+2026-07-13 15:35:03  DRY   ephesos_day_background         would text2img
+2026-07-13 15:35:03  DRY   ephesos_night_illustration     would text2img
+2026-07-13 15:35:03  DRY   rhodes_day_illustration        would text2img
+2026-07-13 15:35:03  DRY   rhodes_day_background          would text2img
+2026-07-13 15:35:03  DRY   rhodes_night_illustration      would text2img
+2026-07-13 15:35:03  DRY   alexandria_day_composite       would composite
+2026-07-13 15:35:03  DRY   alexandria_night_background    would edit
+2026-07-13 15:35:03  DRY   babylon_day_composite          would composite
+2026-07-13 15:35:03  DRY   babylon_night_background       would edit
+2026-07-13 15:35:03  DRY   olympia_day_composite          would composite
+2026-07-13 15:35:03  DRY   olympia_night_background       would edit
+2026-07-13 15:35:03  DRY   halikarnoassos_day_composite   would composite
+2026-07-13 15:35:03  DRY   halikarnoassos_night_background would edit
+2026-07-13 15:35:03  DRY   gizah_day_composite            would composite
+2026-07-13 15:35:03  DRY   gizah_night_background         would edit
+2026-07-13 15:35:03  DRY   ephesos_day_composite          would composite
+2026-07-13 15:35:03  DRY   ephesos_night_background       would edit
+2026-07-13 15:35:03  DRY   rhodes_day_composite           would composite
+2026-07-13 15:35:03  DRY   rhodes_night_background        would edit
+2026-07-13 15:35:03  DRY   alexandria_night_composite     would composite
+2026-07-13 15:35:03  DRY   babylon_night_composite        would composite
+2026-07-13 15:35:03  DRY   olympia_night_composite        would composite
+2026-07-13 15:35:03  DRY   halikarnoassos_night_composite would composite
+2026-07-13 15:35:03  DRY   gizah_night_composite          would composite
+2026-07-13 15:35:03  DRY   ephesos_night_composite        would composite
+2026-07-13 15:35:03  DRY   rhodes_night_composite         would composite
+2026-07-13 15:35:03  DRY   alexandria_day_building        would keyout
+2026-07-13 15:35:03  DRY   alexandria_night_building      would keyout
+2026-07-13 15:35:03  DRY   babylon_day_building           would keyout
+2026-07-13 15:35:03  DRY   babylon_night_building         would keyout
+2026-07-13 15:35:03  DRY   olympia_day_building           would keyout
+2026-07-13 15:35:03  DRY   olympia_night_building         would keyout
+2026-07-13 15:35:03  DRY   halikarnoassos_day_building    would keyout
+2026-07-13 15:35:03  DRY   halikarnoassos_night_building  would keyout
+2026-07-13 15:35:03  DRY   gizah_day_building             would keyout
+2026-07-13 15:35:03  DRY   gizah_night_building           would keyout
+2026-07-13 15:35:03  DRY   ephesos_day_building           would keyout
+2026-07-13 15:35:03  DRY   ephesos_night_building         would keyout
+2026-07-13 15:35:03  DRY   rhodes_day_building            would keyout
+2026-07-13 15:35:03  DRY   rhodes_night_building          would keyout
+2026-07-13 15:35:03  === batch done: 56 generated, 0 skipped, 0 failed ===
+2026-07-13 15:37:04  === batch start: 136 item(s) [80 card(s), 14 wonder(s) x 4 kind(s)], force=False dry_run=False retries=3 ===
+2026-07-13 15:37:04  SKIP  lumber_yard                    (cached)
+2026-07-13 15:37:04  SKIP  stone_pit                      (cached)
+2026-07-13 15:37:04  SKIP  clay_pool                      (cached)
+2026-07-13 15:37:04  SKIP  ore_vein                       (cached)
+2026-07-13 15:37:04  SKIP  tree_farm                      (cached)
+2026-07-13 15:37:04  SKIP  excavation                     (cached)
+2026-07-13 15:37:04  SKIP  clay_pit                       (cached)
+2026-07-13 15:37:04  SKIP  timber_yard                    (cached)
+2026-07-13 15:37:04  SKIP  forest_cave                    (cached)
+2026-07-13 15:37:04  SKIP  mine                           (cached)
+2026-07-13 15:37:04  SKIP  glassworks                     (cached)
+2026-07-13 15:37:04  SKIP  press                          (cached)
+2026-07-13 15:37:04  SKIP  loom                           (cached)
+2026-07-13 15:37:04  SKIP  well                           (cached)
+2026-07-13 15:37:04  SKIP  baths                          (cached)
+2026-07-13 15:37:04  SKIP  altar                          (cached)
+2026-07-13 15:37:04  SKIP  theater                        (cached)
+2026-07-13 15:37:04  SKIP  tavern                         (cached)
+2026-07-13 15:37:04  SKIP  marketplace                    (cached)
+2026-07-13 15:37:04  SKIP  west_trading_post              (cached)
+2026-07-13 15:37:04  SKIP  east_trading_post              (cached)
+2026-07-13 15:37:04  SKIP  stockade                       (cached)
+2026-07-13 15:37:04  SKIP  barracks                       (cached)
+2026-07-13 15:37:04  SKIP  guard_tower                    (cached)
+2026-07-13 15:37:04  SKIP  apothecary                     (cached)
+2026-07-13 15:37:04  SKIP  workshop                       (cached)
+2026-07-13 15:37:04  SKIP  scriptorium                    (cached)
+2026-07-13 15:37:04  SKIP  sawmill                        (cached)
+2026-07-13 15:37:04  SKIP  quarry                         (cached)
+2026-07-13 15:37:04  SKIP  brickyard                      (cached)
+2026-07-13 15:37:04  SKIP  foundry                        (cached)
+2026-07-13 15:37:04  SKIP  glassworks_II                  (cached)
+2026-07-13 15:37:04  SKIP  press_II                       (cached)
+2026-07-13 15:37:04  SKIP  loom_II                        (cached)
+2026-07-13 15:37:04  SKIP  statue                         (cached)
+2026-07-13 15:37:04  SKIP  aqueduct                       (cached)
+2026-07-13 15:37:04  SKIP  temple                         (cached)
+2026-07-13 15:37:04  SKIP  courthouse                     (cached)
+2026-07-13 15:37:04  SKIP  caravansery                    (cached)
+2026-07-13 15:37:04  SKIP  forum                          (cached)
+2026-07-13 15:37:04  SKIP  vineyard                       (cached)
+2026-07-13 15:37:04  SKIP  bazar                          (cached)
+2026-07-13 15:37:04  SKIP  stables                        (cached)
+2026-07-13 15:37:04  SKIP  archery_range                  (cached)
+2026-07-13 15:37:04  SKIP  walls                          (cached)
+2026-07-13 15:37:04  SKIP  training_ground                (cached)
+2026-07-13 15:37:04  SKIP  dispensary                     (cached)
+2026-07-13 15:37:04  SKIP  laboratory                     (cached)
+2026-07-13 15:37:04  SKIP  library                        (cached)
+2026-07-13 15:37:04  SKIP  school                         (cached)
+2026-07-13 15:37:04  SKIP  pantheon                       (cached)
+2026-07-13 15:37:04  SKIP  gardens                        (cached)
+2026-07-13 15:37:04  SKIP  town_hall                      (cached)
+2026-07-13 15:37:04  SKIP  palace                         (cached)
+2026-07-13 15:37:04  SKIP  senate                         (cached)
+2026-07-13 15:37:04  SKIP  lighthouse                     (cached)
+2026-07-13 15:37:04  SKIP  haven                          (cached)
+2026-07-13 15:37:04  SKIP  chamber_of_commerce            (cached)
+2026-07-13 15:37:04  SKIP  ludus                          (cached)
+2026-07-13 15:37:04  SKIP  arena                          (cached)
+2026-07-13 15:37:04  SKIP  castrum                        (cached)
+2026-07-13 15:37:04  SKIP  fortifications                 (cached)
+2026-07-13 15:37:04  SKIP  circus                         (cached)
+2026-07-13 15:37:04  SKIP  arsenal                        (cached)
+2026-07-13 15:37:04  SKIP  siege_workshop                 (cached)
+2026-07-13 15:37:04  SKIP  lodge                          (cached)
+2026-07-13 15:37:04  SKIP  academy                        (cached)
+2026-07-13 15:37:04  SKIP  observatory                    (cached)
+2026-07-13 15:37:04  SKIP  study                          (cached)
+2026-07-13 15:37:04  SKIP  university                     (cached)
+2026-07-13 15:37:04  SKIP  workers_guild                  (cached)
+2026-07-13 15:37:04  SKIP  craftsmens_guild               (cached)
+2026-07-13 15:37:04  SKIP  magistrates_guild              (cached)
+2026-07-13 15:37:04  SKIP  traders_guild                  (cached)
+2026-07-13 15:37:04  SKIP  spies_guild                    (cached)
+2026-07-13 15:37:04  SKIP  philosophers_guild             (cached)
+2026-07-13 15:37:04  SKIP  scientists_guild               (cached)
+2026-07-13 15:37:04  SKIP  shipowners_guild               (cached)
+2026-07-13 15:37:04  SKIP  builders_guild                 (cached)
+2026-07-13 15:37:04  SKIP  decorators_guild               (cached)
+2026-07-13 15:37:04  RETRY alexandria_day_illustration    attempt 1/3 failed; waiting 5s
+2026-07-13 15:37:09  RETRY alexandria_day_illustration    attempt 2/3 failed; waiting 10s
+2026-07-13 15:37:19  FAIL  alexandria_day_illustration    after 3 attempt(s)
+2026-07-13 15:37:19  RETRY alexandria_day_background      attempt 1/3 failed; waiting 5s
+2026-07-13 15:38:25  === batch start: 136 item(s) [80 card(s), 14 wonder(s) x 4 kind(s)], force=False dry_run=False retries=3 ===
+2026-07-13 15:38:25  SKIP  lumber_yard                    (cached)
+2026-07-13 15:38:25  SKIP  stone_pit                      (cached)
+2026-07-13 15:38:25  SKIP  clay_pool                      (cached)
+2026-07-13 15:38:25  SKIP  ore_vein                       (cached)
+2026-07-13 15:38:25  SKIP  tree_farm                      (cached)
+2026-07-13 15:38:25  SKIP  excavation                     (cached)
+2026-07-13 15:38:25  SKIP  clay_pit                       (cached)
+2026-07-13 15:38:25  SKIP  timber_yard                    (cached)
+2026-07-13 15:38:25  SKIP  forest_cave                    (cached)
+2026-07-13 15:38:25  SKIP  mine                           (cached)
+2026-07-13 15:38:25  SKIP  glassworks                     (cached)
+2026-07-13 15:38:25  SKIP  press                          (cached)
+2026-07-13 15:38:25  SKIP  loom                           (cached)
+2026-07-13 15:38:25  SKIP  well                           (cached)
+2026-07-13 15:38:25  SKIP  baths                          (cached)
+2026-07-13 15:38:25  SKIP  altar                          (cached)
+2026-07-13 15:38:25  SKIP  theater                        (cached)
+2026-07-13 15:38:25  SKIP  tavern                         (cached)
+2026-07-13 15:38:25  SKIP  marketplace                    (cached)
+2026-07-13 15:38:25  SKIP  west_trading_post              (cached)
+2026-07-13 15:38:25  SKIP  east_trading_post              (cached)
+2026-07-13 15:38:25  SKIP  stockade                       (cached)
+2026-07-13 15:38:25  SKIP  barracks                       (cached)
+2026-07-13 15:38:25  SKIP  guard_tower                    (cached)
+2026-07-13 15:38:25  SKIP  apothecary                     (cached)
+2026-07-13 15:38:25  SKIP  workshop                       (cached)
+2026-07-13 15:38:25  SKIP  scriptorium                    (cached)
+2026-07-13 15:38:25  SKIP  sawmill                        (cached)
+2026-07-13 15:38:25  SKIP  quarry                         (cached)
+2026-07-13 15:38:25  SKIP  brickyard                      (cached)
+2026-07-13 15:38:25  SKIP  foundry                        (cached)
+2026-07-13 15:38:25  SKIP  glassworks_II                  (cached)
+2026-07-13 15:38:25  SKIP  press_II                       (cached)
+2026-07-13 15:38:25  SKIP  loom_II                        (cached)
+2026-07-13 15:38:25  SKIP  statue                         (cached)
+2026-07-13 15:38:25  SKIP  aqueduct                       (cached)
+2026-07-13 15:38:25  SKIP  temple                         (cached)
+2026-07-13 15:38:25  SKIP  courthouse                     (cached)
+2026-07-13 15:38:25  SKIP  caravansery                    (cached)
+2026-07-13 15:38:25  SKIP  forum                          (cached)
+2026-07-13 15:38:25  SKIP  vineyard                       (cached)
+2026-07-13 15:38:25  SKIP  bazar                          (cached)
+2026-07-13 15:38:25  SKIP  stables                        (cached)
+2026-07-13 15:38:25  SKIP  archery_range                  (cached)
+2026-07-13 15:38:25  SKIP  walls                          (cached)
+2026-07-13 15:38:25  SKIP  training_ground                (cached)
+2026-07-13 15:38:25  SKIP  dispensary                     (cached)
+2026-07-13 15:38:25  SKIP  laboratory                     (cached)
+2026-07-13 15:38:25  SKIP  library                        (cached)
+2026-07-13 15:38:25  SKIP  school                         (cached)
+2026-07-13 15:38:25  SKIP  pantheon                       (cached)
+2026-07-13 15:38:25  SKIP  gardens                        (cached)
+2026-07-13 15:38:25  SKIP  town_hall                      (cached)
+2026-07-13 15:38:25  SKIP  palace                         (cached)
+2026-07-13 15:38:25  SKIP  senate                         (cached)
+2026-07-13 15:38:25  SKIP  lighthouse                     (cached)
+2026-07-13 15:38:25  SKIP  haven                          (cached)
+2026-07-13 15:38:25  SKIP  chamber_of_commerce            (cached)
+2026-07-13 15:38:25  SKIP  ludus                          (cached)
+2026-07-13 15:38:25  SKIP  arena                          (cached)
+2026-07-13 15:38:25  SKIP  castrum                        (cached)
+2026-07-13 15:38:25  SKIP  fortifications                 (cached)
+2026-07-13 15:38:25  SKIP  circus                         (cached)
+2026-07-13 15:38:25  SKIP  arsenal                        (cached)
+2026-07-13 15:38:25  SKIP  siege_workshop                 (cached)
+2026-07-13 15:38:25  SKIP  lodge                          (cached)
+2026-07-13 15:38:25  SKIP  academy                        (cached)
+2026-07-13 15:38:25  SKIP  observatory                    (cached)
+2026-07-13 15:38:25  SKIP  study                          (cached)
+2026-07-13 15:38:25  SKIP  university                     (cached)
+2026-07-13 15:38:25  SKIP  workers_guild                  (cached)
+2026-07-13 15:38:25  SKIP  craftsmens_guild               (cached)
+2026-07-13 15:38:25  SKIP  magistrates_guild              (cached)
+2026-07-13 15:38:25  SKIP  traders_guild                  (cached)
+2026-07-13 15:38:25  SKIP  spies_guild                    (cached)
+2026-07-13 15:38:25  SKIP  philosophers_guild             (cached)
+2026-07-13 15:38:25  SKIP  scientists_guild               (cached)
+2026-07-13 15:38:25  SKIP  shipowners_guild               (cached)
+2026-07-13 15:38:25  SKIP  builders_guild                 (cached)
+2026-07-13 15:38:25  SKIP  decorators_guild               (cached)
+2026-07-13 15:39:08  OK    alexandria_day_illustration    azure-foundry (570, 623) -> illustration_cache/alexandria_day_illustration.png
+2026-07-13 15:39:51  OK    alexandria_day_background      azure-foundry (1280, 512) -> illustration_cache/alexandria_day_background.png
+2026-07-13 15:40:33  OK    alexandria_night_illustration  azure-foundry (570, 623) -> illustration_cache/alexandria_night_illustration.png
+2026-07-13 15:41:22  OK    babylon_day_illustration       azure-foundry (570, 623) -> illustration_cache/babylon_day_illustration.png
+2026-07-13 15:42:05  OK    babylon_day_background         azure-foundry (1280, 512) -> illustration_cache/babylon_day_background.png
+2026-07-13 15:42:48  OK    babylon_night_illustration     azure-foundry (570, 623) -> illustration_cache/babylon_night_illustration.png
+2026-07-13 15:43:34  OK    olympia_day_illustration       azure-foundry (570, 623) -> illustration_cache/olympia_day_illustration.png
+2026-07-13 15:44:16  OK    olympia_day_background         azure-foundry (1280, 512) -> illustration_cache/olympia_day_background.png
+2026-07-13 15:44:58  OK    olympia_night_illustration     azure-foundry (570, 623) -> illustration_cache/olympia_night_illustration.png
+2026-07-13 15:45:43  OK    halikarnoassos_day_illustration azure-foundry (570, 623) -> illustration_cache/halikarnoassos_day_illustration.png
+2026-07-13 15:46:23  OK    halikarnoassos_day_background  azure-foundry (1280, 512) -> illustration_cache/halikarnoassos_day_background.png
+2026-07-13 15:47:08  OK    halikarnoassos_night_illustration azure-foundry (570, 623) -> illustration_cache/halikarnoassos_night_illustration.png
+2026-07-13 15:47:53  OK    gizah_day_illustration         azure-foundry (570, 623) -> illustration_cache/gizah_day_illustration.png
+2026-07-13 15:48:38  OK    gizah_day_background           azure-foundry (1280, 512) -> illustration_cache/gizah_day_background.png
+2026-07-13 15:49:20  OK    gizah_night_illustration       azure-foundry (570, 623) -> illustration_cache/gizah_night_illustration.png
+2026-07-13 15:50:03  OK    ephesos_day_illustration       azure-foundry (570, 623) -> illustration_cache/ephesos_day_illustration.png
+2026-07-13 15:50:48  OK    ephesos_day_background         azure-foundry (1280, 512) -> illustration_cache/ephesos_day_background.png
+2026-07-13 15:51:29  OK    ephesos_night_illustration     azure-foundry (570, 623) -> illustration_cache/ephesos_night_illustration.png
+2026-07-13 15:51:29  SKIP  rhodes_day_illustration        (cached)
+2026-07-13 15:51:29  SKIP  rhodes_day_background          (cached)
+2026-07-13 15:51:29  SKIP  rhodes_night_illustration      (cached)
+2026-07-13 15:52:05  OK    alexandria_day_composite       azure-foundry (1536, 1024) -> illustration_cache/.src/alexandria_day_composite.png (intermediary)
+2026-07-13 15:52:56  OK    alexandria_night_background    azure-foundry (1280, 512) -> illustration_cache/alexandria_night_background.png
+2026-07-13 15:53:38  OK    babylon_day_composite          azure-foundry (1536, 1024) -> illustration_cache/.src/babylon_day_composite.png (intermediary)
+2026-07-13 15:54:27  OK    babylon_night_background       azure-foundry (1280, 512) -> illustration_cache/babylon_night_background.png
+2026-07-13 15:55:11  OK    olympia_day_composite          azure-foundry (1536, 1024) -> illustration_cache/.src/olympia_day_composite.png (intermediary)
+2026-07-13 15:56:01  OK    olympia_night_background       azure-foundry (1280, 512) -> illustration_cache/olympia_night_background.png
+2026-07-13 15:56:45  OK    halikarnoassos_day_composite   azure-foundry (1536, 1024) -> illustration_cache/.src/halikarnoassos_day_composite.png (intermediary)
+2026-07-13 15:57:36  OK    halikarnoassos_night_background azure-foundry (1280, 512) -> illustration_cache/halikarnoassos_night_background.png
+2026-07-13 15:58:17  OK    gizah_day_composite            azure-foundry (1536, 1024) -> illustration_cache/.src/gizah_day_composite.png (intermediary)
+2026-07-13 15:59:11  OK    gizah_night_background         azure-foundry (1280, 512) -> illustration_cache/gizah_night_background.png
+2026-07-13 15:59:51  OK    ephesos_day_composite          azure-foundry (1536, 1024) -> illustration_cache/.src/ephesos_day_composite.png (intermediary)
+2026-07-13 16:00:42  OK    ephesos_night_background       azure-foundry (1280, 512) -> illustration_cache/ephesos_night_background.png
+2026-07-13 16:00:42  SKIP  rhodes_day_composite           (cached)
+2026-07-13 16:00:42  SKIP  rhodes_night_background        (cached)
+2026-07-13 16:01:33  OK    alexandria_night_composite     azure-foundry (1536, 1024) -> illustration_cache/.src/alexandria_night_composite.png (intermediary)
+2026-07-13 16:02:28  OK    babylon_night_composite        azure-foundry (1536, 1024) -> illustration_cache/.src/babylon_night_composite.png (intermediary)
+2026-07-13 16:03:21  OK    olympia_night_composite        azure-foundry (1536, 1024) -> illustration_cache/.src/olympia_night_composite.png (intermediary)
+2026-07-13 16:04:12  OK    halikarnoassos_night_composite azure-foundry (1536, 1024) -> illustration_cache/.src/halikarnoassos_night_composite.png (intermediary)
+2026-07-13 16:05:00  OK    gizah_night_composite          azure-foundry (1536, 1024) -> illustration_cache/.src/gizah_night_composite.png (intermediary)
+2026-07-13 16:05:53  OK    ephesos_night_composite        azure-foundry (1536, 1024) -> illustration_cache/.src/ephesos_night_composite.png (intermediary)
+2026-07-13 16:05:53  SKIP  rhodes_night_composite         (cached)
+2026-07-13 16:05:57  OK    alexandria_day_building        keyout (768, 1024) -> illustration_cache/alexandria_day_building.png
+2026-07-13 16:06:00  OK    alexandria_night_building      keyout (768, 1024) -> illustration_cache/alexandria_night_building.png
+2026-07-13 16:06:05  OK    babylon_day_building           keyout (768, 1024) -> illustration_cache/babylon_day_building.png
+2026-07-13 16:06:08  OK    babylon_night_building         keyout (768, 1024) -> illustration_cache/babylon_night_building.png
+2026-07-13 16:06:10  OK    olympia_day_building           keyout (768, 1024) -> illustration_cache/olympia_day_building.png
+2026-07-13 16:06:12  OK    olympia_night_building         keyout (768, 1024) -> illustration_cache/olympia_night_building.png
+2026-07-13 16:06:15  OK    halikarnoassos_day_building    keyout (768, 1024) -> illustration_cache/halikarnoassos_day_building.png
+2026-07-13 16:06:17  OK    halikarnoassos_night_building  keyout (768, 1024) -> illustration_cache/halikarnoassos_night_building.png
+2026-07-13 16:06:19  OK    gizah_day_building             keyout (768, 1024) -> illustration_cache/gizah_day_building.png
+2026-07-13 16:06:21  OK    gizah_night_building           keyout (768, 1024) -> illustration_cache/gizah_night_building.png
+2026-07-13 16:06:24  OK    ephesos_day_building           keyout (768, 1024) -> illustration_cache/ephesos_day_building.png
+2026-07-13 16:06:26  OK    ephesos_night_building         keyout (768, 1024) -> illustration_cache/ephesos_night_building.png
+2026-07-13 16:06:26  SKIP  rhodes_day_building            (cached)
+2026-07-13 16:06:26  SKIP  rhodes_night_building          (cached)
+2026-07-13 16:06:26  === batch done: 48 generated, 88 skipped, 0 failed ===
+2026-07-13 16:44:08  === batch start: 4 item(s) [0 card(s), 1 wonder(s) x 4 kind(s)], force=False dry_run=False retries=3 ===
+2026-07-13 16:44:08  SKIP  halikarnoassos_day_illustration (cached)
+2026-07-13 16:44:08  SKIP  halikarnoassos_day_background  (cached)
+2026-07-13 16:44:08  SKIP  halikarnoassos_day_composite   (cached)
+2026-07-13 16:44:08  SKIP  halikarnoassos_day_building    (cached)
+2026-07-13 16:44:08  === batch done: 0 generated, 4 skipped, 0 failed ===
+2026-07-13 22:10:37  === batch start: 12 item(s) [0 card(s), 2 wonder(s) x 6 kind(s)], force=False dry_run=False retries=3 ===
+2026-07-13 22:10:37  SKIP  halikarnoassos_day_illustration (cached)
+2026-07-13 22:10:37  SKIP  halikarnoassos_day_panel       (cached)
+2026-07-13 22:10:37  SKIP  halikarnoassos_night_illustration (cached)
+2026-07-13 22:11:28  OK    halikarnoassos_day_extension   azure-foundry (1536, 1024) -> illustration_cache/.src/halikarnoassos_day_extension.png (intermediary)
+2026-07-13 22:11:28  SKIP  halikarnoassos_day_composite   (cached)
+2026-07-13 22:11:28  SKIP  halikarnoassos_night_panel     (cached)
+2026-07-13 22:11:28  OK    halikarnoassos_day_background  wideblend (1280, 366) -> illustration_cache/halikarnoassos_day_background.png
+2026-07-13 22:11:28  SKIP  halikarnoassos_day_building    (cached)
+2026-07-13 22:12:18  OK    halikarnoassos_night_extension azure-foundry (1536, 1024) -> illustration_cache/.src/halikarnoassos_night_extension.png (intermediary)
+2026-07-13 22:12:18  SKIP  halikarnoassos_night_composite (cached)
+2026-07-13 22:12:18  OK    halikarnoassos_night_background wideblend (1280, 366) -> illustration_cache/halikarnoassos_night_background.png
+2026-07-13 22:12:18  SKIP  halikarnoassos_night_building  (cached)
+2026-07-13 22:12:18  === batch done: 4 generated, 8 skipped, 0 failed ===
+2026-07-13 22:16:51  === batch start: 84 item(s) [0 card(s), 14 wonder(s) x 6 kind(s)], force=False dry_run=True retries=3 ===
+2026-07-13 22:16:51  SKIP  alexandria_day_illustration    (cached)
+2026-07-13 22:16:51  SKIP  alexandria_day_panel           (cached)
+2026-07-13 22:16:51  SKIP  alexandria_night_illustration  (cached)
+2026-07-13 22:16:51  SKIP  babylon_day_illustration       (cached)
+2026-07-13 22:16:51  SKIP  babylon_day_panel              (cached)
+2026-07-13 22:16:51  SKIP  babylon_night_illustration     (cached)
+2026-07-13 22:16:51  SKIP  olympia_day_illustration       (cached)
+2026-07-13 22:16:51  SKIP  olympia_day_panel              (cached)
+2026-07-13 22:16:51  SKIP  olympia_night_illustration     (cached)
+2026-07-13 22:16:51  SKIP  halikarnoassos_day_illustration (cached)
+2026-07-13 22:16:51  SKIP  halikarnoassos_day_panel       (cached)
+2026-07-13 22:16:51  SKIP  halikarnoassos_night_illustration (cached)
+2026-07-13 22:16:51  SKIP  gizah_day_illustration         (cached)
+2026-07-13 22:16:51  SKIP  gizah_day_panel                (cached)
+2026-07-13 22:16:51  SKIP  gizah_night_illustration       (cached)
+2026-07-13 22:16:51  SKIP  ephesos_day_illustration       (cached)
+2026-07-13 22:16:51  SKIP  ephesos_day_panel              (cached)
+2026-07-13 22:16:51  SKIP  ephesos_night_illustration     (cached)
+2026-07-13 22:16:51  SKIP  rhodes_day_illustration        (cached)
+2026-07-13 22:16:51  SKIP  rhodes_day_panel               (cached)
+2026-07-13 22:16:51  SKIP  rhodes_night_illustration      (cached)
+2026-07-13 22:16:51  DRY   alexandria_day_extension       would extend
+2026-07-13 22:16:51  SKIP  alexandria_day_composite       (cached)
+2026-07-13 22:16:51  SKIP  alexandria_night_panel         (cached)
+2026-07-13 22:16:51  DRY   babylon_day_extension          would extend
+2026-07-13 22:16:51  SKIP  babylon_day_composite          (cached)
+2026-07-13 22:16:51  SKIP  babylon_night_panel            (cached)
+2026-07-13 22:16:51  DRY   olympia_day_extension          would extend
+2026-07-13 22:16:51  SKIP  olympia_day_composite          (cached)
+2026-07-13 22:16:51  SKIP  olympia_night_panel            (cached)
+2026-07-13 22:16:51  SKIP  halikarnoassos_day_extension   (cached)
+2026-07-13 22:16:51  SKIP  halikarnoassos_day_composite   (cached)
+2026-07-13 22:16:51  SKIP  halikarnoassos_night_panel     (cached)
+2026-07-13 22:16:51  DRY   gizah_day_extension            would extend
+2026-07-13 22:16:51  SKIP  gizah_day_composite            (cached)
+2026-07-13 22:16:51  SKIP  gizah_night_panel              (cached)
+2026-07-13 22:16:51  DRY   ephesos_day_extension          would extend
+2026-07-13 22:16:51  SKIP  ephesos_day_composite          (cached)
+2026-07-13 22:16:51  SKIP  ephesos_night_panel            (cached)
+2026-07-13 22:16:51  DRY   rhodes_day_extension           would extend
+2026-07-13 22:16:51  SKIP  rhodes_day_composite           (cached)
+2026-07-13 22:16:51  SKIP  rhodes_night_panel             (cached)
+2026-07-13 22:16:51  SKIP  alexandria_day_background      (cached)
+2026-07-13 22:16:51  SKIP  alexandria_day_building        (cached)
+2026-07-13 22:16:51  DRY   alexandria_night_extension     would extend
+2026-07-13 22:16:51  SKIP  alexandria_night_composite     (cached)
+2026-07-13 22:16:51  SKIP  babylon_day_background         (cached)
+2026-07-13 22:16:51  SKIP  babylon_day_building           (cached)
+2026-07-13 22:16:51  DRY   babylon_night_extension        would extend
+2026-07-13 22:16:51  SKIP  babylon_night_composite        (cached)
+2026-07-13 22:16:51  SKIP  olympia_day_background         (cached)
+2026-07-13 22:16:51  SKIP  olympia_day_building           (cached)
+2026-07-13 22:16:51  DRY   olympia_night_extension        would extend
+2026-07-13 22:16:51  SKIP  olympia_night_composite        (cached)
+2026-07-13 22:16:51  SKIP  halikarnoassos_day_background  (cached)
+2026-07-13 22:16:51  SKIP  halikarnoassos_day_building    (cached)
+2026-07-13 22:16:51  SKIP  halikarnoassos_night_extension (cached)
+2026-07-13 22:16:51  SKIP  halikarnoassos_night_composite (cached)
+2026-07-13 22:16:51  SKIP  gizah_day_background           (cached)
+2026-07-13 22:16:51  SKIP  gizah_day_building             (cached)
+2026-07-13 22:16:51  DRY   gizah_night_extension          would extend
+2026-07-13 22:16:51  SKIP  gizah_night_composite          (cached)
+2026-07-13 22:16:51  SKIP  ephesos_day_background         (cached)
+2026-07-13 22:16:51  SKIP  ephesos_day_building           (cached)
+2026-07-13 22:16:51  DRY   ephesos_night_extension        would extend
+2026-07-13 22:16:51  SKIP  ephesos_night_composite        (cached)
+2026-07-13 22:16:51  SKIP  rhodes_day_background          (cached)
+2026-07-13 22:16:51  SKIP  rhodes_day_building            (cached)
+2026-07-13 22:16:51  DRY   rhodes_night_extension         would extend
+2026-07-13 22:16:51  SKIP  rhodes_night_composite         (cached)
+2026-07-13 22:16:51  SKIP  alexandria_night_background    (cached)
+2026-07-13 22:16:51  SKIP  alexandria_night_building      (cached)
+2026-07-13 22:16:51  SKIP  babylon_night_background       (cached)
+2026-07-13 22:16:51  SKIP  babylon_night_building         (cached)
+2026-07-13 22:16:51  SKIP  olympia_night_background       (cached)
+2026-07-13 22:16:51  SKIP  olympia_night_building         (cached)
+2026-07-13 22:16:51  SKIP  halikarnoassos_night_background (cached)
+2026-07-13 22:16:51  SKIP  halikarnoassos_night_building  (cached)
+2026-07-13 22:16:51  SKIP  gizah_night_background         (cached)
+2026-07-13 22:16:51  SKIP  gizah_night_building           (cached)
+2026-07-13 22:16:51  SKIP  ephesos_night_background       (cached)
+2026-07-13 22:16:51  SKIP  ephesos_night_building         (cached)
+2026-07-13 22:16:51  SKIP  rhodes_night_background        (cached)
+2026-07-13 22:16:51  SKIP  rhodes_night_building          (cached)
+2026-07-13 22:16:51  === batch done: 12 generated, 72 skipped, 0 failed ===
+2026-07-13 22:35:29  === batch start: 6 item(s) [0 card(s), 1 wonder(s) x 6 kind(s)], force=False dry_run=False retries=3 ===
+2026-07-13 22:35:29  SKIP  halikarnoassos_day_illustration (cached)
+2026-07-13 22:35:29  SKIP  halikarnoassos_day_panel       (cached)
+2026-07-13 22:36:20  OK    halikarnoassos_day_extension   azure-foundry (1536, 1024) -> illustration_cache/.src/halikarnoassos_day_extension.png (intermediary)
+2026-07-13 22:36:20  SKIP  halikarnoassos_day_composite   (cached)
+2026-07-13 22:36:20  OK    halikarnoassos_day_background  wideblend (1280, 366) -> illustration_cache/halikarnoassos_day_background.png
+2026-07-13 22:36:20  SKIP  halikarnoassos_day_building    (cached)
+2026-07-13 22:36:20  === batch done: 2 generated, 4 skipped, 0 failed ===
+2026-07-13 22:38:57  === batch start: 164 item(s) [80 card(s), 14 wonder(s) x 6 kind(s)], force=False dry_run=False retries=3 ===
+2026-07-13 22:38:57  SKIP  lumber_yard                    (cached)
+2026-07-13 22:38:57  SKIP  stone_pit                      (cached)
+2026-07-13 22:38:57  SKIP  clay_pool                      (cached)
+2026-07-13 22:38:57  SKIP  ore_vein                       (cached)
+2026-07-13 22:38:57  SKIP  tree_farm                      (cached)
+2026-07-13 22:38:57  SKIP  excavation                     (cached)
+2026-07-13 22:38:57  SKIP  clay_pit                       (cached)
+2026-07-13 22:38:57  SKIP  timber_yard                    (cached)
+2026-07-13 22:38:57  SKIP  forest_cave                    (cached)
+2026-07-13 22:38:57  SKIP  mine                           (cached)
+2026-07-13 22:38:57  SKIP  glassworks                     (cached)
+2026-07-13 22:38:57  SKIP  press                          (cached)
+2026-07-13 22:38:57  SKIP  loom                           (cached)
+2026-07-13 22:38:57  SKIP  well                           (cached)
+2026-07-13 22:38:57  SKIP  baths                          (cached)
+2026-07-13 22:38:57  SKIP  altar                          (cached)
+2026-07-13 22:38:57  SKIP  theater                        (cached)
+2026-07-13 22:38:57  SKIP  tavern                         (cached)
+2026-07-13 22:38:57  SKIP  marketplace                    (cached)
+2026-07-13 22:38:57  SKIP  west_trading_post              (cached)
+2026-07-13 22:38:57  SKIP  east_trading_post              (cached)
+2026-07-13 22:38:57  SKIP  stockade                       (cached)
+2026-07-13 22:38:57  SKIP  barracks                       (cached)
+2026-07-13 22:38:57  SKIP  guard_tower                    (cached)
+2026-07-13 22:38:57  SKIP  apothecary                     (cached)
+2026-07-13 22:38:57  SKIP  workshop                       (cached)
+2026-07-13 22:38:57  SKIP  scriptorium                    (cached)
+2026-07-13 22:38:57  SKIP  sawmill                        (cached)
+2026-07-13 22:38:57  SKIP  quarry                         (cached)
+2026-07-13 22:38:57  SKIP  brickyard                      (cached)
+2026-07-13 22:38:57  SKIP  foundry                        (cached)
+2026-07-13 22:38:57  SKIP  glassworks_II                  (cached)
+2026-07-13 22:38:57  SKIP  press_II                       (cached)
+2026-07-13 22:38:57  SKIP  loom_II                        (cached)
+2026-07-13 22:38:57  SKIP  statue                         (cached)
+2026-07-13 22:38:57  SKIP  aqueduct                       (cached)
+2026-07-13 22:38:57  SKIP  temple                         (cached)
+2026-07-13 22:38:57  SKIP  courthouse                     (cached)
+2026-07-13 22:38:57  SKIP  caravansery                    (cached)
+2026-07-13 22:38:57  SKIP  forum                          (cached)
+2026-07-13 22:38:57  SKIP  vineyard                       (cached)
+2026-07-13 22:38:57  SKIP  bazar                          (cached)
+2026-07-13 22:38:57  SKIP  stables                        (cached)
+2026-07-13 22:38:57  SKIP  archery_range                  (cached)
+2026-07-13 22:38:57  SKIP  walls                          (cached)
+2026-07-13 22:38:57  SKIP  training_ground                (cached)
+2026-07-13 22:38:57  SKIP  dispensary                     (cached)
+2026-07-13 22:38:57  SKIP  laboratory                     (cached)
+2026-07-13 22:38:57  SKIP  library                        (cached)
+2026-07-13 22:38:57  SKIP  school                         (cached)
+2026-07-13 22:38:57  SKIP  pantheon                       (cached)
+2026-07-13 22:38:57  SKIP  gardens                        (cached)
+2026-07-13 22:38:57  SKIP  town_hall                      (cached)
+2026-07-13 22:38:57  SKIP  palace                         (cached)
+2026-07-13 22:38:57  SKIP  senate                         (cached)
+2026-07-13 22:38:57  SKIP  lighthouse                     (cached)
+2026-07-13 22:38:57  SKIP  haven                          (cached)
+2026-07-13 22:38:57  SKIP  chamber_of_commerce            (cached)
+2026-07-13 22:38:57  SKIP  ludus                          (cached)
+2026-07-13 22:38:57  SKIP  arena                          (cached)
+2026-07-13 22:38:57  SKIP  castrum                        (cached)
+2026-07-13 22:38:57  SKIP  fortifications                 (cached)
+2026-07-13 22:38:57  SKIP  circus                         (cached)
+2026-07-13 22:38:57  SKIP  arsenal                        (cached)
+2026-07-13 22:38:57  SKIP  siege_workshop                 (cached)
+2026-07-13 22:38:57  SKIP  lodge                          (cached)
+2026-07-13 22:38:57  SKIP  academy                        (cached)
+2026-07-13 22:38:57  SKIP  observatory                    (cached)
+2026-07-13 22:38:57  SKIP  study                          (cached)
+2026-07-13 22:38:57  SKIP  university                     (cached)
+2026-07-13 22:38:57  SKIP  workers_guild                  (cached)
+2026-07-13 22:38:57  SKIP  craftsmens_guild               (cached)
+2026-07-13 22:38:57  SKIP  magistrates_guild              (cached)
+2026-07-13 22:38:57  SKIP  traders_guild                  (cached)
+2026-07-13 22:38:57  SKIP  spies_guild                    (cached)
+2026-07-13 22:38:57  SKIP  philosophers_guild             (cached)
+2026-07-13 22:38:57  SKIP  scientists_guild               (cached)
+2026-07-13 22:38:57  SKIP  shipowners_guild               (cached)
+2026-07-13 22:38:57  SKIP  builders_guild                 (cached)
+2026-07-13 22:38:57  SKIP  decorators_guild               (cached)
+2026-07-13 22:38:57  SKIP  alexandria_day_illustration    (cached)
+2026-07-13 22:38:57  SKIP  alexandria_day_panel           (cached)
+2026-07-13 22:38:57  SKIP  alexandria_night_illustration  (cached)
+2026-07-13 22:38:57  SKIP  babylon_day_illustration       (cached)
+2026-07-13 22:38:57  SKIP  babylon_day_panel              (cached)
+2026-07-13 22:38:57  SKIP  babylon_night_illustration     (cached)
+2026-07-13 22:38:57  SKIP  olympia_day_illustration       (cached)
+2026-07-13 22:38:57  SKIP  olympia_day_panel              (cached)
+2026-07-13 22:38:57  SKIP  olympia_night_illustration     (cached)
+2026-07-13 22:38:57  SKIP  halikarnoassos_day_illustration (cached)
+2026-07-13 22:38:57  SKIP  halikarnoassos_day_panel       (cached)
+2026-07-13 22:38:57  SKIP  halikarnoassos_night_illustration (cached)
+2026-07-13 22:38:57  SKIP  gizah_day_illustration         (cached)
+2026-07-13 22:38:57  SKIP  gizah_day_panel                (cached)
+2026-07-13 22:38:57  SKIP  gizah_night_illustration       (cached)
+2026-07-13 22:38:57  SKIP  ephesos_day_illustration       (cached)
+2026-07-13 22:38:57  SKIP  ephesos_day_panel              (cached)
+2026-07-13 22:38:57  SKIP  ephesos_night_illustration     (cached)
+2026-07-13 22:38:57  SKIP  rhodes_day_illustration        (cached)
+2026-07-13 22:38:57  SKIP  rhodes_day_panel               (cached)
+2026-07-13 22:38:57  SKIP  rhodes_night_illustration      (cached)
+2026-07-13 22:39:50  OK    alexandria_day_extension       azure-foundry (1536, 1024) -> illustration_cache/.src/alexandria_day_extension.png (intermediary)
+2026-07-13 22:39:50  SKIP  alexandria_day_composite       (cached)
+2026-07-13 22:39:50  SKIP  alexandria_night_panel         (cached)
+2026-07-13 22:40:40  OK    babylon_day_extension          azure-foundry (1536, 1024) -> illustration_cache/.src/babylon_day_extension.png (intermediary)
+2026-07-13 22:40:40  SKIP  babylon_day_composite          (cached)
+2026-07-13 22:40:40  SKIP  babylon_night_panel            (cached)
+2026-07-13 22:41:34  OK    olympia_day_extension          azure-foundry (1536, 1024) -> illustration_cache/.src/olympia_day_extension.png (intermediary)
+2026-07-13 22:41:34  SKIP  olympia_day_composite          (cached)
+2026-07-13 22:41:34  SKIP  olympia_night_panel            (cached)
+2026-07-13 22:41:34  SKIP  halikarnoassos_day_extension   (cached)
+2026-07-13 22:41:34  SKIP  halikarnoassos_day_composite   (cached)
+2026-07-13 22:41:34  SKIP  halikarnoassos_night_panel     (cached)
+2026-07-13 22:41:48  WARN unknown card/wonder id: halikarnoassos
+2026-07-13 22:41:48  === batch start: 0 item(s) [0 card(s), 0 wonder(s) x 6 kind(s)], force=False dry_run=False retries=3 ===
+2026-07-13 22:41:48  === batch done: 0 generated, 0 skipped, 0 failed ===
+2026-07-13 22:41:53  === batch start: 6 item(s) [0 card(s), 1 wonder(s) x 6 kind(s)], force=False dry_run=False retries=3 ===
+2026-07-13 22:41:53  SKIP  halikarnoassos_day_illustration (cached)
+2026-07-13 22:41:53  SKIP  halikarnoassos_day_panel       (cached)
+2026-07-13 22:41:53  SKIP  halikarnoassos_day_extension   (cached)
+2026-07-13 22:41:53  SKIP  halikarnoassos_day_composite   (cached)
+2026-07-13 22:41:53  SKIP  halikarnoassos_day_background  (cached)
+2026-07-13 22:41:53  SKIP  halikarnoassos_day_building    (cached)
+2026-07-13 22:41:53  === batch done: 0 generated, 6 skipped, 0 failed ===
+2026-07-13 22:42:28  OK    gizah_day_extension            azure-foundry (1536, 1024) -> illustration_cache/.src/gizah_day_extension.png (intermediary)
+2026-07-13 22:42:28  SKIP  gizah_day_composite            (cached)
+2026-07-13 22:42:28  SKIP  gizah_night_panel              (cached)
+2026-07-13 22:43:17  OK    ephesos_day_extension          azure-foundry (1536, 1024) -> illustration_cache/.src/ephesos_day_extension.png (intermediary)
+2026-07-13 22:43:17  SKIP  ephesos_day_composite          (cached)
+2026-07-13 22:43:17  SKIP  ephesos_night_panel            (cached)
+2026-07-13 22:44:07  OK    rhodes_day_extension           azure-foundry (1536, 1024) -> illustration_cache/.src/rhodes_day_extension.png (intermediary)
+2026-07-13 22:44:07  SKIP  rhodes_day_composite           (cached)
+2026-07-13 22:44:07  SKIP  rhodes_night_panel             (cached)
+2026-07-13 22:44:07  SKIP  alexandria_day_background      (cached)
+2026-07-13 22:44:07  SKIP  alexandria_day_building        (cached)
+2026-07-13 22:45:04  OK    alexandria_night_extension     azure-foundry (1536, 1024) -> illustration_cache/.src/alexandria_night_extension.png (intermediary)
+2026-07-13 22:45:04  SKIP  alexandria_night_composite     (cached)
+2026-07-13 22:45:04  SKIP  babylon_day_background         (cached)
+2026-07-13 22:45:04  SKIP  babylon_day_building           (cached)
+2026-07-13 22:45:13  === batch start: 6 item(s) [0 card(s), 1 wonder(s) x 6 kind(s)], force=False dry_run=False retries=3 ===
+2026-07-13 22:45:13  SKIP  halikarnoassos_day_illustration (cached)
+2026-07-13 22:45:13  SKIP  halikarnoassos_day_panel       (cached)
+2026-07-13 22:45:13  SKIP  halikarnoassos_day_extension   (cached)
+2026-07-13 22:45:13  SKIP  halikarnoassos_day_composite   (cached)
+2026-07-13 22:45:13  SKIP  halikarnoassos_day_background  (cached)
+2026-07-13 22:45:18  OK    halikarnoassos_day_building    keyout (768, 1024) -> illustration_cache/halikarnoassos_day_building.png
+2026-07-13 22:45:18  === batch done: 1 generated, 5 skipped, 0 failed ===
+2026-07-13 22:45:51  OK    babylon_night_extension        azure-foundry (1536, 1024) -> illustration_cache/.src/babylon_night_extension.png (intermediary)
+2026-07-13 22:45:51  SKIP  babylon_night_composite        (cached)
+2026-07-13 22:45:51  SKIP  olympia_day_background         (cached)
+2026-07-13 22:45:51  SKIP  olympia_day_building           (cached)
+2026-07-13 22:46:46  OK    olympia_night_extension        azure-foundry (1536, 1024) -> illustration_cache/.src/olympia_night_extension.png (intermediary)
+2026-07-13 22:46:46  SKIP  olympia_night_composite        (cached)
+2026-07-13 22:46:46  SKIP  halikarnoassos_day_background  (cached)
+2026-07-13 22:46:46  SKIP  halikarnoassos_day_building    (cached)
+2026-07-13 22:46:46  SKIP  halikarnoassos_night_extension (cached)
+2026-07-13 22:46:46  SKIP  halikarnoassos_night_composite (cached)
+2026-07-13 22:46:46  SKIP  gizah_day_background           (cached)
+2026-07-13 22:46:46  SKIP  gizah_day_building             (cached)
+2026-07-13 22:47:42  OK    gizah_night_extension          azure-foundry (1536, 1024) -> illustration_cache/.src/gizah_night_extension.png (intermediary)
+2026-07-13 22:47:42  SKIP  gizah_night_composite          (cached)
+2026-07-13 22:47:42  SKIP  ephesos_day_background         (cached)
+2026-07-13 22:47:42  SKIP  ephesos_day_building           (cached)
+2026-07-13 22:48:35  OK    ephesos_night_extension        azure-foundry (1536, 1024) -> illustration_cache/.src/ephesos_night_extension.png (intermediary)
+2026-07-13 22:48:35  SKIP  ephesos_night_composite        (cached)
+2026-07-13 22:48:35  SKIP  rhodes_day_background          (cached)
+2026-07-13 22:48:35  SKIP  rhodes_day_building            (cached)
+2026-07-13 22:49:27  OK    rhodes_night_extension         azure-foundry (1536, 1024) -> illustration_cache/.src/rhodes_night_extension.png (intermediary)
+2026-07-13 22:49:27  SKIP  rhodes_night_composite         (cached)
+2026-07-13 22:49:27  SKIP  alexandria_night_background    (cached)
+2026-07-13 22:49:27  SKIP  alexandria_night_building      (cached)
+2026-07-13 22:49:27  SKIP  babylon_night_background       (cached)
+2026-07-13 22:49:27  SKIP  babylon_night_building         (cached)
+2026-07-13 22:49:27  SKIP  olympia_night_background       (cached)
+2026-07-13 22:49:27  SKIP  olympia_night_building         (cached)
+2026-07-13 22:49:27  SKIP  halikarnoassos_night_background (cached)
+2026-07-13 22:49:27  SKIP  halikarnoassos_night_building  (cached)
+2026-07-13 22:49:27  SKIP  gizah_night_background         (cached)
+2026-07-13 22:49:27  SKIP  gizah_night_building           (cached)
+2026-07-13 22:49:27  SKIP  ephesos_night_background       (cached)
+2026-07-13 22:49:27  SKIP  ephesos_night_building         (cached)
+2026-07-13 22:49:27  SKIP  rhodes_night_background        (cached)
+2026-07-13 22:49:27  SKIP  rhodes_night_building          (cached)
+2026-07-13 22:49:27  === batch done: 12 generated, 152 skipped, 0 failed ===
+2026-07-13 23:15:39  === batch start: 84 item(s) [0 card(s), 14 wonder(s) x 6 kind(s)], force=False dry_run=False retries=3 ===
+2026-07-13 23:15:39  SKIP  alexandria_day_illustration    (cached)
+2026-07-13 23:15:39  SKIP  alexandria_day_panel           (cached)
+2026-07-13 23:15:39  SKIP  alexandria_night_illustration  (cached)
+2026-07-13 23:15:39  SKIP  babylon_day_illustration       (cached)
+2026-07-13 23:15:39  SKIP  babylon_day_panel              (cached)
+2026-07-13 23:15:39  SKIP  babylon_night_illustration     (cached)
+2026-07-13 23:15:39  SKIP  olympia_day_illustration       (cached)
+2026-07-13 23:15:39  SKIP  olympia_day_panel              (cached)
+2026-07-13 23:15:39  SKIP  olympia_night_illustration     (cached)
+2026-07-13 23:15:39  SKIP  halikarnoassos_day_illustration (cached)
+2026-07-13 23:15:39  SKIP  halikarnoassos_day_panel       (cached)
+2026-07-13 23:15:39  SKIP  halikarnoassos_night_illustration (cached)
+2026-07-13 23:15:39  SKIP  gizah_day_illustration         (cached)
+2026-07-13 23:15:39  SKIP  gizah_day_panel                (cached)
+2026-07-13 23:15:39  SKIP  gizah_night_illustration       (cached)
+2026-07-13 23:15:39  SKIP  ephesos_day_illustration       (cached)
+2026-07-13 23:15:39  SKIP  ephesos_day_panel              (cached)
+2026-07-13 23:15:39  SKIP  ephesos_night_illustration     (cached)
+2026-07-13 23:15:39  SKIP  rhodes_day_illustration        (cached)
+2026-07-13 23:15:39  SKIP  rhodes_day_panel               (cached)
+2026-07-13 23:15:39  SKIP  rhodes_night_illustration      (cached)
+2026-07-13 23:15:39  SKIP  alexandria_day_extension       (cached)
+2026-07-13 23:15:39  SKIP  alexandria_day_composite       (cached)
+2026-07-13 23:15:39  SKIP  alexandria_night_panel         (cached)
+2026-07-13 23:15:39  SKIP  babylon_day_extension          (cached)
+2026-07-13 23:15:39  SKIP  babylon_day_composite          (cached)
+2026-07-13 23:15:39  SKIP  babylon_night_panel            (cached)
+2026-07-13 23:15:39  SKIP  olympia_day_extension          (cached)
+2026-07-13 23:15:39  SKIP  olympia_day_composite          (cached)
+2026-07-13 23:15:39  SKIP  olympia_night_panel            (cached)
+2026-07-13 23:15:39  SKIP  halikarnoassos_day_extension   (cached)
+2026-07-13 23:15:39  SKIP  halikarnoassos_day_composite   (cached)
+2026-07-13 23:15:39  SKIP  halikarnoassos_night_panel     (cached)
+2026-07-13 23:15:39  SKIP  gizah_day_extension            (cached)
+2026-07-13 23:15:39  SKIP  gizah_day_composite            (cached)
+2026-07-13 23:15:39  SKIP  gizah_night_panel              (cached)
+2026-07-13 23:15:39  SKIP  ephesos_day_extension          (cached)
+2026-07-13 23:15:39  SKIP  ephesos_day_composite          (cached)
+2026-07-13 23:15:39  SKIP  ephesos_night_panel            (cached)
+2026-07-13 23:15:39  SKIP  rhodes_day_extension           (cached)
+2026-07-13 23:15:39  SKIP  rhodes_day_composite           (cached)
+2026-07-13 23:15:39  SKIP  rhodes_night_panel             (cached)
+2026-07-13 23:15:40  OK    alexandria_day_background      wideblend (2972, 1024) -> illustration_cache/alexandria_day_background.png
+2026-07-13 23:15:43  OK    alexandria_day_building        keyout (1536, 1024) -> illustration_cache/alexandria_day_building.png
+2026-07-13 23:15:43  SKIP  alexandria_night_extension     (cached)
+2026-07-13 23:15:43  SKIP  alexandria_night_composite     (cached)
+2026-07-13 23:15:44  OK    babylon_day_background         wideblend (2972, 1024) -> illustration_cache/babylon_day_background.png
+2026-07-13 23:15:47  OK    babylon_day_building           keyout (1536, 1024) -> illustration_cache/babylon_day_building.png
+2026-07-13 23:15:47  SKIP  babylon_night_extension        (cached)
+2026-07-13 23:15:47  SKIP  babylon_night_composite        (cached)
+2026-07-13 23:15:48  OK    olympia_day_background         wideblend (2972, 1024) -> illustration_cache/olympia_day_background.png
+2026-07-13 23:15:50  OK    olympia_day_building           keyout (1536, 1024) -> illustration_cache/olympia_day_building.png
+2026-07-13 23:15:50  SKIP  olympia_night_extension        (cached)
+2026-07-13 23:15:50  SKIP  olympia_night_composite        (cached)
+2026-07-13 23:15:51  OK    halikarnoassos_day_background  wideblend (2972, 1024) -> illustration_cache/halikarnoassos_day_background.png
+2026-07-13 23:15:54  OK    halikarnoassos_day_building    keyout (1536, 1024) -> illustration_cache/halikarnoassos_day_building.png
+2026-07-13 23:15:54  SKIP  halikarnoassos_night_extension (cached)
+2026-07-13 23:15:54  SKIP  halikarnoassos_night_composite (cached)
+2026-07-13 23:15:55  OK    gizah_day_background           wideblend (2972, 1024) -> illustration_cache/gizah_day_background.png
+2026-07-13 23:15:58  OK    gizah_day_building             keyout (1536, 1024) -> illustration_cache/gizah_day_building.png
+2026-07-13 23:15:58  SKIP  gizah_night_extension          (cached)
+2026-07-13 23:15:58  SKIP  gizah_night_composite          (cached)
+2026-07-13 23:15:58  OK    ephesos_day_background         wideblend (2972, 1024) -> illustration_cache/ephesos_day_background.png
+2026-07-13 23:16:01  OK    ephesos_day_building           keyout (1536, 1024) -> illustration_cache/ephesos_day_building.png
+2026-07-13 23:16:01  SKIP  ephesos_night_extension        (cached)
+2026-07-13 23:16:01  SKIP  ephesos_night_composite        (cached)
+2026-07-13 23:16:02  OK    rhodes_day_background          wideblend (2972, 1024) -> illustration_cache/rhodes_day_background.png
+2026-07-13 23:16:05  OK    rhodes_day_building            keyout (1536, 1024) -> illustration_cache/rhodes_day_building.png
+2026-07-13 23:16:05  SKIP  rhodes_night_extension         (cached)
+2026-07-13 23:16:05  SKIP  rhodes_night_composite         (cached)
+2026-07-13 23:16:06  OK    alexandria_night_background    wideblend (2972, 1024) -> illustration_cache/alexandria_night_background.png
+2026-07-13 23:16:09  OK    alexandria_night_building      keyout (1536, 1024) -> illustration_cache/alexandria_night_building.png
+2026-07-13 23:16:10  OK    babylon_night_background       wideblend (2972, 1024) -> illustration_cache/babylon_night_background.png
+2026-07-13 23:16:13  OK    babylon_night_building         keyout (1536, 1024) -> illustration_cache/babylon_night_building.png
+2026-07-13 23:16:14  OK    olympia_night_background       wideblend (2972, 1024) -> illustration_cache/olympia_night_background.png
+2026-07-13 23:16:17  OK    olympia_night_building         keyout (1536, 1024) -> illustration_cache/olympia_night_building.png
+2026-07-13 23:16:18  OK    halikarnoassos_night_background wideblend (2972, 1024) -> illustration_cache/halikarnoassos_night_background.png
+2026-07-13 23:16:19  === batch start: 164 item(s) [80 card(s), 14 wonder(s) x 6 kind(s)], force=False dry_run=False retries=3 ===
+2026-07-13 23:16:19  SKIP  lumber_yard                    (cached)
+2026-07-13 23:16:19  SKIP  stone_pit                      (cached)
+2026-07-13 23:16:19  SKIP  clay_pool                      (cached)
+2026-07-13 23:16:19  SKIP  ore_vein                       (cached)
+2026-07-13 23:16:19  SKIP  tree_farm                      (cached)
+2026-07-13 23:16:19  SKIP  excavation                     (cached)
+2026-07-13 23:16:19  SKIP  clay_pit                       (cached)
+2026-07-13 23:16:19  SKIP  timber_yard                    (cached)
+2026-07-13 23:16:19  SKIP  forest_cave                    (cached)
+2026-07-13 23:16:19  SKIP  mine                           (cached)
+2026-07-13 23:16:19  SKIP  glassworks                     (cached)
+2026-07-13 23:16:19  SKIP  press                          (cached)
+2026-07-13 23:16:19  SKIP  loom                           (cached)
+2026-07-13 23:16:19  SKIP  well                           (cached)
+2026-07-13 23:16:19  SKIP  baths                          (cached)
+2026-07-13 23:16:19  SKIP  altar                          (cached)
+2026-07-13 23:16:19  SKIP  theater                        (cached)
+2026-07-13 23:16:19  SKIP  tavern                         (cached)
+2026-07-13 23:16:19  SKIP  marketplace                    (cached)
+2026-07-13 23:16:19  SKIP  west_trading_post              (cached)
+2026-07-13 23:16:19  SKIP  east_trading_post              (cached)
+2026-07-13 23:16:19  SKIP  stockade                       (cached)
+2026-07-13 23:16:19  SKIP  barracks                       (cached)
+2026-07-13 23:16:19  SKIP  guard_tower                    (cached)
+2026-07-13 23:16:19  SKIP  apothecary                     (cached)
+2026-07-13 23:16:19  SKIP  workshop                       (cached)
+2026-07-13 23:16:19  SKIP  scriptorium                    (cached)
+2026-07-13 23:16:19  SKIP  sawmill                        (cached)
+2026-07-13 23:16:19  SKIP  quarry                         (cached)
+2026-07-13 23:16:19  SKIP  brickyard                      (cached)
+2026-07-13 23:16:19  SKIP  foundry                        (cached)
+2026-07-13 23:16:19  SKIP  glassworks_II                  (cached)
+2026-07-13 23:16:19  SKIP  press_II                       (cached)
+2026-07-13 23:16:19  SKIP  loom_II                        (cached)
+2026-07-13 23:16:19  SKIP  statue                         (cached)
+2026-07-13 23:16:19  SKIP  aqueduct                       (cached)
+2026-07-13 23:16:19  SKIP  temple                         (cached)
+2026-07-13 23:16:19  SKIP  courthouse                     (cached)
+2026-07-13 23:16:19  SKIP  caravansery                    (cached)
+2026-07-13 23:16:19  SKIP  forum                          (cached)
+2026-07-13 23:16:19  SKIP  vineyard                       (cached)
+2026-07-13 23:16:19  SKIP  bazar                          (cached)
+2026-07-13 23:16:19  SKIP  stables                        (cached)
+2026-07-13 23:16:19  SKIP  archery_range                  (cached)
+2026-07-13 23:16:19  SKIP  walls                          (cached)
+2026-07-13 23:16:19  SKIP  training_ground                (cached)
+2026-07-13 23:16:19  SKIP  dispensary                     (cached)
+2026-07-13 23:16:19  SKIP  laboratory                     (cached)
+2026-07-13 23:16:19  SKIP  library                        (cached)
+2026-07-13 23:16:19  SKIP  school                         (cached)
+2026-07-13 23:16:19  SKIP  pantheon                       (cached)
+2026-07-13 23:16:19  SKIP  gardens                        (cached)
+2026-07-13 23:16:19  SKIP  town_hall                      (cached)
+2026-07-13 23:16:19  SKIP  palace                         (cached)
+2026-07-13 23:16:19  SKIP  senate                         (cached)
+2026-07-13 23:16:19  SKIP  lighthouse                     (cached)
+2026-07-13 23:16:19  SKIP  haven                          (cached)
+2026-07-13 23:16:19  SKIP  chamber_of_commerce            (cached)
+2026-07-13 23:16:19  SKIP  ludus                          (cached)
+2026-07-13 23:16:19  SKIP  arena                          (cached)
+2026-07-13 23:16:19  SKIP  castrum                        (cached)
+2026-07-13 23:16:19  SKIP  fortifications                 (cached)
+2026-07-13 23:16:19  SKIP  circus                         (cached)
+2026-07-13 23:16:19  SKIP  arsenal                        (cached)
+2026-07-13 23:16:19  SKIP  siege_workshop                 (cached)
+2026-07-13 23:16:19  SKIP  lodge                          (cached)
+2026-07-13 23:16:19  SKIP  academy                        (cached)
+2026-07-13 23:16:19  SKIP  observatory                    (cached)
+2026-07-13 23:16:19  SKIP  study                          (cached)
+2026-07-13 23:16:19  SKIP  university                     (cached)
+2026-07-13 23:16:19  SKIP  workers_guild                  (cached)
+2026-07-13 23:16:19  SKIP  craftsmens_guild               (cached)
+2026-07-13 23:16:19  SKIP  magistrates_guild              (cached)
+2026-07-13 23:16:19  SKIP  traders_guild                  (cached)
+2026-07-13 23:16:19  SKIP  spies_guild                    (cached)
+2026-07-13 23:16:19  SKIP  philosophers_guild             (cached)
+2026-07-13 23:16:19  SKIP  scientists_guild               (cached)
+2026-07-13 23:16:19  SKIP  shipowners_guild               (cached)
+2026-07-13 23:16:19  SKIP  builders_guild                 (cached)
+2026-07-13 23:16:19  SKIP  decorators_guild               (cached)
+2026-07-13 23:16:19  SKIP  alexandria_day_illustration    (cached)
+2026-07-13 23:16:19  SKIP  alexandria_day_panel           (cached)
+2026-07-13 23:16:19  SKIP  alexandria_night_illustration  (cached)
+2026-07-13 23:16:19  SKIP  babylon_day_illustration       (cached)
+2026-07-13 23:16:19  SKIP  babylon_day_panel              (cached)
+2026-07-13 23:16:19  SKIP  babylon_night_illustration     (cached)
+2026-07-13 23:16:19  SKIP  olympia_day_illustration       (cached)
+2026-07-13 23:16:19  SKIP  olympia_day_panel              (cached)
+2026-07-13 23:16:19  SKIP  olympia_night_illustration     (cached)
+2026-07-13 23:16:19  SKIP  halikarnoassos_day_illustration (cached)
+2026-07-13 23:16:19  SKIP  halikarnoassos_day_panel       (cached)
+2026-07-13 23:16:19  SKIP  halikarnoassos_night_illustration (cached)
+2026-07-13 23:16:19  SKIP  gizah_day_illustration         (cached)
+2026-07-13 23:16:19  SKIP  gizah_day_panel                (cached)
+2026-07-13 23:16:19  SKIP  gizah_night_illustration       (cached)
+2026-07-13 23:16:19  SKIP  ephesos_day_illustration       (cached)
+2026-07-13 23:16:19  SKIP  ephesos_day_panel              (cached)
+2026-07-13 23:16:19  SKIP  ephesos_night_illustration     (cached)
+2026-07-13 23:16:19  SKIP  rhodes_day_illustration        (cached)
+2026-07-13 23:16:19  SKIP  rhodes_day_panel               (cached)
+2026-07-13 23:16:19  SKIP  rhodes_night_illustration      (cached)
+2026-07-13 23:16:19  SKIP  alexandria_day_extension       (cached)
+2026-07-13 23:16:19  SKIP  alexandria_day_composite       (cached)
+2026-07-13 23:16:19  SKIP  alexandria_night_panel         (cached)
+2026-07-13 23:16:19  SKIP  babylon_day_extension          (cached)
+2026-07-13 23:16:19  SKIP  babylon_day_composite          (cached)
+2026-07-13 23:16:19  SKIP  babylon_night_panel            (cached)
+2026-07-13 23:16:19  SKIP  olympia_day_extension          (cached)
+2026-07-13 23:16:19  SKIP  olympia_day_composite          (cached)
+2026-07-13 23:16:19  SKIP  olympia_night_panel            (cached)
+2026-07-13 23:16:19  SKIP  halikarnoassos_day_extension   (cached)
+2026-07-13 23:16:19  SKIP  halikarnoassos_day_composite   (cached)
+2026-07-13 23:16:19  SKIP  halikarnoassos_night_panel     (cached)
+2026-07-13 23:16:19  SKIP  gizah_day_extension            (cached)
+2026-07-13 23:16:19  SKIP  gizah_day_composite            (cached)
+2026-07-13 23:16:19  SKIP  gizah_night_panel              (cached)
+2026-07-13 23:16:19  SKIP  ephesos_day_extension          (cached)
+2026-07-13 23:16:19  SKIP  ephesos_day_composite          (cached)
+2026-07-13 23:16:19  SKIP  ephesos_night_panel            (cached)
+2026-07-13 23:16:19  SKIP  rhodes_day_extension           (cached)
+2026-07-13 23:16:19  SKIP  rhodes_day_composite           (cached)
+2026-07-13 23:16:19  SKIP  rhodes_night_panel             (cached)
+2026-07-13 23:16:19  SKIP  alexandria_day_background      (cached)
+2026-07-13 23:16:19  SKIP  alexandria_day_building        (cached)
+2026-07-13 23:16:19  SKIP  alexandria_night_extension     (cached)
+2026-07-13 23:16:19  SKIP  alexandria_night_composite     (cached)
+2026-07-13 23:16:19  SKIP  babylon_day_background         (cached)
+2026-07-13 23:16:19  SKIP  babylon_day_building           (cached)
+2026-07-13 23:16:19  SKIP  babylon_night_extension        (cached)
+2026-07-13 23:16:19  SKIP  babylon_night_composite        (cached)
+2026-07-13 23:16:19  SKIP  olympia_day_background         (cached)
+2026-07-13 23:16:19  SKIP  olympia_day_building           (cached)
+2026-07-13 23:16:19  SKIP  olympia_night_extension        (cached)
+2026-07-13 23:16:19  SKIP  olympia_night_composite        (cached)
+2026-07-13 23:16:19  SKIP  halikarnoassos_day_background  (cached)
+2026-07-13 23:16:19  SKIP  halikarnoassos_day_building    (cached)
+2026-07-13 23:16:19  SKIP  halikarnoassos_night_extension (cached)
+2026-07-13 23:16:19  SKIP  halikarnoassos_night_composite (cached)
+2026-07-13 23:16:19  SKIP  gizah_day_background           (cached)
+2026-07-13 23:16:19  SKIP  gizah_day_building             (cached)
+2026-07-13 23:16:19  SKIP  gizah_night_extension          (cached)
+2026-07-13 23:16:19  SKIP  gizah_night_composite          (cached)
+2026-07-13 23:16:19  SKIP  ephesos_day_background         (cached)
+2026-07-13 23:16:19  SKIP  ephesos_day_building           (cached)
+2026-07-13 23:16:19  SKIP  ephesos_night_extension        (cached)
+2026-07-13 23:16:19  SKIP  ephesos_night_composite        (cached)
+2026-07-13 23:16:19  SKIP  rhodes_day_background          (cached)
+2026-07-13 23:16:19  SKIP  rhodes_day_building            (cached)
+2026-07-13 23:16:19  SKIP  rhodes_night_extension         (cached)
+2026-07-13 23:16:19  SKIP  rhodes_night_composite         (cached)
+2026-07-13 23:16:19  SKIP  alexandria_night_background    (cached)
+2026-07-13 23:16:19  SKIP  alexandria_night_building      (cached)
+2026-07-13 23:16:19  SKIP  babylon_night_background       (cached)
+2026-07-13 23:16:19  SKIP  babylon_night_building         (cached)
+2026-07-13 23:16:19  SKIP  olympia_night_background       (cached)
+2026-07-13 23:16:19  SKIP  olympia_night_building         (cached)
+2026-07-13 23:16:19  SKIP  halikarnoassos_night_background (cached)
+2026-07-13 23:16:21  OK    halikarnoassos_night_building  keyout (1536, 1024) -> illustration_cache/halikarnoassos_night_building.png
+2026-07-13 23:16:22  OK    gizah_night_background         wideblend (2972, 1024) -> illustration_cache/gizah_night_background.png
+2026-07-13 23:16:25  OK    gizah_night_building           keyout (1536, 1024) -> illustration_cache/gizah_night_building.png
+2026-07-13 23:16:26  OK    ephesos_night_background       wideblend (2972, 1024) -> illustration_cache/ephesos_night_background.png
+2026-07-13 23:16:29  OK    ephesos_night_building         keyout (1536, 1024) -> illustration_cache/ephesos_night_building.png
+2026-07-13 23:16:30  OK    rhodes_night_background        wideblend (2972, 1024) -> illustration_cache/rhodes_night_background.png
+2026-07-13 23:16:33  OK    rhodes_night_building          keyout (1536, 1024) -> illustration_cache/rhodes_night_building.png
+2026-07-13 23:16:33  === batch done: 28 generated, 56 skipped, 0 failed ===

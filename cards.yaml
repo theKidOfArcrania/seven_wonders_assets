@@ -9,6 +9,39 @@ meta:
     describe ONLY the illustration subject - never mention cards, borders or frames.
 
     Style: painterly digital illustration, warm cinematic lighting, semi-realistic, muted earthy palette, classical antiquity art style. Portrait-orientation scene with no borders, no frame and no text.
+  background_style: |
+    Appended to every wonder's background_prompt when generating the panorama
+    backdrop. It enforces a CONSISTENT reserved building zone so the separate
+    monument overlay always lands in the same place, and so a wonder's Day and
+    Night backdrops (Night is derived from Day) share the same open area. It is
+    NOT appended to building_prompt (isolated monuments carry their own style).
+
+    Framing: wide landscape panorama, no text, no borders, no frame. Keep the LEFT-CENTER foreground - roughly 20% to 36% of the image width from the left edge - as flat, open, empty ground: a bare plaza, foundation, jetty or water with NO large structures, statues or trees. This area is reserved for a separate monument that is composited on top, so it must stay clear. Push the city, harbour and detailed architecture toward the right side and the background. Slightly desaturated so foreground UI reads clearly.
+  building_style: |
+    Appended to every wonder's building_prompt (Day side) when generating the
+    isolated monument. The image is rendered with a genuinely transparent
+    background, so this reinforces clean isolation with no ground or shadow.
+
+    Isolation: the monument stands completely alone on a fully transparent background. Absolutely no ground plane, floor, terrain, plinth surroundings, cast shadow, contact shadow, reflection, haze, mist or glow beneath or around the base. Nothing but the structure itself, cropped cleanly against empty transparency. It is ONE single, continuous, physically connected monument - the stage tiers are visual registers stacked bottom-to-top, never split apart or floating with gaps between them; any figure or body stays whole and joined. Even neutral lighting, no scenery, no text, no borders.
+  wonder_art: |
+    Each entry under `wonders:` carries THREE image prompts, used by the immersive
+    "city panorama" client UI (see design/seven-wonders/ui-design.md):
+
+    * illustration_prompt - the wonder's hero portrait, same convention as a card's
+      illustration_prompt (SUBJECT ONLY; meta.illustration_style is appended).
+      Day sides are lit by daylight, Night sides by dusk/moonlight/torches.
+      Day and Night are generated independently (they may differ slightly).
+    * background_prompt - the wide LANDSCAPE cityscape backdrop that tiles into the
+      horizontal panorama; meta.background_style IS appended to reserve a consistent
+      open foreground zone (left-center) so the building image composites on top.
+      Only the Day side is generated from this prompt; the Night backdrop is derived
+      from the Day image (relight-only image-to-image edit) so both share the zone.
+    * building_prompt - a SELF-CONTAINED prompt (style NOT appended) for the wonder's
+      structure as an ISOLATED monument on a TRANSPARENT background (generated with
+      background=transparent), composed as distinct vertical construction tiers (one
+      per stage, bottom-to-top) so the UI can reveal built stages and dotted-outline
+      the unbuilt ones. Only the Day monument is generated from this prompt; the
+      Night monument is derived from the Day image (relight-only edit).
   transcribed_ages: [I, II, III]
   notation:
     age: >
@@ -89,7 +122,12 @@ card_types:
 wonders:
 - name: Alexandria (Day)
   id: alexandria_day
-  illustration_prompt: TODO
+  illustration_prompt: |
+    The great Lighthouse of Pharos towering over the harbour of Alexandria at midday: a three-tiered pale-stone tower with a square base, octagonal middle and round lantern top crowned by a bronze mirror trailing a thin plume of smoke. A busy Ptolemaic port below with sailing ships, palm-lined quays and gulls against a clear blue Mediterranean sky.
+  background_prompt: |
+    A wide daylight panorama of the ancient port of Alexandria: a calm turquoise Mediterranean harbour, stone breakwaters and moored sailing ships, palm-lined quays and low sun-washed Ptolemaic-Egyptian rooftops receding into haze. Painterly semi-realistic classical-antiquity digital painting, muted earthy palette, soft atmospheric depth, no text, no borders, no frame; landscape panorama backdrop, slightly desaturated, with the central foreground left as an open stone jetty platform where a monument will rise.
+  building_prompt: |
+    The Lighthouse of Pharos as an isolated monument on a plain flat neutral background: a tall pale-stone tower built in three clearly defined but connected tiers stacked bottom-to-top - a wide square fortress-like base, a narrower octagonal mid-section, and a small round lantern crowned by a bronze mirror and flame. Painterly semi-realistic classical-antiquity render, even neutral lighting, no scenery, no text, no borders, so each of the three stages reads as a distinct band, while the monument stays one single, continuous, physically connected structure with no gaps between the tiers.
   resource: glass
   stages:
   - effects:
@@ -129,7 +167,12 @@ wonders:
         - vp: 7
 - name: Alexandria (Night)
   id: alexandria_night
-  illustration_prompt: TODO
+  illustration_prompt: |
+    The Lighthouse of Pharos at night, its beacon fire blazing gold atop the three-tiered tower, warm light spilling across the dark harbour of Alexandria and reflecting off the water. Torch-lit quays and moored ships below, palms in silhouette, a field of stars over the calm Mediterranean.
+  background_prompt: |
+    A wide nocturnal panorama of the port of Alexandria: a dark glassy Mediterranean harbour under a starlit sky, moored ships lit by lanterns, torch-lit stone quays and the dim silhouettes of Ptolemaic rooftops. Painterly semi-realistic classical-antiquity digital painting, cool moonlit palette with warm torch accents, soft atmospheric depth, no text, no borders, no frame; landscape panorama backdrop, slightly desaturated, with the central foreground left as an open stone jetty platform where a monument will rise.
+  building_prompt: |
+    The Lighthouse of Pharos as an isolated monument on a plain flat neutral background: a tall pale-stone tower built in three clearly defined but connected tiers stacked bottom-to-top - a wide square base, a narrower octagonal mid-section, and a small round lantern glowing with a beacon flame. Painterly semi-realistic classical-antiquity render, even neutral lighting, no scenery, no text, no borders, so each of the three stages reads as a distinct band, while the monument stays one single, continuous, physically connected structure with no gaps between the tiers.
   resource: glass
   stages:
   - effects:
@@ -173,7 +216,12 @@ wonders:
         - vp: 7
 - name: Babylon (Day)
   id: babylon_day
-  illustration_prompt: TODO
+  illustration_prompt: |
+    The Hanging Gardens of Babylon at midday: a colossal stepped ziggurat of glazed blue and ochre brick, each terrace overflowing with lush cascading greenery, palms and flowering vines, thin waterfalls from irrigation channels catching the light. The Euphrates and the tiled Ishtar Gate beyond under a warm Mesopotamian sky.
+  background_prompt: |
+    A wide daylight panorama of ancient Babylon: the broad Euphrates river winding past glazed blue-brick walls and the Ishtar Gate, flat sun-baked Mesopotamian city rooftops and date palms receding into dusty haze. Painterly semi-realistic classical-antiquity digital painting, muted earthy palette with blue-glaze accents, soft atmospheric depth, no text, no borders, no frame; landscape panorama backdrop, slightly desaturated, with the central foreground left as an open brick terrace platform where a monument will rise.
+  building_prompt: |
+    The Hanging Gardens ziggurat as an isolated monument on a plain flat neutral background: a stepped glazed-brick pyramid built in three clearly defined but connected planted terraces stacked bottom-to-top, each level wider below and greener above, with cascading vines and small trees. Painterly semi-realistic classical-antiquity render, even neutral lighting, no scenery, no text, no borders, so each of the three stages reads as a distinct band, while the monument stays one single, continuous, physically connected structure with no gaps between the tiers.
   resource: wood
   stages:
   - effects:
@@ -216,7 +264,12 @@ wonders:
         - vp: 7
 - name: Babylon (Night)
   id: babylon_night
-  illustration_prompt: TODO
+  illustration_prompt: |
+    The Hanging Gardens of Babylon under a starlit night, the glazed blue-brick ziggurat terraces glowing with oil lamps, cascading gardens deep in shadow and lamplight glinting on trickling water. A torch-lit processional way below and a crescent moon over Mesopotamia.
+  background_prompt: |
+    A wide nocturnal panorama of ancient Babylon: the dark Euphrates reflecting a starlit sky, the glazed Ishtar Gate and city walls lit by scattered torches, flat Mesopotamian rooftops fading into blue night haze. Painterly semi-realistic classical-antiquity digital painting, cool moonlit palette with warm lamp accents, soft atmospheric depth, no text, no borders, no frame; landscape panorama backdrop, slightly desaturated, with the central foreground left as an open brick terrace platform where a monument will rise.
+  building_prompt: |
+    The Hanging Gardens ziggurat as an isolated monument on a plain flat neutral background: a stepped glazed-brick pyramid built in two clearly defined but connected planted terraces stacked bottom-to-top, a broad lower base tier and a lush greener upper tier with cascading vines. Painterly semi-realistic classical-antiquity render, even neutral lighting, no scenery, no text, no borders, so each of the two stages reads as a distinct band, while the monument stays one single, continuous, physically connected structure with no gaps between the tiers.
   resource: wood
   stages:
   - effects:
@@ -244,7 +297,12 @@ wonders:
       glass: 1
 - name: Olympia (Day)
   id: olympia_day
-  illustration_prompt: TODO
+  illustration_prompt: |
+    The Temple of Zeus at Olympia at midday: a grand Doric marble temple with a colonnade of fluted columns and a painted pediment, sheltering a glimpse of the towering gold-and-ivory statue of enthroned Zeus. Sacred olive groves and sun-warmed limestone under a bright Peloponnesian sky.
+  background_prompt: |
+    A wide daylight panorama of the sanctuary of Olympia: rolling green Peloponnesian hills, scattered Doric temples and treasuries in weathered marble, sacred olive groves and cypress lining a broad ceremonial way. Painterly semi-realistic classical-antiquity digital painting, muted earthy palette with warm marble tones, soft atmospheric depth, no text, no borders, no frame; landscape panorama backdrop, slightly desaturated, with the central foreground left as an open marble terrace where a monument will rise.
+  building_prompt: |
+    The Temple of Zeus as an isolated monument on a plain flat neutral background: a Doric marble temple built in three clearly defined but connected tiers stacked bottom-to-top - a stepped stone crepidoma base, a colonnade of fluted columns, and a crowning painted pediment with acroteria. Painterly semi-realistic classical-antiquity render, even neutral lighting, no scenery, no text, no borders, so each of the three stages reads as a distinct band, while the monument stays one single, continuous, physically connected structure with no gaps between the tiers.
   resource: clay
   stages:
   - effects:
@@ -278,7 +336,12 @@ wonders:
         - vp: 7
 - name: Olympia (Night)
   id: olympia_night
-  illustration_prompt: TODO
+  illustration_prompt: |
+    The Temple of Zeus at Olympia by night, its Doric colonnade lit by braziers and torches, warm light glinting off the gold-and-ivory statue of enthroned Zeus within. Sacred olive groves in silhouette and a starry Peloponnesian sky above the moonlit marble.
+  background_prompt: |
+    A wide nocturnal panorama of the sanctuary of Olympia: dark Peloponnesian hills under a starry sky, weathered marble temples and treasuries lit by scattered braziers, cypress and olive groves in silhouette along a ceremonial way. Painterly semi-realistic classical-antiquity digital painting, cool moonlit palette with warm brazier accents, soft atmospheric depth, no text, no borders, no frame; landscape panorama backdrop, slightly desaturated, with the central foreground left as an open marble terrace where a monument will rise.
+  building_prompt: |
+    The Temple of Zeus as an isolated monument on a plain flat neutral background: a Doric marble temple built in three clearly defined but connected tiers stacked bottom-to-top - a stepped stone base, a colonnade of fluted columns lit by braziers, and a crowning painted pediment. Painterly semi-realistic classical-antiquity render, even neutral lighting, no scenery, no text, no borders, so each of the three stages reads as a distinct band, while the monument stays one single, continuous, physically connected structure with no gaps between the tiers.
   resource: clay
   stages:
   - effects:
@@ -320,7 +383,12 @@ wonders:
         - vp: 5
 - name: Halikarnoassos (Day)
   id: halikarnoassos_day
-  illustration_prompt: TODO
+  illustration_prompt: |
+    The Mausoleum of Halikarnassos at midday: a towering white-marble tomb with a high stepped podium, an encircling Ionic colonnade, a stepped pyramid roof crowned by a marble four-horse chariot (quadriga). Carved friezes and statues around it, the Carian coast and blue Aegean beyond.
+  background_prompt: |
+    A wide daylight panorama of ancient Halikarnassos: a terraced Carian coastal city rising from a blue Aegean harbour, white-marble civic buildings and statues among cypress, sun-bleached hills behind. Painterly semi-realistic classical-antiquity digital painting, muted earthy palette with cool marble and sea tones, soft atmospheric depth, no text, no borders, no frame; landscape panorama backdrop, slightly desaturated, with the central foreground left as an open marble podium platform where a monument will rise.
+  building_prompt: |
+    The Mausoleum of Halikarnassos as an isolated monument on a plain flat neutral background: a white-marble tomb built in three clearly defined but connected tiers stacked bottom-to-top - a tall stepped rectangular podium, an encircling Ionic colonnade, and a stepped pyramid roof crowned by a four-horse marble chariot. Painterly semi-realistic classical-antiquity render, even neutral lighting, no scenery, no text, no borders, so each of the three stages reads as a distinct band, while the monument stays one single, continuous, physically connected structure with no gaps between the tiers.
   resource: loom
   stages:
   - effects:
@@ -355,7 +423,12 @@ wonders:
         - vp: 7
 - name: Halikarnoassos (Night)
   id: halikarnoassos_night
-  illustration_prompt: TODO
+  illustration_prompt: |
+    The Mausoleum of Halikarnassos by night, its Ionic colonnade and stepped pyramid roof lit by torches, the marble four-horse chariot silhouetted against a starry sky, statues glowing in the firelight. The dark Aegean and torch-lit Carian coast below.
+  background_prompt: |
+    A wide nocturnal panorama of ancient Halikarnassos: a terraced coastal city under a starlit sky, marble buildings and statues lit by scattered torches above a dark Aegean harbour, cypress in silhouette on the hills. Painterly semi-realistic classical-antiquity digital painting, cool moonlit palette with warm torch accents, soft atmospheric depth, no text, no borders, no frame; landscape panorama backdrop, slightly desaturated, with the central foreground left as an open marble podium platform where a monument will rise.
+  building_prompt: |
+    The Mausoleum of Halikarnassos as an isolated monument on a plain flat neutral background: a white-marble tomb built in three clearly defined but connected tiers stacked bottom-to-top - a stepped rectangular podium, an Ionic colonnade, and a stepped pyramid roof crowned by a four-horse marble chariot. Painterly semi-realistic classical-antiquity render, even neutral lighting, no scenery, no text, no borders, so each of the three stages reads as a distinct band, while the monument stays one single, continuous, physically connected structure with no gaps between the tiers.
   resource: loom
   stages:
   - effects:
@@ -398,7 +471,12 @@ wonders:
           cost: false
 - name: Gizah (Day)
   id: gizah_day
-  illustration_prompt: TODO
+  illustration_prompt: |
+    The Great Pyramid of Giza at midday: a vast limestone pyramid with a smooth gleaming casing rising from the golden desert, workers and ramps at its base, the smaller pyramids and the Sphinx nearby under a brilliant blue Egyptian sky. Heat haze shimmering over the sands.
+  background_prompt: |
+    A wide daylight panorama of the Giza plateau: rolling golden desert sands under a bright blue sky, the Nile valley greenery in the distance, scattered mastabas and the Sphinx, heat haze on the horizon. Painterly semi-realistic classical-antiquity digital painting, muted warm sandy palette, soft atmospheric depth, no text, no borders, no frame; landscape panorama backdrop, slightly desaturated, with the central foreground left as an open sand-and-stone building site where a monument will rise.
+  building_prompt: |
+    The Great Pyramid of Giza as an isolated monument on a plain flat neutral background: a limestone pyramid built in three clearly defined but connected construction tiers stacked bottom-to-top, from a broad rough-stone base course up to a smooth gleaming capstone apex, each tier stepped inward. Painterly semi-realistic classical-antiquity render, even neutral lighting, no scenery, no text, no borders, so each of the three stages reads as a distinct band, while the monument stays one single, continuous, physically connected structure with no gaps between the tiers.
   resource: stone
   stages:
   - effects:
@@ -431,7 +509,12 @@ wonders:
         - vp: 7
 - name: Gizah (Night)
   id: gizah_night
-  illustration_prompt: TODO
+  illustration_prompt: |
+    The Great Pyramid of Giza under a vast starry desert night, its smooth casing pale in the moonlight, torch-lit ramps and braziers glowing at the base, the Sphinx and smaller pyramids in blue shadow. The Milky Way arching over the silent sands.
+  background_prompt: |
+    A wide nocturnal panorama of the Giza plateau: moonlit desert dunes under a brilliant starry sky, the Sphinx and mastabas in blue shadow, distant Nile valley lit by scattered fires. Painterly semi-realistic classical-antiquity digital painting, cool moonlit palette with warm firelight accents, soft atmospheric depth, no text, no borders, no frame; landscape panorama backdrop, slightly desaturated, with the central foreground left as an open sand-and-stone building site where a monument will rise.
+  building_prompt: |
+    The Great Pyramid of Giza as an isolated monument on a plain flat neutral background: a limestone pyramid built in four clearly defined but connected construction tiers stacked bottom-to-top, from a broad rough-stone base course up to a smooth pale capstone apex, each tier stepped inward. Painterly semi-realistic classical-antiquity render, even neutral lighting, no scenery, no text, no borders, so each of the four stages reads as a distinct band, while the monument stays one single, continuous, physically connected structure with no gaps between the tiers.
   resource: stone
   stages:
   - effects:
@@ -473,7 +556,12 @@ wonders:
         - vp: 7
 - name: Ephesos (Day)
   id: ephesos_day
-  illustration_prompt: TODO
+  illustration_prompt: |
+    The Temple of Artemis at Ephesos at midday: an immense Ionic marble temple with a dense forest of tall fluted columns, sculpted column drums and a richly carved pediment, a cult statue of Artemis glimpsed within. Green Anatolian hills and a bright Aegean sky beyond.
+  background_prompt: |
+    A wide daylight panorama of ancient Ephesos: a green Anatolian river valley with a marble Ionian city, colonnaded avenues and civic buildings among cypress and plane trees, gentle hills receding into haze. Painterly semi-realistic classical-antiquity digital painting, muted earthy palette with warm marble tones, soft atmospheric depth, no text, no borders, no frame; landscape panorama backdrop, slightly desaturated, with the central foreground left as an open marble temple platform where a monument will rise.
+  building_prompt: |
+    The Temple of Artemis as an isolated monument on a plain flat neutral background: an Ionic marble temple built in three clearly defined but connected tiers stacked bottom-to-top - a broad stepped stone platform, a dense colonnade of tall fluted Ionic columns, and a crowning richly carved entablature and pediment. Painterly semi-realistic classical-antiquity render, even neutral lighting, no scenery, no text, no borders, so each of the three stages reads as a distinct band, while the monument stays one single, continuous, physically connected structure with no gaps between the tiers.
   resource: papyrus
   stages:
   - effects:
@@ -506,7 +594,12 @@ wonders:
         - vp: 7
 - name: Ephesos (Night)
   id: ephesos_night
-  illustration_prompt: TODO
+  illustration_prompt: |
+    The Temple of Artemis at Ephesos by night, its forest of Ionic columns lit by torches and oil lamps, warm light glowing between the marble shafts and on the carved pediment, the cult statue of Artemis faintly illuminated within. A starlit Anatolian sky above.
+  background_prompt: |
+    A wide nocturnal panorama of ancient Ephesos: a marble Ionian city in a river valley under a starlit sky, colonnaded avenues lit by scattered torches, cypress and hills in blue silhouette. Painterly semi-realistic classical-antiquity digital painting, cool moonlit palette with warm lamp accents, soft atmospheric depth, no text, no borders, no frame; landscape panorama backdrop, slightly desaturated, with the central foreground left as an open marble temple platform where a monument will rise.
+  building_prompt: |
+    The Temple of Artemis as an isolated monument on a plain flat neutral background: an Ionic marble temple built in three clearly defined but connected tiers stacked bottom-to-top - a broad stepped platform, a dense colonnade of tall fluted Ionic columns lit by lamps, and a crowning carved entablature and pediment. Painterly semi-realistic classical-antiquity render, even neutral lighting, no scenery, no text, no borders, so each of the three stages reads as a distinct band, while the monument stays one single, continuous, physically connected structure with no gaps between the tiers.
   resource: papyrus
   stages:
   - effects:
@@ -545,7 +638,12 @@ wonders:
         - vp: 5
 - name: Rhodes (Day)
   id: rhodes_day
-  illustration_prompt: TODO
+  illustration_prompt: |
+    The Colossus of Rhodes at midday: a towering bronze statue of the sun god Helios striding on a marble harbour plinth, sunlight blazing off the weathered bronze, a radiant crown on his head. Greek triremes in the blue harbour below and the island city of Rhodes beyond.
+  background_prompt: |
+    A wide daylight panorama of the harbour of Rhodes: a bright blue Aegean harbour ringed by pale Hellenistic buildings and defensive walls, moored triremes and stone breakwaters, sun-warmed hills behind. Painterly semi-realistic classical-antiquity digital painting, muted earthy palette with warm bronze and sea tones, soft atmospheric depth, no text, no borders, no frame; landscape panorama backdrop, slightly desaturated, with the central foreground left as an open marble harbour plinth where a monument will rise.
+  building_prompt: |
+    The Colossus of Rhodes as an isolated monument on a plain flat neutral background: a giant bronze statue of Helios built in three clearly defined but connected tiers stacked bottom-to-top - a marble plinth base, the striding lower body and legs, and the crowned torso with a raised arm holding a torch. Painterly semi-realistic classical-antiquity render, even neutral lighting, no scenery, no text, no borders, so each of the three stages reads as a distinct band, while the monument stays one single, continuous, physically connected structure with no gaps between the tiers.
   resource: ore
   stages:
   - effects:
@@ -578,7 +676,12 @@ wonders:
         - vp: 7
 - name: Rhodes (Night)
   id: rhodes_night
-  illustration_prompt: TODO
+  illustration_prompt: |
+    The Colossus of Rhodes at night, the giant bronze Helios raising a blazing torch like a beacon over the dark harbour, firelight glinting off the bronze and reflecting on the water. Torch-lit quays and moored triremes below, a starlit Aegean sky above.
+  background_prompt: |
+    A wide nocturnal panorama of the harbour of Rhodes: a dark Aegean harbour under a starlit sky, Hellenistic walls and buildings lit by scattered torches, moored triremes reflecting lamplight on the water. Painterly semi-realistic classical-antiquity digital painting, cool moonlit palette with warm torch accents, soft atmospheric depth, no text, no borders, no frame; landscape panorama backdrop, slightly desaturated, with the central foreground left as an open marble harbour plinth where a monument will rise.
+  building_prompt: |
+    The Colossus of Rhodes as an isolated monument on a plain flat neutral background: a giant bronze statue of Helios built in two clearly defined but connected tiers stacked bottom-to-top - a marble plinth with the striding legs, and the crowned upper body raising a blazing beacon torch. Painterly semi-realistic classical-antiquity render, even neutral lighting, no scenery, no text, no borders, so each of the two stages reads as a distinct band, while the monument stays one single, continuous, physically connected structure with no gaps between the tiers.
   resource: ore
   stages:
   - effects:

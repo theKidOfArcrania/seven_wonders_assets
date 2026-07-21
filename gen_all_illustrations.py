@@ -214,7 +214,8 @@ def _item(key, out, phase, mode, **kw):
         "out_size": None, "size": None, "transparent": False,
         "prompt": None, "src_path": None, "save_src": None,
         "empty_path": None, "mask_path": None, "apply_path": None,
-        "panel_path": None, "ext_path": None,
+        "panel_path": None, "ext_path": None, "deps": [],
+        "intermediary": False,
     }
     it.update(kw)
     return it
@@ -262,11 +263,14 @@ def _wonder_items(wonder, styles):
         items.append(_item(
             "%s_panel" % wid, day_panel_src, 0, "text2img",
             size=BACKGROUND_SIZE,
+            intermediary=True,
             prompt=build_prompt(
                 wonder.get("background_prompt"), styles["background"])))
     else:
         items.append(_item(
             "%s_panel" % wid, night_panel_src, 1, "edit",
+            deps=['%s_day_panel' % base],
+            intermediary=True,
             size=BACKGROUND_SIZE, prompt=NIGHT_EDIT_PROMPTS["background"],
             src_path=day_panel_src))
 
@@ -274,6 +278,8 @@ def _wonder_items(wonder, styles):
     items.append(_item(
         "%s_extension" % wid, ext_src, 1 if is_day else 2, "extend",
         size=outpaint.PANEL, src_path=panel_src,
+        deps=['%s_panel' % wid],
+        intermediary=True,
         prompt=outpaint.EXTEND_RIGHT if is_day else outpaint.EXTEND_RIGHT_NIGHT))
 
     # 4. display background - COMMITTED. panel + extension stitched into the full
@@ -281,6 +287,7 @@ def _wonder_items(wonder, styles):
     items.append(_item(
         "%s_background" % wid, C("%s_background.png" % wid),
         2 if is_day else 3, "wideblend",
+        deps=['%s_panel' % wid, '%s_extension' % wid],
         panel_path=panel_src, ext_path=ext_src))
 
     # 5. composite - UNCOMMITTED intermediary (.src only, narrow panel, no crop)
@@ -289,24 +296,28 @@ def _wonder_items(wonder, styles):
             monument=(wonder.get("building_prompt") or "").strip())
         items.append(_item(
             "%s_composite" % wid, day_comp_src, 1, "composite",
+            deps=['%s_panel' % wid],
+            intermediary=True,
             size=BACKGROUND_SIZE, prompt=place, src_path=day_panel_src))
-        apply_path = day_comp_src
+        comp_src = day_comp_src
     else:
         night_comp_src = S("%s_night_composite.png" % base)
         items.append(_item(
             "%s_composite" % wid, night_comp_src, 2, "composite",
+            intermediary=True,
+            deps=['%s_day_composite' % base],
             size=BACKGROUND_SIZE, prompt=NIGHT_EDIT_PROMPTS["composite"],
             src_path=day_comp_src))
-        apply_path = night_comp_src
+        comp_src = night_comp_src
 
     # 6. building - FINAL committed asset, keyed out of the narrow composite at
-    #    NATIVE size (no crop, no resize; monument stays in place). The mask is
-    #    ALWAYS derived from the Day composite so Day/Night cutouts register.
+    #    NATIVE size (no crop, no resize; monument stays in place).
     items.append(_item(
         "%s_building" % wid, C("%s_building.png" % wid),
         2 if is_day else 3, "keyout",
+        deps=['%s_composite' % wid, '%s_panel' % wid],
         transparent=True,
-        empty_path=day_panel_src, mask_path=day_comp_src, apply_path=apply_path))
+        empty_path=panel_src, mask_path=comp_src, apply_path=comp_src))
 
     return items
 
@@ -331,15 +342,19 @@ def build_items(cards, wonders, styles, cards_only, wonders_only):
     return items
 
 
-def _cached(item):
-    out = item["out"]
-    if not (os.path.exists(out) and os.path.getsize(out) > 0):
-        return False
-    # a Day source item is only fully cached once its .src copy also exists,
-    # otherwise its Night counterpart would have nothing to edit.
-    ss = item.get("save_src")
-    if ss and not (os.path.exists(ss) and os.path.getsize(ss) > 0):
-        return False
+def _cached(item, dep_chain):
+    # TODO: check date modified
+    dep = dep_chain[item['key']]
+    if len(dep['used_by']):
+        for dep in dep['used_by']:
+            if not _cached(dep_chain[dep]['item'], dep_chain):
+                return False
+
+    if not item['intermediary']:
+        out = item["out"]
+        if not (os.path.exists(out) and os.path.getsize(out) > 0):
+            return False
+
     return True
 
 
@@ -402,10 +417,10 @@ def _do_wideblend(item, done, failed):
         log("FAIL  %-30s wideblend error: %s" % (key, e))
 
 
-def process(item, force, dry_run, retries, done, skipped, failed):
+def process(item, dep_chain, force, dry_run, retries, done, skipped, failed):
     key, out, mode = item["key"], item["out"], item["mode"]
 
-    if not force and _cached(item):
+    if not force and _cached(item, dep_chain):
         skipped.append(key)
         log("SKIP  %-30s (cached)" % key)
         return
@@ -529,8 +544,14 @@ def main(argv):
            force, dry_run, retries))
 
     done, skipped, failed = [], [], []
+    dep_chain = {}
     for item in items:
-        process(item, force, dry_run, retries, done, skipped, failed)
+        dep_chain[item['key']] = {'used_by': [], 'item': item}
+    for item in items:
+        for dep in item['deps']:
+            dep_chain[dep]['used_by'].append(item['key'])
+    for item in items:
+        process(item, dep_chain, force, dry_run, retries, done, skipped, failed)
 
     log("=== batch done: %d generated, %d skipped, %d failed ==="
         % (len(done), len(skipped), len(failed)))

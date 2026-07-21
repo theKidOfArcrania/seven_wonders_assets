@@ -10,3 +10,4 @@ out/
 # committed; the keyed <id>_building.png files may be hand-retouched.
 illustration_cache/.src/
 experiment_out/
+generation.log

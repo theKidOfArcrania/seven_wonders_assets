@@ -177,8 +177,8 @@ def main(argv):
         return
 
     icons = gencore.IconLib()
-    svg_dir = os.path.join('out', 'svg')
-    png_dir = os.path.join('out', 'png')
+    svg_dir = os.path.join('out', 'svg', 'cards')
+    png_dir = os.path.join('out', 'png', 'cards')
     os.makedirs(svg_dir, exist_ok=True)
     os.makedirs(png_dir, exist_ok=True)
 

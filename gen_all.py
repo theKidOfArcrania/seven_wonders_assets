@@ -5,7 +5,7 @@ Usage
   python gen_all.py --list                    # list all the ids
 '''
 import gen_all_illustrations, gen_card, gen_wonders, gen_icons
-import sys
+import os, sys, shutil
 
 def main(argv):
     if argv and argv[0] in ('-h', '--help'):
@@ -27,6 +27,16 @@ def main(argv):
 
     print('=== GENERATING ILLUSTRATIONS ===')
     gen_all_illustrations.main([])
+
+    print('=== COPYING ILLUSTRATIONS ===')
+    if do_png:
+        png_dir = os.path.join('out', 'png', 'illustrations')
+        os.makedirs(png_dir, exist_ok=True)
+        for file in os.listdir('illustration_cache'):
+            if not file.endswith('.png'):
+                continue
+            path = os.path.join('illustration_cache', file)
+            shutil.copy(path, png_dir)
 
     print('=== GENERATING CARDS ===')
     gen_card.main(args)

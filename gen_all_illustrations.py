@@ -15,6 +15,20 @@ For each **wonder** it produces, cached as illustration_cache/<id>_<kind>.png
     produced by keying it out of a "panel + building" composite (see below).
     Committed final. Because it is committed and skipped when present, MANUAL
     retouches to this file survive re-runs; only --force overwrites it.
+  * <id>_outline.json      the building silhouette traced into a normalized
+    (0-1) outline polygon (see trace_outline.py), for the UI's built/unbuilt
+    stage outline. Committed final; derived from the (possibly retouched)
+    <id>_building.png, so re-run it after retouching the building.
+  * .preview/<id>_segments_preview.png   gitignored QA render: the building over
+    a neutral backdrop with each stage segment filled/outlined in its own
+    colour (outline-only red line if the segments JSON is missing). Regenerable.
+  * <id>_segments.svg      committed, HAND-EDITABLE stage-cut definition (see
+    segment_outline.py): embeds the building + outline and pre-lays (stages - 1)
+    red divider lines at equal heights. Skipped when present so edits survive;
+    only --force restores the default lines.
+  * <id>_segments.json     committed derived asset: the outline split into stage
+    bands (bottom-to-top) by the SVG's divider lines. Recomputed automatically
+    when the SVG is edited (input newer than output), no --force needed.
 
 Wide display background (outpaint -> stitch)
 --------------------------------------------
@@ -85,6 +99,7 @@ Usage:
   python gen_all_illustrations.py --dry-run      # list work, call no backend
   python gen_all_illustrations.py --retries 5
 """
+import json
 import os
 import sys
 import time
@@ -96,6 +111,8 @@ from PIL import Image
 import gen_illustration as gi
 import keyout
 import outpaint
+import segment_outline
+import trace_outline
 
 CARDS_YAML = "cards.yaml"
 CACHE_DIR = "illustration_cache"
@@ -116,8 +133,9 @@ ILLUSTRATION_OUT = (570, 623)
 # building is keyed out in place at the composite's dimensions (no crop, no
 # resize) - so their position and scale match the generated art exactly.
 BACKGROUND_SIZE = "1536x1024"
-WONDER_ITEMS_PER = 6          # illustration, panel, extension, background,
-#                               composite, building (per side)
+WONDER_ITEMS_PER = 10         # illustration, panel, extension, background,
+#                               composite, building, outline, preview,
+#                               segments-svg, segments-json (per side)
 
 # Wrap a wonder's building_prompt so the monument is painted INTO the empty
 # background's reserved zone (not onto a blank field). The rest of the scene is
@@ -214,7 +232,9 @@ def _item(key, out, phase, mode, **kw):
         "out_size": None, "size": None, "transparent": False,
         "prompt": None, "src_path": None, "save_src": None,
         "empty_path": None, "mask_path": None, "apply_path": None,
-        "panel_path": None, "ext_path": None, "deps": [],
+        "panel_path": None, "ext_path": None, "in_path": None,
+        "json_path": None, "svg_path": None, "outline_path": None,
+        "n_segments": None, "deps": [],
         "intermediary": False,
     }
     it.update(kw)
@@ -319,6 +339,57 @@ def _wonder_items(wonder, styles):
         transparent=True,
         empty_path=panel_src, mask_path=comp_src, apply_path=comp_src))
 
+    # 7. outline - FINAL committed asset: the building silhouette traced into a
+    #    normalized polygon (JSON), for the UI's built/unbuilt stage outline.
+    #    Depends on the building: phase ordering runs it after the building, and
+    #    the building's mtime drives recompute if it is retouched. Because the
+    #    building is committed (not intermediary), a missing outline never forces
+    #    the (hand-retouched) building to re-key.
+    items.append(_item(
+        "%s_outline" % wid, C("%s_outline.json" % wid),
+        3 if is_day else 4, "outline",
+        in_path=C("%s_building.png" % wid),
+        deps=['%s_building' % wid]))
+
+    # 8. preview - gitignored QA render: the building over a neutral backdrop
+    #    with each stage segment filled/outlined in its own colour. Runs after
+    #    the segments JSON; depends on the building + segments JSON so it
+    #    re-renders when either changes. Both deps are committed, so a missing
+    #    preview never forces anything upstream to rebuild. Falls back to an
+    #    outline-only render if the segments JSON is absent.
+    items.append(_item(
+        "%s_preview" % wid,
+        os.path.join(CACHE_DIR, ".preview", "%s_segments_preview.png" % wid),
+        6 if is_day else 7, "preview",
+        in_path=C("%s_building.png" % wid),
+        json_path=C("%s_segments.json" % wid),
+        outline_path=C("%s_outline.json" % wid),
+        deps=['%s_building' % wid, '%s_segjson' % wid]))
+
+    # 9. segments SVG - COMMITTED, hand-editable cut definition: embeds the
+    #    building + outline and pre-lays (stages - 1) red divider lines. It is a
+    #    source of truth with NO deps, so it is skipped whenever present and
+    #    artist edits are never overwritten; only --force regenerates the
+    #    default lines. Phase ordering runs it after the outline.
+    n_seg = len(wonder.get("stages") or []) or 3
+    items.append(_item(
+        "%s_segsvg" % wid, C("%s_segments.svg" % wid),
+        4 if is_day else 5, "segsvg",
+        in_path=C("%s_building.png" % wid),
+        json_path=C("%s_outline.json" % wid),
+        n_segments=n_seg))
+
+    # 10. segments JSON - COMMITTED derived asset: the outline split into stage
+    #     bands by the (edited) SVG divider lines. Depends on the outline + the
+    #     segments SVG, so editing the SVG (or re-tracing the outline) and
+    #     re-running recomputes this without --force.
+    items.append(_item(
+        "%s_segjson" % wid, C("%s_segments.json" % wid),
+        5 if is_day else 6, "segjson",
+        json_path=C("%s_outline.json" % wid),
+        svg_path=C("%s_segments.svg" % wid),
+        deps=['%s_outline' % wid, '%s_segsvg' % wid]))
+
     return items
 
 
@@ -343,16 +414,34 @@ def build_items(cards, wonders, styles, cards_only, wonders_only):
 
 
 def _cached(item, dep_chain):
-    # TODO: check date modified
-    dep = dep_chain[item['key']]
-    if len(dep['used_by']):
-        for dep in dep['used_by']:
-            if not _cached(dep_chain[dep]['item'], dep_chain):
-                return False
+    rec = dep_chain[item['key']]
 
-    if not item['intermediary']:
-        out = item["out"]
-        if not (os.path.exists(out) and os.path.getsize(out) > 0):
+    # Intermediaries have no committed output of their own; they only exist to
+    # feed consumers. Rebuild one iff any consumer needs rebuilding (reverse
+    # propagation). This is restricted to intermediaries so that a missing
+    # consumer (e.g. a not-yet-generated outline) never forces a committed,
+    # possibly hand-retouched asset (e.g. the building) to be regenerated.
+    if item['intermediary']:
+        for c in rec['used_by']:
+            if not _cached(dep_chain[c]['item'], dep_chain):
+                return False
+        return True
+
+    # Committed output: stale if missing/empty, or older than any dependency's
+    # output. Deps reference item keys; comparing against each dep's *output*
+    # mtime lets a hand-edited source (e.g. a segments SVG) or a retouched
+    # building flow through on a plain re-run, without --force. Deps whose
+    # output is absent (e.g. gitignored .src intermediaries) are ignored, so
+    # committed assets are never regenerated on account of missing sources.
+    out = item["out"]
+    if not (os.path.exists(out) and os.path.getsize(out) > 0):
+        return False
+    for dkey in item['deps']:
+        dep = dep_chain.get(dkey)
+        if dep is None:
+            continue
+        dout = dep['item']['out']
+        if _exists(dout) and os.path.getmtime(dout) > os.path.getmtime(out):
             return False
 
     return True
@@ -389,6 +478,123 @@ def _do_keyout(item, done, failed):
     except Exception as e:
         failed.append(key)
         log("FAIL  %-30s keyout error: %s" % (key, e))
+
+
+def _do_outline(item, done, failed):
+    """Trace the keyed building silhouette into a normalized outline polygon
+    and write it as JSON. Local-only (no backend)."""
+    key, out, inp = item["key"], item["out"], item["in_path"]
+    if not _exists(inp):
+        failed.append(key)
+        log("FAIL  %-30s (missing building %s; generate it first)" % (key, inp))
+        return
+    try:
+        data = trace_outline.outline(Image.open(inp))
+        if data is None:
+            failed.append(key)
+            log("FAIL  %-30s (no building silhouette detected)" % key)
+            return
+        os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
+        with open(out, "w", encoding="utf-8") as f:
+            json.dump(data, f, indent=2)
+        done.append(key)
+        log("OK    %-30s outline %d pts -> %s" % (key, len(data["points"]), out))
+    except Exception as e:
+        failed.append(key)
+        log("FAIL  %-30s outline error: %s" % (key, e))
+
+
+def _do_preview(item, done, failed):
+    """Render a gitignored QA preview PNG: the building over a neutral backdrop
+    with each stage segment filled/outlined in its own colour. Falls back to an
+    outline-only render when the segments JSON is missing. Local-only."""
+    key, out = item["key"], item["out"]
+    bld, seg_p, outl_p = item["in_path"], item["json_path"], item["outline_path"]
+    if not _exists(bld):
+        failed.append(key)
+        log("FAIL  %-30s (missing building %s; generate it first)" % (key, bld))
+        return
+    try:
+        img = Image.open(bld)
+        if _exists(seg_p):
+            with open(seg_p, encoding="utf-8") as f:
+                data = json.load(f)
+            preview = segment_outline.render_preview(img, data)
+            what = "%d segment(s)" % len(data.get("segments") or [])
+        elif _exists(outl_p):
+            with open(outl_p, encoding="utf-8") as f:
+                data = json.load(f)
+            preview = trace_outline.render_preview(img, data)
+            what = "%d pts (outline only)" % len(data.get("points") or [])
+        else:
+            failed.append(key)
+            log("FAIL  %-30s (missing segments %s and outline %s)"
+                % (key, seg_p, outl_p))
+            return
+        os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
+        preview.save(out)
+        done.append(key)
+        log("OK    %-30s preview %s -> %s" % (key, what, out))
+    except Exception as e:
+        failed.append(key)
+        log("FAIL  %-30s preview error: %s" % (key, e))
+
+
+def _do_segsvg(item, done, failed):
+    """Write the committed, hand-editable segments SVG (building + outline +
+    default divider lines). Local-only (no backend)."""
+    key, out, jp = item["key"], item["out"], item["json_path"]
+    if not _exists(jp):
+        failed.append(key)
+        log("FAIL  %-30s (missing outline %s; generate it first)" % (key, jp))
+        return
+    try:
+        with open(jp, encoding="utf-8") as f:
+            data = json.load(f)
+        href = os.path.basename(item["in_path"])
+        n = item["n_segments"] or 3
+        svg = segment_outline.build_segments_svg(href, data, n)
+        os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
+        with open(out, "w", encoding="utf-8") as f:
+            f.write(svg)
+        done.append(key)
+        log("OK    %-30s segments svg (%d stages) -> %s" % (key, n, out))
+    except Exception as e:
+        failed.append(key)
+        log("FAIL  %-30s segsvg error: %s" % (key, e))
+
+
+def _do_segjson(item, done, failed):
+    """Compute the committed segments JSON from the outline + (edited) SVG.
+    Local-only (no backend)."""
+    key, out = item["key"], item["out"]
+    jp, sp = item["json_path"], item["svg_path"]
+    for label, p in (("outline", jp), ("segments svg", sp)):
+        if not _exists(p):
+            failed.append(key)
+            log("FAIL  %-30s (missing %s %s; generate it first)"
+                % (key, label, p))
+            return
+    try:
+        with open(jp, encoding="utf-8") as f:
+            data = json.load(f)
+        with open(sp, encoding="utf-8") as f:
+            svg = f.read()
+        dividers = segment_outline.parse_dividers(svg)
+        result = segment_outline.segment_polygon(data, dividers)
+        if result is None:
+            failed.append(key)
+            log("FAIL  %-30s (empty outline)" % key)
+            return
+        os.makedirs(os.path.dirname(out) or ".", exist_ok=True)
+        with open(out, "w", encoding="utf-8") as f:
+            json.dump(result, f, indent=2)
+        done.append(key)
+        log("OK    %-30s segments %d band(s), %d divider(s) -> %s"
+            % (key, len(result["segments"]), len(dividers), out))
+    except Exception as e:
+        failed.append(key)
+        log("FAIL  %-30s segjson error: %s" % (key, e))
 
 
 def _do_wideblend(item, done, failed):
@@ -442,6 +648,22 @@ def process(item, dep_chain, force, dry_run, retries, done, skipped, failed):
 
     if mode == "wideblend":
         _do_wideblend(item, done, failed)
+        return
+
+    if mode == "outline":
+        _do_outline(item, done, failed)
+        return
+
+    if mode == "preview":
+        _do_preview(item, done, failed)
+        return
+
+    if mode == "segsvg":
+        _do_segsvg(item, done, failed)
+        return
+
+    if mode == "segjson":
+        _do_segjson(item, done, failed)
         return
 
     # edit, composite and extend need their source image already on disk.

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  7 Wonders stage-segment definition (EDIT ME).
+  The 2 red line(s) in #dividers split the building into 3 stacked
+  stages, bottom-to-top. Drag the line endpoints to any position or
+  angle; keep them as <line> elements inside the #dividers group.
+  Then recompute the JSON:  python gen_all_illustrations.py <id>
+  (the edited SVG is newer than the JSON, which re-triggers the
+  segment recompute automatically - no force flag needed).
+-->
+
+<svg
+   width="1536"
+   height="1024"
+   viewBox="0 0 1536 1024"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="gizah_day_segments.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.8125"
+     inkscape:cx="675.07692"
+     inkscape:cy="326.15385"
+     inkscape:window-width="1916"
+     inkscape:window-height="1041"
+     inkscape:window-x="0"
+     inkscape:window-y="18"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <image
+     xlink:href="gizah_day_building.png"
+     x="0"
+     y="0"
+     width="1536"
+     height="1024"
+     id="image1" />
+  <polygon
+     id="outline-ref"
+     points="477.00,161.00 731.00,425.00 747.00,428.00 836.00,539.00 866.00,550.00 911.00,616.00 950.00,631.00 938.00,644.00 706.01,673.00 492.99,678.00 407.99,665.00 213.00,662.00 25.01,630.00 98.00,549.00 127.00,538.00 304.01,334.00 476.01,162.00"
+     fill="none"
+     stroke="#33dd33"
+     stroke-width="2"
+     stroke-opacity="0.7" />
+  <g
+     id="dividers"
+     fill="none"
+     stroke="#ff2020"
+     stroke-width="4"
+     stroke-linecap="round">
+    <path
+       id="divider-1"
+       d="M 4.3514263,369.89198 481.07692,312.41692 1029.4109,375.98398"
+       sodipodi:nodetypes="ccc" />
+    <path
+       id="divider-2"
+       d="m 0,435.51616 488.23004,-17.23077 536.10846,23.38462"
+       sodipodi:nodetypes="ccc" />
+  </g>
+</svg>

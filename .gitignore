@@ -4,10 +4,12 @@ __pycache__/
 out/
 *.pyc
 *.sw?
+illustration_cache/*.json
 
 # Uncommitted asset-generation intermediaries (raw pre-crop sources and the
 # background+building composites). Final assets in illustration_cache/ ARE
 # committed; the keyed <id>_building.png files may be hand-retouched.
 illustration_cache/.src/
+illustration_cache/.preview/
 experiment_out/
 generation.log

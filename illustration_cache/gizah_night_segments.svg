@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  7 Wonders stage-segment definition (EDIT ME).
+  The 3 red line(s) in #dividers split the building into 4 stacked
+  stages, bottom-to-top. Drag the line endpoints to any position or
+  angle; keep them as <line> elements inside the #dividers group.
+  Then recompute the JSON:  python gen_all_illustrations.py <id>
+  (the edited SVG is newer than the JSON, which re-triggers the
+  segment recompute automatically - no force flag needed).
+-->
+
+<svg
+   width="1536"
+   height="1024"
+   viewBox="0 0 1536 1024"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="gizah_night_segments.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.8125"
+     inkscape:cx="897.84615"
+     inkscape:cy="248.61538"
+     inkscape:window-width="1916"
+     inkscape:window-height="1041"
+     inkscape:window-x="0"
+     inkscape:window-y="18"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="dividers" />
+  <image
+     xlink:href="gizah_night_building.png"
+     x="0"
+     y="0"
+     width="1536"
+     height="1024"
+     id="image1" />
+  <polygon
+     id="outline-ref"
+     points="478.00,159.00 599.99,280.00 611.01,280.00 615.00,299.00 650.00,311.00 640.01,323.00 651.00,321.00 679.00,362.00 697.01,369.00 710.00,398.00 732.00,406.00 730.00,424.00 747.00,428.00 778.00,475.00 923.00,619.00 918.01,643.00 812.01,662.00 573.00,661.00 507.00,677.00 313.01,676.00 190.00,667.00 27.00,632.00 99.00,549.00 131.01,534.00 307.00,330.00 477.00,160.00"
+     fill="none"
+     stroke="#33dd33"
+     stroke-width="2"
+     stroke-opacity="0.7" />
+  <g
+     id="dividers"
+     fill="none"
+     stroke="#ff2020"
+     stroke-width="4"
+     stroke-linecap="round">
+    <path
+       id="divider-1"
+       d="M -3.0769231,358.65385 483.69231,311.26923 1002.8769,366.65385"
+       sodipodi:nodetypes="ccc" />
+    <path
+       id="divider-2"
+       d="M -1.2307692,439.53846 487.38462,416.76923 996.72307,438.92308"
+       sodipodi:nodetypes="ccc" />
+    <path
+       id="divider-3"
+       d="M 0,547.5 486.15385,556.11538 999.79999,547.5"
+       sodipodi:nodetypes="ccc" />
+  </g>
+</svg>

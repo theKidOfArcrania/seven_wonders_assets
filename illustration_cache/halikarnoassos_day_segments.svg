@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!--
+  7 Wonders stage-segment definition (EDIT ME).
+  The 2 red line(s) in #dividers split the building into 3 stacked
+  stages, bottom-to-top. Drag the line endpoints to any position or
+  angle; keep them as <line> elements inside the #dividers group.
+  Then recompute the JSON:  python gen_all_illustrations.py <id>
+  (the edited SVG is newer than the JSON, which re-triggers the
+  segment recompute automatically - no force flag needed).
+-->
+
+<svg
+   width="1536"
+   height="1024"
+   viewBox="0 0 1536 1024"
+   version="1.1"
+   id="svg1"
+   sodipodi:docname="halikarnoassos_day_segments.svg"
+   inkscape:version="1.4 (e7c3feb100, 2024-10-09)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs1" />
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.57452426"
+     inkscape:cx="220.18217"
+     inkscape:cy="574.38828"
+     inkscape:window-width="1916"
+     inkscape:window-height="1041"
+     inkscape:window-x="0"
+     inkscape:window-y="18"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg1" />
+  <image
+     xlink:href="halikarnoassos_day_building.png"
+     x="0"
+     y="0"
+     width="1536"
+     height="1024"
+     id="image1" />
+  <polygon
+     id="outline-ref"
+     points="445.99,24.00 471.00,46.00 490.00,31.00 502.00,46.00 524.01,45.00 533.01,105.00 552.01,137.00 615.00,196.00 639.01,198.00 646.99,188.00 655.99,196.00 659.01,221.00 643.00,256.00 645.00,319.00 662.00,332.00 658.01,416.00 694.00,435.00 683.00,455.00 685.99,555.00 699.00,585.00 713.99,581.00 709.00,559.00 719.00,557.00 726.01,574.00 725.01,658.00 738.00,673.00 755.01,671.00 757.00,690.00 774.01,701.00 771.99,791.00 799.99,833.00 754.01,842.00 708.00,819.00 714.99,804.00 665.00,811.00 601.01,804.00 583.00,792.00 541.99,809.00 477.00,806.00 454.00,820.00 459.00,805.00 425.00,817.00 419.01,805.00 404.00,806.00 403.00,818.00 375.00,819.00 377.00,807.00 329.99,805.00 327.00,814.00 348.99,821.00 295.00,821.00 291.99,809.00 207.01,813.00 195.00,809.00 198.01,798.00 165.00,799.00 140.01,785.00 127.00,793.00 113.00,778.00 73.01,769.00 116.00,762.00 191.00,771.00 208.01,760.00 210.00,705.00 220.00,673.00 232.00,675.00 236.01,663.00 234.99,585.00 252.99,586.00 253.99,562.00 270.00,547.00 262.99,448.00 295.00,429.00 297.00,375.00 288.00,360.00 307.00,335.00 308.00,293.00 291.99,242.00 298.00,212.00 327.00,210.00 392.00,147.00 444.99,25.00"
+     fill="none"
+     stroke="#33dd33"
+     stroke-width="2"
+     stroke-opacity="0.7" />
+  <g
+     id="dividers"
+     fill="none"
+     stroke="#ff2020"
+     stroke-width="4"
+     stroke-linecap="round">
+    <path
+       id="divider-1"
+       d="M 26.108558,459.41336 395.9798,326.25971 882.88198,367.16312"
+       sodipodi:nodetypes="ccc" />
+    <path
+       id="divider-2"
+       d="M 1.7405705,621.55715 378.57409,582.39431 877.66027,594.5783"
+       sodipodi:nodetypes="ccc" />
+  </g>
+</svg>

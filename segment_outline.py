@@ -6,8 +6,9 @@ Phase 2 of the wonder outline pipeline (see trace_outline.py for phase 1):
      it embeds the building PNG as a reference backdrop, draws the traced
      outline for guidance, and pre-lays N-1 RED divider `<line>`s at equal
      vertical thirds/quarters (N = the wonder's stage count) inside a
-     `#dividers` group. The artist drags the line endpoints to any arbitrary
-     position/angle in a vector editor, then re-runs the pipeline.
+     `#dividers` group. The artist drags the endpoints to any arbitrary
+     position/angle in a vector editor (or bends a line into a multi-point
+     `<path>` to follow a slope), then re-runs the pipeline.
   2. compute `<id>_segments.json` (parse_dividers + segment_polygon): read the
      (edited) divider lines back, rasterise the outline, assign every pixel to a
      band by counting how many dividers it lies below, then re-trace each band
@@ -64,8 +65,9 @@ def build_segments_svg(href, outline_data, n_segments):
     out.append("  7 Wonders stage-segment definition (EDIT ME).")
     out.append("  The %d red line(s) in #dividers split the building into %d stacked"
                % (n_segments - 1, n_segments))
-    out.append("  stages, bottom-to-top. Drag the line endpoints to any position or")
-    out.append("  angle; keep them as <line> elements inside the #dividers group.")
+    out.append("  stages, bottom-to-top. Drag the endpoints to any position or")
+    out.append("  angle, or bend a line into a multi-point <path>; keep them as")
+    out.append("  <line>/<path> elements inside the #dividers group.")
     out.append("  Then recompute the JSON:  python gen_all_illustrations.py <id>")
     out.append("  (the edited SVG is newer than the JSON, which re-triggers the")
     out.append("  segment recompute automatically - no force flag needed).")
@@ -136,12 +138,85 @@ def _local(tag):
     return tag.rsplit("}", 1)[-1]
 
 
-def parse_dividers(svg_text):
-    """Extract divider lines from a segments SVG as [((x1,y1),(x2,y2)), ...].
+_PATH_TOKEN = re.compile(r"[MmLlHhVvCcSsQqTtAaZz]|-?\d*\.?\d+(?:[eE][-+]?\d+)?")
 
-    Lines inside the `#dividers` group are used (falling back to any `<line>`
-    whose id starts with "divider"). Ancestor + element `transform`s are applied
-    so lines moved in a vector editor still resolve to the right coordinates.
+
+def _path_points(d):
+    """Flatten an SVG path `d` into a polyline of (x, y) vertices.
+
+    Straight commands (M/L/H/V) contribute their vertices directly; curve and
+    arc commands (C/S/Q/T/A) are approximated by their endpoint only, which is
+    exact for the straight, corner-node polylines a vector editor emits when an
+    artist bends a divider `<line>` into a multi-point `<path>`.
+    """
+    toks = _PATH_TOKEN.findall(d)
+    pts = []
+    i = 0
+    cur = (0.0, 0.0)
+    start = None
+    cmd = None
+
+    def num():
+        nonlocal i
+        v = float(toks[i])
+        i += 1
+        return v
+
+    while i < len(toks):
+        if toks[i].isalpha():
+            cmd = toks[i]
+            i += 1
+            if cmd in ("Z", "z"):
+                if start is not None:
+                    cur = start
+                continue
+        if cmd is None:
+            i += 1
+            continue
+        rel = cmd.islower()
+        c = cmd.upper()
+        if c == "M":
+            x = num(); y = num()
+            if rel and pts:
+                x += cur[0]; y += cur[1]
+            cur = (x, y); pts.append(cur); start = cur
+            cmd = "l" if rel else "L"        # extra coords are implicit linetos
+        elif c == "L":
+            x = num(); y = num()
+            if rel:
+                x += cur[0]; y += cur[1]
+            cur = (x, y); pts.append(cur)
+        elif c == "H":
+            x = num()
+            if rel:
+                x += cur[0]
+            cur = (x, cur[1]); pts.append(cur)
+        elif c == "V":
+            y = num()
+            if rel:
+                y += cur[1]
+            cur = (cur[0], y); pts.append(cur)
+        elif c in ("C", "S", "Q", "T", "A"):
+            n = {"C": 6, "S": 4, "Q": 4, "T": 2, "A": 7}[c]
+            vals = [num() for _ in range(n)]
+            ex, ey = vals[-2], vals[-1]
+            if rel:
+                ex += cur[0]; ey += cur[1]
+            cur = (ex, ey); pts.append(cur)
+        else:
+            i += 1
+    return pts
+
+
+def parse_dividers(svg_text):
+    """Extract divider polylines from a segments SVG as [[(x,y), ...], ...].
+
+    Both `<line>` and `<path>` elements inside the `#dividers` group are used
+    (falling back to any such element whose id starts with "divider"), so an
+    artist may bend a straight divider into a multi-point path in a vector
+    editor. A `<line>` yields a 2-point polyline; a `<path>` is flattened by
+    `_path_points`. Ancestor + element `transform`s are applied so elements
+    moved/edited in a vector editor still resolve to the right coordinates.
     """
     root = ET.fromstring(svg_text)
     parents = {c: p for p in root.iter() for c in p}
@@ -153,30 +228,38 @@ def parse_dividers(svg_text):
             break
 
     if group is not None:
-        lines = [el for el in group.iter() if _local(el.tag) == "line"]
+        elems = [el for el in group.iter()
+                 if _local(el.tag) in ("line", "path")]
     else:
-        lines = [el for el in root.iter()
-                 if _local(el.tag) == "line"
+        elems = [el for el in root.iter()
+                 if _local(el.tag) in ("line", "path")
                  and (el.get("id") or "").startswith("divider")]
 
     dividers = []
-    for ln in lines:
+    for el in elems:
         chain = []
-        e = ln
+        e = el
         while e is not None:
             chain.append(e)
             e = parents.get(e)
         m = (1, 0, 0, 1, 0, 0)
-        for el in reversed(chain):          # root -> line
-            t = el.get("transform")
+        for anc in reversed(chain):          # root -> element
+            t = anc.get("transform")
             if t:
                 m = _matmul(m, _parse_transform(t))
-        try:
-            x1 = float(ln.get("x1", 0)); y1 = float(ln.get("y1", 0))
-            x2 = float(ln.get("x2", 0)); y2 = float(ln.get("y2", 0))
-        except (TypeError, ValueError):
-            continue
-        dividers.append((_apply(m, x1, y1), _apply(m, x2, y2)))
+
+        if _local(el.tag) == "line":
+            try:
+                raw = [(float(el.get("x1", 0)), float(el.get("y1", 0))),
+                       (float(el.get("x2", 0)), float(el.get("y2", 0)))]
+            except (TypeError, ValueError):
+                continue
+        else:
+            raw = _path_points(el.get("d") or "")
+
+        poly = [_apply(m, x, y) for (x, y) in raw]
+        if len(poly) >= 2:
+            dividers.append(poly)
     return dividers
 
 
@@ -196,6 +279,26 @@ def _components(mask, min_area):
             comps.append(comp)
         work &= ~comp
     return comps
+
+
+def _column_y(x, xp, yp):
+    """Piecewise-linear y(x) through (xp, yp), extrapolating the end segments.
+
+    Inside [xp[0], xp[-1]] this is a plain linear interpolation; outside it, the
+    first/last segment slope is continued (rather than clamped flat) so a
+    divider extends across the whole raster like an infinite line would.
+    """
+    y = np.interp(x, xp, yp)
+    if xp.size >= 2:
+        left = x < xp[0]
+        if left.any():
+            m = (yp[1] - yp[0]) / (xp[1] - xp[0])
+            y[left] = yp[0] + m * (x[left] - xp[0])
+        right = x > xp[-1]
+        if right.any():
+            m = (yp[-1] - yp[-2]) / (xp[-1] - xp[-2])
+            y[right] = yp[-1] + m * (x[right] - xp[-1])
+    return y
 
 
 def segment_polygon(outline_data, dividers, min_area_frac=MIN_AREA_FRAC,
@@ -218,21 +321,26 @@ def segment_polygon(outline_data, dividers, min_area_frac=MIN_AREA_FRAC,
     if area == 0:
         return None
 
-    # normalise each divider to x-ascending, then sort top-to-bottom by mean y.
+    # Each divider is a polyline; turn it into a per-column boundary y(x) so a
+    # pixel counts as "below" it when its row exceeds that boundary. Vertices are
+    # sorted x-ascending and the end segments are extrapolated past the polyline
+    # range, so a straight 2-point divider still behaves like an infinite line.
     dvs = []
-    for (a, b) in dividers:
-        (x1, y1), (x2, y2) = a, b
-        if x1 > x2:
-            x1, y1, x2, y2 = x2, y2, x1, y1
-        dvs.append((x1, y1, x2, y2))
-    dvs.sort(key=lambda d: (d[1] + d[3]) / 2.0)
+    cols = np.arange(W)
+    for poly in dividers:
+        P = sorted(poly, key=lambda p: p[0])
+        xp = np.array([p[0] for p in P], dtype=float)
+        yp = np.array([p[1] for p in P], dtype=float)
+        keep = np.concatenate(([True], np.diff(xp) > 1e-9))
+        xp, yp = xp[keep], yp[keep]
+        yline = _column_y(cols, xp, yp)
+        dvs.append((float(yline.mean()), yline))
+    dvs.sort(key=lambda d: d[0])                  # top-to-bottom by mean y
 
     yy, xx = np.mgrid[0:H, 0:W]
     seg = np.zeros((H, W), dtype=np.int32)
-    for (x1, y1, x2, y2) in dvs:
-        # signed side of the (x-ascending) line: >0 means below it.
-        cross = (x2 - x1) * (yy - y1) - (y2 - y1) * (xx - x1)
-        seg += (cross > 0).astype(np.int32)
+    for _, yline in dvs:
+        seg += (yy > yline[None, :]).astype(np.int32)
 
     n = len(dvs) + 1
     min_area = max(1, int(min_area_frac * area))
@@ -253,8 +361,11 @@ def segment_polygon(outline_data, dividers, min_area_frac=MIN_AREA_FRAC,
 
     segments = [{"stage": i + 1, "polygons": polys}
                 for i, polys in enumerate(reversed(bands))]   # bottom -> top
+    dividers = [{"divider": [[round(x / W, 5), round(y / H, 5)] for x, y in divider],
+                 "from": i + 1, "to": i + 2 }
+                for i, divider in enumerate(reversed(dividers))]
     return {"width": W, "height": H, "outline": outline_data["points"],
-            "segments": segments}
+            "segments": segments, "dividers": dividers}
 
 
 # ---------------------------------------------------------------------------
@@ -302,4 +413,16 @@ def render_preview(rgba, seg_data, backdrop=(45, 45, 45), fill_alpha=90):
             pts = [(p[0] * W, p[1] * H) for p in poly]
             if len(pts) >= 2:
                 line.line(pts + [pts[0]], fill=c + (255,), width=lw)
+
+    # ...and a dot at every vertex (white core + coloured ring) so individual
+    # polygon points are easy to see and count.
+    r = lw + 2
+    for seg in segs:
+        c = SEGMENT_COLORS[(seg.get("stage", 1) - 1) % len(SEGMENT_COLORS)]
+        for poly in seg.get("polygons") or []:
+            for p in poly:
+                x, y = p[0] * W, p[1] * H
+                line.ellipse((x - r, y - r, x + r, y + r),
+                             fill=(255, 255, 255, 255), outline=c + (255,),
+                             width=max(1, lw - 1))
     return canvas.convert("RGB")

@@ -388,7 +388,7 @@ def _wonder_items(wonder, styles):
         5 if is_day else 6, "segjson",
         json_path=C("%s_outline.json" % wid),
         svg_path=C("%s_segments.svg" % wid),
-        deps=['%s_outline' % wid, '%s_segsvg' % wid]))
+        deps=['EXE', '%s_outline' % wid, '%s_segsvg' % wid]))
 
     return items
 
@@ -437,10 +437,13 @@ def _cached(item, dep_chain):
     if not (os.path.exists(out) and os.path.getsize(out) > 0):
         return False
     for dkey in item['deps']:
-        dep = dep_chain.get(dkey)
-        if dep is None:
-            continue
-        dout = dep['item']['out']
+        if dkey == 'EXE':
+            dout = __file__
+        else:
+            dep = dep_chain.get(dkey)
+            if dep is None:
+                continue
+            dout = dep['item']['out']
         if _exists(dout) and os.path.getmtime(dout) > os.path.getmtime(out):
             return False
 
@@ -771,6 +774,7 @@ def main(argv):
         dep_chain[item['key']] = {'used_by': [], 'item': item}
     for item in items:
         for dep in item['deps']:
+            if dep == 'EXE': continue
             dep_chain[dep]['used_by'].append(item['key'])
     for item in items:
         process(item, dep_chain, force, dry_run, retries, done, skipped, failed)
@@ -780,7 +784,6 @@ def main(argv):
     if failed:
         log("FAILED IDS: %s" % ", ".join(failed))
     return 1 if failed else 0
-
 
 if __name__ == "__main__":
     sys.exit(main(sys.argv[1:]))

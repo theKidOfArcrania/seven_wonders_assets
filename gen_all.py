@@ -33,7 +33,7 @@ def main(argv):
         png_dir = os.path.join('out', 'png', 'illustrations')
         os.makedirs(png_dir, exist_ok=True)
         for file in os.listdir('illustration_cache'):
-            if not file.endswith('.png'):
+            if not file.endswith('.png') and not file.endswith('segments.json'):
                 continue
             path = os.path.join('illustration_cache', file)
             shutil.copy(path, png_dir)

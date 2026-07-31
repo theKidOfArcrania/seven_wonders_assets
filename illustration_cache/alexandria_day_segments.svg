@@ -33,9 +33,9 @@
      inkscape:pageopacity="0.0"
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
-     inkscape:zoom="1.1490485"
-     inkscape:cx="172.75163"
-     inkscape:cy="342.02211"
+     inkscape:zoom="2.298097"
+     inkscape:cx="335.71255"
+     inkscape:cy="304.16471"
      inkscape:window-width="1916"
      inkscape:window-height="1041"
      inkscape:window-x="0"
@@ -62,17 +62,13 @@
      stroke="#ff2020"
      stroke-width="4"
      stroke-linecap="round">
-    <line
+    <path
        id="divider-1"
-       x1="0"
-       y1="302.32999"
-       x2="688.79999"
-       y2="302.32999" />
-    <line
+       d="m 0,302.32999 256.06764,20.68612 59.84592,-8.50213 69.83176,8.31528 303.05467,-20.49927"
+       sodipodi:nodetypes="ccccc" />
+    <path
        id="divider-2"
-       x1="0.00"
-       y1="502.66"
-       x2="688.80"
-       y2="502.66" />
+       d="m 0,490.35231 236.3077,-0.61539 11.07692,16 45.98253,-1.09044 1.55961,-14.74822 24.33298,-4.30232 27.83563,5.54384 0.12277,15.54167 57.24341,1.05547 4.76923,-18.46154 281.41536,-3.23076"
+       sodipodi:nodetypes="ccccccccccc" />
   </g>
 </svg>

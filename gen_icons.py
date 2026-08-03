@@ -31,13 +31,14 @@ SHEET = {
     'glass': 'Glass', 'papyrus': 'Papyrus', 'loom': 'Loom',
     'coin': 'Coin', 'vp': 'VP', 'shield': 'Army',
     'gear': 'Gear', 'tablet': 'Tablet', 'compass': 'Compass',
+    'discard': 'discard', 'build_wonder': 'build_wonder',
+    'build_card': 'build_card',
 }
 
 # Placeholder icons: manifest id -> short label drawn in the placeholder box.
 PLACEHOLDERS = {
     'military_victory': 'V+',
     'military_defeat': 'V-',
-    'discard': 'DISC',
     'pass': 'PASS',
 }
 

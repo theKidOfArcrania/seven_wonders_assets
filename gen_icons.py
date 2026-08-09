@@ -32,7 +32,7 @@ SHEET = {
     'coin': 'Coin', 'vp': 'VP', 'shield': 'Army',
     'gear': 'Gear', 'tablet': 'Tablet', 'compass': 'Compass',
     'discard': 'discard', 'build_wonder': 'build_wonder',
-    'build_card': 'build_card',
+    'build_card': 'build_card', 'checkmark': 'checkmark',
 }
 
 # Placeholder icons: manifest id -> short label drawn in the placeholder box.

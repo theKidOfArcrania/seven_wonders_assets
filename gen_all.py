@@ -38,6 +38,10 @@ def main(argv):
             path = os.path.join('illustration_cache', file)
             shutil.copy(path, png_dir)
 
+    print('=== GENERATING CARDBACKS ===')
+    if do_png:
+        build_card_backs()
+
     print('=== GENERATING CARDS ===')
     gen_card.main(args)
 
@@ -46,6 +50,17 @@ def main(argv):
 
     print('=== GENERATING ICONS ===')
     gen_icons.main(args)
+
+def build_card_backs():
+    png_dir = os.path.join('out', 'png', 'cards')
+    os.makedirs(png_dir, exist_ok=True)
+    for age in ['I', 'II', 'III']:
+        card_id = f'card_back_age_{age}'
+        png_path = os.path.join(png_dir, card_id + '.png')
+        svg_str = open(f'{card_id}.svg', 'r').read()
+        img = gen_card.render_png(svg_str)
+        img.save(png_path)
+        print('  %-22s -> %s' % (card_id, png_path))
 
 if __name__ == '__main__':
     main(sys.argv[1:])

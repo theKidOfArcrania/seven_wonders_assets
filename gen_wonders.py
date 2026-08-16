@@ -30,16 +30,6 @@ W, H = (BENEFIT_W + COST_W), BENEFIT_CY * 2
 
 CREAM = '#d8cab2'
 
-def build_svg(card, ctype, icons):
-    color = ctype.get('color', 'grey')
-    end_symbol = ctype.get('banner_end_symbol', '')
-    edge, base, ctr = gencore.COLORS.get(color, gencore.COLORS['grey'])
-    bnr = card.get('banner') or {}
-    chain_in = bnr.get('chain_in_symbol')
-    chain_out = bnr.get('chain_out_symbol') or []
-
-    return '\n'.join(p)
-
 def cost_area(badges, is_done, icons):
     p = []
     rows = int((len(badges) + 2) / 3)

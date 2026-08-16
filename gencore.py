@@ -59,6 +59,8 @@ ICON_GROUPS = {
     'coin': 'Coin', 'shield': 'Army',
     'sci_compass': 'Compass', 'sci_gear': 'Gear', 'sci_tablet': 'Tablet',
     'wonder': 'PartialWonder', 'wonder_full': 'FullWonder',
+    'seventh': 'seventh', 'discard': 'discard_wonder', 'first_color': 'first_color',
+    'first_turn': 'first_turn', 'last_turn': 'last_turn'
 }
 # every medallion is scaled by 2r/ICON_NATIVE_D
 ICON_NATIVE_D = 216.0
@@ -440,6 +442,9 @@ def _science_icon(icons, name, cx, cy, r):
     name = 'sci_' + str(name)
     return _icon_or_box(icons, name, cx, cy, r, str(name)[:3].upper())
 
+def _timing_icon(icons, name, cx, cy, r):
+    return _icon_or_box(icons, name, cx, cy, r, str(name)[:3].upper())
+
 def _vp_badge(icons, cx, cy, r, n):
     '''A small VP laurel graphic carrying a number (the per-card VP value).'''
     return (_res_shadow(cx, cy, r) + icons.place('vp', cx, cy, r) +
@@ -524,6 +529,8 @@ def _effect_item(icons, tok, cx, cy, rr):
         return _vp_badge(icons, cx, cy, rr, tok['vp'])
     if 'sci' in tok:
         return _science_icon(icons, tok['sci'], cx, cy, rr)
+    if 'timing' in tok:
+        return _timing_icon(icons, tok['timing'], cx, cy, rr)
     shadow = _res_shadow(cx, cy, rr)
     return shadow + placeholder_box(cx, cy, rr, '?')
 

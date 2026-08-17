@@ -629,7 +629,7 @@ wonders:
     - vp: 5
     build_cost:
       ore: 2
-      loom: 2
+      loom: 1
     banner:
       medallion:
         arrows: none

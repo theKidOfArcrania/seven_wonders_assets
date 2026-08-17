@@ -33,19 +33,24 @@ SHEET = {
     'gear': 'Gear', 'tablet': 'Tablet', 'compass': 'Compass',
     'discard': 'discard', 'build_wonder': 'build_wonder',
     'build_card': 'build_card', 'checkmark': 'checkmark',
+    'sword_left': 'sword_left', 'sword_right': 'sword_right',
+    'sword_clip': 'sword_clip', 'sword_clip_2': 'sword_clip2',
 }
 
 # Placeholder icons: manifest id -> short label drawn in the placeholder box.
 PLACEHOLDERS = {
-    'military_victory': 'V+',
-    'military_defeat': 'V-',
     'pass': 'PASS',
 }
 
 # Baked PNG size (W, H) per id. Defaults to DEFAULT_SIZE; override here to match
 # the manifest whenever an icon needs a non-square / non-default box.
 DEFAULT_SIZE = (64, 64)
-SIZES = {}
+SIZES = {
+    'sword_left': (50, 280),
+    'sword_right': (50, 280),
+    'sword_clip': (50, 280),
+    'sword_clip_2': (50, 280),
+}
 
 # Manifest order (drives --all and --list).
 ICON_IDS = list(SHEET) + list(PLACEHOLDERS)
@@ -71,12 +76,12 @@ def _svg(w, h, defs, body):
             '<defs>%s</defs>%s</svg>' % (w, h, w, h, defs, body))
 
 
-def icon_svg(icons, iid, w, h):
+def icon_svg(icons, iid, w, h, fit_pad):
     '''Center the sheet art for `iid` in a w×h box, scaled to fit its measured
     native bounding box (aspect ratio preserved).'''
     label = SHEET[iid]
     ncx, ncy, nw, nh = icons.measure(label)
-    s = min(w * FIT_PAD / nw, h * FIT_PAD / nh)
+    s = min(w * fit_pad / nw, h * fit_pad / nh)
     body = icons._emit(label, w / 2.0, h / 2.0, s)
     return _svg(w, h, icons.defs_inner, body)
 
@@ -87,9 +92,9 @@ def placeholder_svg(iid, w, h):
     return _svg(w, h, '', body)
 
 
-def build_svg(icons, iid, w, h):
+def build_svg(icons, iid, w, h, fit_pad):
     if iid in SHEET:
-        return icon_svg(icons, iid, w, h)
+        return icon_svg(icons, iid, w, h, fit_pad)
     if iid in PLACEHOLDERS:
         return placeholder_svg(iid, w, h)
     raise KeyError(iid)
@@ -108,7 +113,10 @@ def build_one(iid, svg_dir, png_dir, icons, do_png=True):
         print('  ! unknown icon id: %s' % iid)
         return
     w, h = size_of(iid)
-    svg_str = build_svg(icons, iid, w, h)
+    fit_pad = FIT_PAD
+    if 'clip' in iid:
+        fit_pad = 1.0
+    svg_str = build_svg(icons, iid, w, h, fit_pad)
     svg_path = os.path.join(svg_dir, iid + '.svg')
     with open(svg_path, 'w', encoding='utf-8') as f:
         f.write(svg_str)

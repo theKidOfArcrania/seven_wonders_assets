@@ -35,6 +35,7 @@ SHEET = {
     'build_card': 'build_card', 'checkmark': 'checkmark',
     'sword_left': 'sword_left', 'sword_right': 'sword_right',
     'sword_clip': 'sword_clip', 'sword_clip_2': 'sword_clip2',
+    'reject': 'reject',
 }
 
 # Placeholder icons: manifest id -> short label drawn in the placeholder box.

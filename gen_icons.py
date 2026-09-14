@@ -34,8 +34,11 @@ SHEET = {
     'discard': 'discard', 'build_wonder': 'build_wonder',
     'build_card': 'build_card', 'checkmark': 'checkmark',
     'sword_left': 'sword_left', 'sword_right': 'sword_right',
-    'sword_clip': 'sword_clip', 'sword_clip_2': 'sword_clip2',
-    'reject': 'reject', 'invited': 'invited',
+    'sword_clip': 'sword_clip', 'sword_clip_2': 'sword_clip2', 'reject': 'reject',
+    'invited': 'invited', 'coin_icon': 'CoinIcon', 'army_vp': 'ArmyVP',
+    'CommercialSymbol': 'CommercialSymbol', 'ScientificSymbol': 'ScientificSymbol',
+    'CivilianSymbol': 'CivilianSymbol', 'GuildSymbol': 'GuildSymbol',
+    'wonder_icon': 'FullWonder',
 }
 
 # Placeholder icons: manifest id -> short label drawn in the placeholder box.

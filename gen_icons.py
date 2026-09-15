@@ -26,20 +26,23 @@ from PIL import Image
 # The icon set (see design/seven-wonders/icon-manifest.md)
 # ---------------------------------------------------------------------------
 # Real icons: manifest id -> inkscape:label on the shared sheet.
+AS_IS = [
+    'discard', 'build_wonder', 'build_card', 'checkmark', 'sword_left',
+    'sword_right', 'sword_clip', 'sword_clip2', 'reject', 'invited',
+    'CommercialSymbol', 'ScientificSymbol', 'CivilianSymbol', 'GuildSymbol',
+    'back_arrow', 'refresh', 'bot', 'human'
+]
+
 SHEET = {
     'wood': 'Wood', 'stone': 'Stone', 'clay': 'Brick', 'ore': 'Ore',
     'glass': 'Glass', 'papyrus': 'Papyrus', 'loom': 'Loom',
     'coin': 'Coin', 'vp': 'VP', 'shield': 'Army',
     'gear': 'Gear', 'tablet': 'Tablet', 'compass': 'Compass',
-    'discard': 'discard', 'build_wonder': 'build_wonder',
-    'build_card': 'build_card', 'checkmark': 'checkmark',
-    'sword_left': 'sword_left', 'sword_right': 'sword_right',
-    'sword_clip': 'sword_clip', 'sword_clip_2': 'sword_clip2', 'reject': 'reject',
-    'invited': 'invited', 'coin_icon': 'CoinIcon', 'army_vp': 'ArmyVP',
-    'CommercialSymbol': 'CommercialSymbol', 'ScientificSymbol': 'ScientificSymbol',
-    'CivilianSymbol': 'CivilianSymbol', 'GuildSymbol': 'GuildSymbol',
-    'wonder_icon': 'FullWonder',
+    'army_vp': 'ArmyVP', 'wonder_icon': 'FullWonder',
 }
+
+for icon in AS_IS:
+    SHEET[icon] = icon
 
 # Placeholder icons: manifest id -> short label drawn in the placeholder box.
 PLACEHOLDERS = {

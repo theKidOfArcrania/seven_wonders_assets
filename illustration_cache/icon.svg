@@ -1,0 +1,179 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024"
+     viewBox="0 0 512 512" role="img" aria-labelledby="title description">
+  <title id="title">7 Wonders</title>
+  <desc id="description">A monumental gold seven above a gold WONDERS wordmark,
+    framed by ancient architecture, a setting sun, and a deep teal sky.</desc>
+  <defs>
+    <linearGradient id="sky" x2="0.2" y2="1">
+      <stop stop-color="#081e2b"/>
+      <stop offset=".55" stop-color="#174b52"/>
+      <stop offset="1" stop-color="#527064"/>
+    </linearGradient>
+    <radialGradient id="sunlight" cx=".5" cy=".43" r=".55">
+      <stop stop-color="#f8dfa0" stop-opacity=".66"/>
+      <stop offset=".55" stop-color="#d4b16b" stop-opacity=".12"/>
+      <stop offset="1" stop-color="#d4b16b" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="gold" x1=".1" y1="0" x2=".8" y2="1">
+      <stop stop-color="#fff3ba"/>
+      <stop offset=".24" stop-color="#edca72"/>
+      <stop offset=".48" stop-color="#b98232"/>
+      <stop offset=".64" stop-color="#f7dc8d"/>
+      <stop offset="1" stop-color="#9d6224"/>
+    </linearGradient>
+    <linearGradient id="bevel" x2="0" y2="1">
+      <stop stop-color="#fff5c3"/>
+      <stop offset=".5" stop-color="#e7bc65"/>
+      <stop offset="1" stop-color="#a2682d"/>
+    </linearGradient>
+    <linearGradient id="stone" x2=".8" y2="1">
+      <stop stop-color="#bca978"/>
+      <stop offset="1" stop-color="#516258"/>
+    </linearGradient>
+    <linearGradient id="base" x2="0" y2="1">
+      <stop stop-color="#102f35" stop-opacity="0"/>
+      <stop offset=".4" stop-color="#0b252d" stop-opacity=".94"/>
+      <stop offset="1" stop-color="#071b26"/>
+    </linearGradient>
+    <clipPath id="frame">
+      <rect x="16" y="16" width="480" height="480" rx="76"/>
+    </clipPath>
+    <g id="column">
+      <path d="M0 0H19V7H16L15 69H18V75H1V69H4L3 7H0Z"
+            fill="url(#stone)" stroke="#d4bf8a" stroke-width="1"/>
+      <path d="M7 10V65M11 10V65" fill="none" stroke="#304c48"
+            stroke-width="2" opacity=".65"/>
+    </g>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <path fill="url(#sky)" d="M0 0H512V512H0Z"/>
+    <path fill="url(#sunlight)" d="M0 0H512V512H0Z"/>
+    <circle cx="260" cy="210" r="141" fill="#d8c28a" opacity=".07"/>
+    <circle cx="260" cy="210" r="126" fill="none" stroke="#d7c38d"
+            stroke-width="1" opacity=".22"/>
+    <circle cx="260" cy="210" r="117" fill="none" stroke="#d7c38d"
+            stroke-width="1" opacity=".11"/>
+    <path d="M260 57V67M260 353V363M107 210H117M403 210H413
+             M152 102L159 109M361 311L368 318
+             M152 318L159 311M361 109L368 102"
+          fill="none" stroke="#e1c98b" stroke-width="2" opacity=".35"/>
+
+    <!-- Quiet architectural silhouettes leave the numeral as the focal point. -->
+    <g stroke-linejoin="round">
+      <path d="M18 331L100 203L181 331Z" fill="#8d936c"/>
+      <path d="M100 203L119 331H181Z" fill="#566e5c"/>
+      <path d="M39 299H114M52 279H111M65 259H108M78 239H105"
+            fill="none" stroke="#c6bd83" opacity=".33"/>
+      <path d="M32 343H172V351H32Z" fill="#a59467"/>
+
+      <g fill="url(#stone)" stroke="#c0ae7d" stroke-width="1">
+        <path d="M47 246H150V257H47ZM53 239L99 214L145 239Z"/>
+        <path d="M53 328H144V338H53Z"/>
+        <use href="#column" x="58" y="257"/>
+        <use href="#column" x="89" y="257"/>
+        <use href="#column" x="120" y="257"/>
+      </g>
+      <path d="M61 235L99 222L135 235Z" fill="#354f47"/>
+
+      <g fill="url(#stone)" stroke="#bfac77" stroke-width="1">
+        <path d="M365 330L374 251H419L430 330Z"/>
+        <path d="M377 251L383 201H409L417 251Z"/>
+        <path d="M381 201V187H412V201Z"/>
+        <path d="M386 187V168H407V187Z"/>
+        <path d="M382 168L396 154L411 168Z"/>
+        <path d="M369 251H424V259H369ZM362 330H433V340H362Z"/>
+      </g>
+      <path d="M393 175H400V184H393ZM391 213H400V230H391Z"
+            fill="#233f3c"/>
+      <path d="M406 267L413 322M384 267L380 322" fill="none"
+            stroke="#40574c" stroke-width="3"/>
+
+      <path d="M429 358V301H449V274H475V248H512V358Z" fill="#61765b"/>
+      <path d="M431 299H454M450 273H479M475 247H509"
+            fill="none" stroke="#a9a574" stroke-width="5"/>
+      <path d="M447 357V322Q458 305 469 322V357
+               M479 357V296Q489 281 499 296V357"
+            fill="#203f3c"/>
+      <path d="M434 293Q438 265 453 268M460 267Q460 239 478 244
+               M485 240Q486 214 502 222"
+            fill="none" stroke="#8f9a66" stroke-width="5"/>
+    </g>
+
+    <path d="M16 354Q104 334 187 351T347 350T496 340V496H16Z"
+          fill="#324e45"/>
+    <path d="M24 362Q135 347 213 366T404 361T497 365"
+          fill="none" stroke="#baaa70" stroke-width="2" opacity=".4"/>
+    <path fill="url(#base)" d="M16 298H496V496H16Z"/>
+
+    <!-- The offset solid extrusion and inset facets do not require SVG filters. -->
+    <path d="M151 96H370V149L257 345H180L288 158H151Z"
+          fill="#04171d" stroke="#04171d" stroke-width="13"
+          stroke-linejoin="round" transform="translate(0 9)" opacity=".8"/>
+    <path d="M151 96H370V149L257 345H180L288 158H151Z"
+          fill="#845023" stroke="#452e1e" stroke-width="3"
+          stroke-linejoin="round" transform="translate(0 5)"/>
+    <path d="M151 96H370V149L257 345H180L288 158H151Z"
+          fill="url(#gold)" stroke="#f4d893" stroke-width="2"
+          stroke-linejoin="round"/>
+    <path d="M151 96H370L358 108H163V146L151 158Z"
+          fill="#fff0b3"/>
+    <path d="M163 108H358V145L250 333H200L308 146H163Z"
+          fill="url(#bevel)"/>
+    <path d="M358 108L370 96V149L257 345L250 333L358 145Z"
+          fill="#9a642a"/>
+    <path d="M180 345L200 333H250L257 345Z" fill="#f3ce7b"/>
+    <path d="M163 146H308L288 158H151Z" fill="#b27c32"/>
+    <path d="M200 333L308 146" fill="none" stroke="#fff1b1"
+          stroke-width="2" opacity=".85"/>
+    <path d="M168 113H349" fill="none" stroke="#fff6cd"
+          stroke-width="2" opacity=".5"/>
+
+    <path d="M67 363H217M295 363H445" fill="none"
+          stroke="#ad8c4c" stroke-width="1"/>
+    <path d="M245 363L256 357L267 363L256 369Z" fill="url(#gold)"/>
+
+    <!-- Outlined Roman capitals keep the wordmark independent of local fonts. -->
+    <g fill="url(#bevel)" stroke="#493923" stroke-width="1"
+       fill-rule="evenodd" aria-label="WONDERS">
+      <path d="M62 383H83V387H78L87 418L97 389L96 387H91V383H111V387H106
+               L117 418L126 387H121V383H137V387H132L119 431H112L101 400
+               L90 431H83L69 387H62Z"/>
+      <path d="M163 382C147 382 138 392 138 407S147 432 163 432
+               S188 422 188 407S179 382 163 382Z
+               M163 388C154 388 150 395 150 407S154 426 163 426
+               S176 419 176 407S172 388 163 388Z"/>
+      <path d="M192 383H208L231 415V387H225V383H244V387H238V431H231
+               L205 395V427H211V431H192V427H198V387H192Z"/>
+      <path d="M249 383H271C288 383 297 392 297 407S288 431 271 431
+               H249V427H255V387H249Z
+               M266 389V425H271C281 425 285 419 285 407S281 389 271 389Z"/>
+      <path d="M302 383H341L342 397H337L334 389H319V403H330V398H335V414
+               H330V409H319V425H335L339 416H344L342 431H302V427H308V387H302Z"/>
+      <path d="M348 383H371C385 383 391 388 391 397
+               C391 403 387 408 380 409L390 425L396 427V431H381
+               L368 411H365V427H371V431H348V427H354V387H348Z
+               M365 389V405H370C377 405 380 403 380 397S377 389 370 389Z"/>
+      <path d="M431 384H436V398H431C429 391 425 388 419 388
+               C413 388 410 390 410 394C410 398 414 400 422 403
+               C433 407 438 411 438 418C438 427 431 432 420 432
+               C414 432 409 430 405 428L403 431H398V415H403
+               C405 423 411 426 419 426C425 426 428 424 428 420
+               C428 416 424 414 416 411C405 407 400 403 400 396
+               C400 387 407 382 418 382C423 382 427 384 430 386Z"/>
+    </g>
+
+    <g fill="none" stroke="#a68b54" stroke-width="1.5" opacity=".7">
+      <path d="M94 459H222M290 459H418"/>
+      <path d="M236 459H245L256 448L267 459H276
+               M245 459L256 470L267 459"/>
+    </g>
+  </g>
+
+  <rect x="16" y="16" width="480" height="480" rx="76"
+        fill="none" stroke="#382d23" stroke-width="10"/>
+  <rect x="16" y="16" width="480" height="480" rx="76"
+        fill="none" stroke="url(#gold)" stroke-width="6"/>
+  <rect x="24" y="24" width="464" height="464" rx="68"
+        fill="none" stroke="#c8aa63" stroke-width="1" opacity=".65"/>
+</svg>

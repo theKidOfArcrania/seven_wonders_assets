@@ -2223,7 +2223,7 @@ cards:
       stone: 2
       ore: 2
     benefit:
-      criteria: [raw_material]
+      criteria: [manufactured]
       direction: both
       vp: 2
     banner:
